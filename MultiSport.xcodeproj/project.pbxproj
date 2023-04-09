@@ -18,6 +18,12 @@
 		576CF31329DCBECB00886E29 /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF31229DCBECB00886E29 /* UILabel + Extensions.swift */; };
 		576CF31729DCC63E00886E29 /* GothamPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 576CF31629DCC63E00886E29 /* GothamPro-Bold.ttf */; };
 		576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF31829DCC99300886E29 /* UIButton + Extensions.swift */; };
+		576CF31D29DEEB2E00886E29 /* MainTableViewLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF31C29DEEB2E00886E29 /* MainTableViewLastCell.swift */; };
+		576CF31F29DF29A600886E29 /* SportDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF31E29DF29A600886E29 /* SportDescription.swift */; };
+		576CF32529DF399300886E29 /* MatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF32429DF399300886E29 /* MatchController.swift */; };
+		576CF32729DF39D400886E29 /* MatchesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF32629DF39D400886E29 /* MatchesTableView.swift */; };
+		576CF32A29DF3A9D00886E29 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF32929DF3A9D00886E29 /* MatchTableViewCell.swift */; };
+		576CF32D29E1782E00886E29 /* SeactionMatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF32C29E1782E00886E29 /* SeactionMatchTableView.swift */; };
 		57F9965C29B4A5330062E8E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9965B29B4A5330062E8E9 /* AppDelegate.swift */; };
 		57F9965E29B4A5330062E8E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9965D29B4A5330062E8E9 /* SceneDelegate.swift */; };
 		57F9966029B4A5330062E8E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9965F29B4A5330062E8E9 /* MainViewController.swift */; };
@@ -44,6 +50,12 @@
 		576CF31229DCBECB00886E29 /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
 		576CF31629DCC63E00886E29 /* GothamPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamPro-Bold.ttf"; sourceTree = "<group>"; };
 		576CF31829DCC99300886E29 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
+		576CF31C29DEEB2E00886E29 /* MainTableViewLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewLastCell.swift; sourceTree = "<group>"; };
+		576CF31E29DF29A600886E29 /* SportDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportDescription.swift; sourceTree = "<group>"; };
+		576CF32429DF399300886E29 /* MatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchController.swift; sourceTree = "<group>"; };
+		576CF32629DF39D400886E29 /* MatchesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesTableView.swift; sourceTree = "<group>"; };
+		576CF32929DF3A9D00886E29 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
+		576CF32C29E1782E00886E29 /* SeactionMatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeactionMatchTableView.swift; sourceTree = "<group>"; };
 		57F9965829B4A5330062E8E9 /* MultiSport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F9965B29B4A5330062E8E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F9965D29B4A5330062E8E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,10 +127,71 @@
 		576CF30729DCA37000886E29 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				576CF30829DCA37B00886E29 /* SportTypeCollectionViewCell.swift */,
 				576CF30E29DCBB3500886E29 /* MainTableViewCell.swift */,
+				576CF31C29DEEB2E00886E29 /* MainTableViewLastCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		576CF32029DF38F700886E29 /* MatchModule */ = {
+			isa = PBXGroup;
+			children = (
+				576CF32329DF396D00886E29 /* Model */,
+				576CF32229DF396500886E29 /* Views */,
+				576CF32129DF395B00886E29 /* Controllers */,
+			);
+			path = MatchModule;
+			sourceTree = "<group>";
+		};
+		576CF32129DF395B00886E29 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				576CF32429DF399300886E29 /* MatchController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		576CF32229DF396500886E29 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				576CF32829DF3A8500886E29 /* cell */,
+				576CF32629DF39D400886E29 /* MatchesTableView.swift */,
+				576CF32C29E1782E00886E29 /* SeactionMatchTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		576CF32329DF396D00886E29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				576CF31E29DF29A600886E29 /* SportDescription.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		576CF32829DF3A8500886E29 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				576CF32929DF3A9D00886E29 /* MatchTableViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		576CF35F29E3060A00886E29 /* button */ = {
+			isa = PBXGroup;
+			children = (
+				57F9968429B4BDAA0062E8E9 /* UIcustomMainButton.swift */,
+			);
+			path = button;
+			sourceTree = "<group>";
+		};
+		576CF36029E3061100886E29 /* CollectionSportHorizontalList */ = {
+			isa = PBXGroup;
+			children = (
+				576CF30529DC993800886E29 /* SportTypeCollectionView.swift */,
+				576CF30829DCA37B00886E29 /* SportTypeCollectionViewCell.swift */,
+			);
+			path = CollectionSportHorizontalList;
 			sourceTree = "<group>";
 		};
 		57F9964F29B4A5330062E8E9 = {
@@ -140,6 +213,7 @@
 		57F9965A29B4A5330062E8E9 /* MultiSport */ = {
 			isa = PBXGroup;
 			children = (
+				576CF32029DF38F700886E29 /* MatchModule */,
 				576CF2FF29DC985000886E29 /* LogInModule */,
 				57F9967129B4A6CD0062E8E9 /* MainModule */,
 				57F9967429B4A6EE0062E8E9 /* Extensions + UICustomComponents */,
@@ -191,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				576CF30729DCA37000886E29 /* cell */,
-				576CF30529DC993800886E29 /* SportTypeCollectionView.swift */,
 				576CF30C29DCBA0300886E29 /* MainTableView.swift */,
 			);
 			path = Views;
@@ -225,7 +298,8 @@
 		57F9968329B4BD8C0062E8E9 /* ReuseUIComponent */ = {
 			isa = PBXGroup;
 			children = (
-				57F9968429B4BDAA0062E8E9 /* UIcustomMainButton.swift */,
+				576CF36029E3061100886E29 /* CollectionSportHorizontalList */,
+				576CF35F29E3060A00886E29 /* button */,
 			);
 			path = ReuseUIComponent;
 			sourceTree = "<group>";
@@ -313,8 +387,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				576CF30D29DCBA0300886E29 /* MainTableView.swift in Sources */,
+				576CF31F29DF29A600886E29 /* SportDescription.swift in Sources */,
 				576CF2FE29DC910B00886E29 /* MainTablesTypeItem.swift in Sources */,
 				57F9968529B4BDAA0062E8E9 /* UIcustomMainButton.swift in Sources */,
+				576CF32D29E1782E00886E29 /* SeactionMatchTableView.swift in Sources */,
 				57F9966029B4A5330062E8E9 /* MainViewController.swift in Sources */,
 				576CF30929DCA37B00886E29 /* SportTypeCollectionViewCell.swift in Sources */,
 				576CF2FC29DC8E0E00886E29 /* SportType.swift in Sources */,
@@ -322,8 +398,12 @@
 				57F9967929B4A7480062E8E9 /* UIFont + Extensions.swift in Sources */,
 				57F9965C29B4A5330062E8E9 /* AppDelegate.swift in Sources */,
 				57F9968F29B4EE300062E8E9 /* UIViewController + Extensions.swift in Sources */,
+				576CF32A29DF3A9D00886E29 /* MatchTableViewCell.swift in Sources */,
 				576CF30F29DCBB3500886E29 /* MainTableViewCell.swift in Sources */,
 				576CF30629DC993800886E29 /* SportTypeCollectionView.swift in Sources */,
+				576CF32729DF39D400886E29 /* MatchesTableView.swift in Sources */,
+				576CF32529DF399300886E29 /* MatchController.swift in Sources */,
+				576CF31D29DEEB2E00886E29 /* MainTableViewLastCell.swift in Sources */,
 				57F9965E29B4A5330062E8E9 /* SceneDelegate.swift in Sources */,
 				576CF30429DC989600886E29 /* LoginController.swift in Sources */,
 				576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */,
@@ -474,7 +554,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -505,7 +585,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

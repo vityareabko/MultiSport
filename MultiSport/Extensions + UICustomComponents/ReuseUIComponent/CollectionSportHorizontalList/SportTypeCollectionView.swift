@@ -11,7 +11,6 @@ class SportTypeCollectionView: UICollectionView {
     
     // MARK: Layout
     private let layoutST = UICollectionViewFlowLayout()
-    
     private let sportTypes = SportType.allCases
     
     // MARK: - Init
@@ -71,7 +70,9 @@ extension SportTypeCollectionView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension SportTypeCollectionView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }
 
 

@@ -66,8 +66,6 @@ class MainViewController: UIViewController {
     private func setNavbar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: logIn)
     }
-    
-    
     // MARK: - Functions
     
     
@@ -80,7 +78,7 @@ class MainViewController: UIViewController {
     }   
 }
 
-// MARK: - Extensions
+// MARK: - Contstraints
 extension MainViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([

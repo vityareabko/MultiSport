@@ -14,6 +14,7 @@ class MainTableView: UITableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.identifier)
+        register(MainTableViewLastCell.self, forCellReuseIdentifier: MainTableViewLastCell.identifier)
         
         config()
         setDelegate()
@@ -33,29 +34,47 @@ class MainTableView: UITableView {
     private func setDelegate() {
         self.dataSource = self
         self.delegate = self
+        
     }
 }
 
+
+// MARK: - UITableViewDataSource
 extension MainTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        mainTableTypeItems.count
+        mainTableTypeItems.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as? MainTableViewCell else {
-            return UITableViewCell()
+        if mainTableTypeItems.count == indexPath.row {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewLastCell.identifier) as? MainTableViewLastCell else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            cell.closureScrollToUp = { () in
+                tableView.scrollToRow(at: [0,0], at: .top, animated: true)
+            }
+            
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as? MainTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.setCell(modelType: mainTableTypeItems[indexPath.row])
+            return cell
         }
-    
-        cell.setCell(modelType: mainTableTypeItems[indexPath.row])
-        
-        return cell
     }
+    
+    
+    
 }
 
 extension MainTableView: UITableViewDelegate {
-    
+
 }
+
+

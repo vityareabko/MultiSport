@@ -10,9 +10,8 @@ import UIKit
 extension UIImageView {
     convenience init(imageName: String) {
         self.init()
-        self.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        self.image = UIImage(named: imageName)
         self.contentMode = .scaleAspectFit
-        self.tintColor = .systemGray5
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }
