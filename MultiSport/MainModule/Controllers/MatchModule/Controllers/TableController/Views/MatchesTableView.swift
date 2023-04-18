@@ -10,9 +10,10 @@ import UIKit
 class MatchesTableView: UITableView {
     
     // MARK: - Variables
-    private var sectionsTableView = [SportDescriptionSection]()
-    let sectionHeight: CGFloat = 50.0
-    var isSectionHeaderStuck: Bool = false
+    private var sectionsTableView = [SportSection]()
+    private let sectionHeight: CGFloat = 50.0
+    
+
     
     // MARK: - init
     override init(frame: CGRect, style: UITableView.Style) {
@@ -21,7 +22,7 @@ class MatchesTableView: UITableView {
         
         config()
         setDelegate()
-        sortTableView()
+//        sortTableView()
     }
     
     required init?(coder: NSCoder) {
@@ -43,21 +44,27 @@ class MatchesTableView: UITableView {
     }
     
     // MARK: Functions
-    private func sortTableView() {
-        let data = SportDescription.createData()
-        let allLeagues = SportDescriptionTitle.allCases
-        self.sectionsTableView = [SportDescriptionSection]()
-        
-        allLeagues.forEach { league in
-            let itemsLegue = data.filter { item in
-                item.title == league
-            }
-            if !itemsLegue.isEmpty{
-                let section = SportDescriptionSection(title: league, items: itemsLegue)
-                self.sectionsTableView.append(section)
-            }
-        }
+//    private func sortTableView() {
+//        let data = SportDescription.createData()
+//        let allLeagues = SportDescriptionTitle.allCases
+//        self.sectionsTableView = [SportDescriptionSection]()
+//
+//        allLeagues.forEach { league in
+//            let itemsLegue = data.filter { item in
+//                item.title == league
+//            }
+//            if !itemsLegue.isEmpty{
+//                let section = SportDescriptionSection(title: league, items: itemsLegue)
+//                self.sectionsTableView.append(section)
+//            }
+//        }
+//    }
+  
+    public func setData(model: [SportSection]) {
+        sectionsTableView = model
+        print(sectionsTableView.count)
     }
+    
     
     // MARK: - Selectors
     
@@ -78,7 +85,7 @@ extension MatchesTableView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = SeactionMatchTableView()
-        view.setLabel(textLabel: sectionsTableView[section].title.rawValue)
+        view.setLabel(textLabel: sectionsTableView[section].title)
         return view
     }
     
@@ -96,6 +103,7 @@ extension MatchesTableView: UITableViewDataSource, UITableViewDelegate {
         }
         let model = sectionsTableView[indexPath.section].items[indexPath.row]
         cell.setData(model: model)
+
         return cell
     }
     

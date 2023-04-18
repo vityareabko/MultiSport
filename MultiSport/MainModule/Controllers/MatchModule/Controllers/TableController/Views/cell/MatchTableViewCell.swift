@@ -104,11 +104,11 @@ class MatchTableViewCell: UITableViewCell {
         teamSecondStackView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    public func setData(model: SportDescription) {
-        teamFirst.text = model.teamNameFirst
-        teamSecond.text = model.teamNameSecond
-        teamFirsIcon.image = model.teamIconeFirst
-        teamSecondIcon.image = model.teamIconeSecond
+    public func setData(model: SportFixture) {
+        teamFirst.text = model.teamHome
+        teamSecond.text = model.teamAway
+        teamFirsIcon.image = model.teamHomeIcon
+        teamSecondIcon.image = model.teamAwayIcon
         
 //        timeStartMatchLabel.text = model.
 //        dateLabel.text = model.matchDate

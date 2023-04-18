@@ -26,7 +26,6 @@ extension UIViewController {
     
     // MARK: - Remove Last Child Controller on parent ViewController
     func removeChildController(childController: UIViewController) {
-        // при нажатия на ячейку колекцию я должен вызвать эту функцию
         childController.removeFromParent()
         childController.view.removeFromSuperview()
     }

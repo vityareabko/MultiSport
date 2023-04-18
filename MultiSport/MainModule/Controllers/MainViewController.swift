@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
     private lazy var signUp: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(" SIGN UP", for: .normal)
