@@ -12,6 +12,8 @@ class MatchCollectionController: UIViewController {
     // MARK: - UI Components
     private let matchCollectionView = MatchCollectionView()
     
+    
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,11 @@ class MatchCollectionController: UIViewController {
         
         self.view.addSubview(matchCollectionView)
         matchCollectionView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    // MARK: - set Delegate
+    public func setDelegate(delagateVC: UIViewController){
+        matchCollectionView.selectItemDelegate = delagateVC as? TeamMatchDetailedProtocol
     }
 }
 

@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol TeamMatchDetailedProtocol: AnyObject {
+    func selectTeamMatchesDetailed()
+}
+
 class MatchCollectionView: UICollectionView {
     
     private let layoutCollection = UICollectionViewFlowLayout()
     private let teams = TeamModel.createData()
+    
+    weak var selectItemDelegate: TeamMatchDetailedProtocol?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layoutCollection)
@@ -52,6 +58,8 @@ extension MatchCollectionView: UICollectionViewDelegateFlowLayout, UICollectionV
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectItemDelegate?.selectTeamMatchesDetailed()
+    }
 }
 

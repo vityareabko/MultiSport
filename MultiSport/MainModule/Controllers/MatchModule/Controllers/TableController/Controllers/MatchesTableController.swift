@@ -14,6 +14,12 @@ class MatchesTableController: UIViewController {
     private let arrayRequests = [URL?]()
     private var sections = [SportSection]()
     
+    private var logoTeam = UIImageView(imageName: "asdasdasdasdas")
+    
+    
+    private var testLabel = UILabel(text: "testlabe", textColor: .white, font: .gothamBold24())
+
+    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -22,21 +28,18 @@ class MatchesTableController: UIViewController {
         setConstraints()
         
         // Fixtures to come
-        let item1 = NetworkManager.shared.request(with: .fixtures(leagueID: .laLeague))
-        let item2 = NetworkManager.shared.request(with: .fixtures(leagueID: .nation))
-       
-        let commingMatches = [item1, item2]
+        // TODO: - requests
+//        let item1 = NetworkManager.shared.request(with: .fixtures(leagueID: .laLeague))
+//        let item2 = NetworkManager.shared.request(with: .fixtures(leagueID: .nation))
 //
+//        let commingMatches = [item1, item2]
 //
-        for request in commingMatches {
-            guard let r = request else { return }
-            self.requestEvents(with: r)
-//            break
-        }
+//        for request in commingMatches {
+//            guard let r = request else { return }
+//            self.requestEvents(with: r)
+//        }
         
-        setDataCell(model: sections)
-        matchesTableView.reloadData()
-
+        
     }
     
     
@@ -65,22 +68,22 @@ class MatchesTableController: UIViewController {
                         return
                     }
 
-//                    guard let urlStringLogoTeamHome = item.teams.home?.logo,
-//                          let urlStringLogoTeamAway = item.teams.away?.logo else {
-//                        return
-//                    }
+                    guard let urlStringLogoTeamHome = item.teams.home?.logo,
+                          let urlStringLogoTeamAway = item.teams.away?.logo else {
+                        return
+                    }
 //
-//                    let teamHomeLogo = getImage(urlString: urlStringLogoTeamAway)
-//                    let teamAwayLogo = getImage(urlString: urlStringLogoTeamHome)
-
-//                    let itemFixtures = SportFixture(teamHome: teamHomeName, teamHomeIcon: teamHomeLogo, teamAway: teamAwayName, teamAwayIcon: teamAwayLogo, matchDate: date)
+                    getImage(urlString: urlStringLogoTeamAway) // меняем logo team
+//                  let logoTeamHome = getImage(urlString: urlStringLogoTeamHome)
                     
-                    let itemFixtures = SportFixture(teamHome: teamHomeName, teamHomeIcon: nil, teamAway: teamAwayName, teamAwayIcon: nil, matchDate: date)
+
+                    let itemFixtures = SportFixture(teamHome: teamHomeName, teamHomeIcon: logoTeam.image, teamAway: teamAwayName, teamAwayIcon: logoTeam.image, matchDate: date)
+                    
+//                    let itemFixtures = SportFixture(teamHome: teamHomeName, teamHomeIcon: nil, teamAway: teamAwayName, teamAwayIcon: nil, matchDate: date)
 
                     arrayFixtures.append(itemFixtures)
                 }
 
-//                response.first?.league.name
                 guard let titleSection = response.first?.league.name else {
                     return
                 }
@@ -89,6 +92,9 @@ class MatchesTableController: UIViewController {
 
                 let s = SportSection(title: titleSection, items: arrayFixtures)
                 self.sections.append(s)
+                
+                setDataCell(model: sections)
+                matchesTableView.reloadData()
 
             }
         }
@@ -100,27 +106,29 @@ class MatchesTableController: UIViewController {
     }
     
     // MARK: - RequestGetImage
-//    private func getImage(urlString: String) -> UIImage? {
-//        var image: UIImage?
-//        NetworkingGetImage.shared.requestDataImage(urlString: urlString) { result in
-//            switch result {
-//            case .success(let data):
-//                guard let img = UIImage(data: data) else {return}
-//                image = img
-//                print(img)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//        print(image)
-//        return image
-//    }
+    private func getImage(urlString: String) -> Void{
+        GetImageRequest.shared.getImage(urlString: urlString) { result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    // TODO: - не присваевается изображения ?????
+                    guard let img = UIImage(data: data) else {return}
+                    self.logoTeam.image = img
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+ 
+        
+    }
     
     // MARK: - UI Setup
     private func setupUI() {
         self.view.backgroundColor = .clear
         
         self.view.addSubview(matchesTableView)
+        self.view.addSubview(testLabel)
         matchesTableView.translatesAutoresizingMaskIntoConstraints = false
     }
 }
@@ -133,6 +141,11 @@ extension MatchesTableController {
             matchesTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
             matchesTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
             matchesTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            
+            
+            testLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            testLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            
         ])
     }
 }

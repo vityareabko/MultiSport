@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     // MARK: - Controllers
     private let childControllerMainTable = MaintTableViewController()
     private var childControllerMatchTable: MatchController?
+
     
     private let sportTypeCollectionView = SportTypeCollectionView()
     

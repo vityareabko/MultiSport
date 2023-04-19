@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5720966C29F025B100C4A285 /* MatchesTeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720966B29F025B100C4A285 /* MatchesTeamController.swift */; };
+		5720967029F0618400C4A285 /* MatchesTeamTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720966F29F0618400C4A285 /* MatchesTeamTable.swift */; };
+		5720967329F062A000C4A285 /* MatchesTeamTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967229F062A000C4A285 /* MatchesTeamTableCell.swift */; };
+		5720967529F0787400C4A285 /* HeaderMatchSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967429F0787400C4A285 /* HeaderMatchSectionView.swift */; };
+		5720967A29F08CAC00C4A285 /* StatisticMatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967929F08CAC00C4A285 /* StatisticMatchController.swift */; };
 		576CF2FC29DC8E0E00886E29 /* SportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF2FB29DC8E0E00886E29 /* SportType.swift */; };
 		576CF2FE29DC910B00886E29 /* MainTablesTypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF2FD29DC910B00886E29 /* MainTablesTypeItem.swift */; };
 		576CF30429DC989600886E29 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF30329DC989600886E29 /* LoginController.swift */; };
@@ -40,7 +45,7 @@
 		57C1F6FB29EF06A7000D707F /* Test+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F729EF06A7000D707F /* Test+CoreDataProperties.swift */; };
 		57C1F6FC29EF06A7000D707F /* Test2+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F829EF06A7000D707F /* Test2+CoreDataClass.swift */; };
 		57C1F6FD29EF06A7000D707F /* Test2+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F929EF06A7000D707F /* Test2+CoreDataProperties.swift */; };
-		57C1F70029EF3FAD000D707F /* GetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6FF29EF3FAD000D707F /* GetImage.swift */; };
+		57C1F70029EF3FAD000D707F /* GetImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6FF29EF3FAD000D707F /* GetImageRequest.swift */; };
 		57F9965C29B4A5330062E8E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9965B29B4A5330062E8E9 /* AppDelegate.swift */; };
 		57F9965E29B4A5330062E8E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9965D29B4A5330062E8E9 /* SceneDelegate.swift */; };
 		57F9966029B4A5330062E8E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9965F29B4A5330062E8E9 /* MainViewController.swift */; };
@@ -56,6 +61,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5720966B29F025B100C4A285 /* MatchesTeamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesTeamController.swift; sourceTree = "<group>"; };
+		5720966F29F0618400C4A285 /* MatchesTeamTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesTeamTable.swift; sourceTree = "<group>"; };
+		5720967229F062A000C4A285 /* MatchesTeamTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesTeamTableCell.swift; sourceTree = "<group>"; };
+		5720967429F0787400C4A285 /* HeaderMatchSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMatchSectionView.swift; sourceTree = "<group>"; };
+		5720967929F08CAC00C4A285 /* StatisticMatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatchController.swift; sourceTree = "<group>"; };
 		576CF2FB29DC8E0E00886E29 /* SportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportType.swift; sourceTree = "<group>"; };
 		576CF2FD29DC910B00886E29 /* MainTablesTypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTablesTypeItem.swift; sourceTree = "<group>"; };
 		576CF30329DC989600886E29 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -89,7 +99,7 @@
 		57C1F6F729EF06A7000D707F /* Test+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		57C1F6F829EF06A7000D707F /* Test2+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test2+CoreDataClass.swift"; sourceTree = "<group>"; };
 		57C1F6F929EF06A7000D707F /* Test2+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test2+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		57C1F6FF29EF3FAD000D707F /* GetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImage.swift; sourceTree = "<group>"; };
+		57C1F6FF29EF3FAD000D707F /* GetImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageRequest.swift; sourceTree = "<group>"; };
 		57F9965829B4A5330062E8E9 /* MultiSport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F9965B29B4A5330062E8E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F9965D29B4A5330062E8E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +127,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5720966829F0257300C4A285 /* MatchTeamDetailedModule */ = {
+			isa = PBXGroup;
+			children = (
+				5720966929F0258E00C4A285 /* Views */,
+				5720966A29F0259200C4A285 /* Controllers */,
+			);
+			path = MatchTeamDetailedModule;
+			sourceTree = "<group>";
+		};
+		5720966929F0258E00C4A285 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5720967129F0628F00C4A285 /* cell */,
+				5720966F29F0618400C4A285 /* MatchesTeamTable.swift */,
+				5720967429F0787400C4A285 /* HeaderMatchSectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5720966A29F0259200C4A285 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5720966B29F025B100C4A285 /* MatchesTeamController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5720967129F0628F00C4A285 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				5720967229F062A000C4A285 /* MatchesTeamTableCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		5720967629F08C8400C4A285 /* StatisticModule */ = {
+			isa = PBXGroup;
+			children = (
+				5720967829F08C9200C4A285 /* Views */,
+				5720967729F08C8D00C4A285 /* Controllers */,
+			);
+			path = StatisticModule;
+			sourceTree = "<group>";
+		};
+		5720967729F08C8D00C4A285 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5720967929F08CAC00C4A285 /* StatisticMatchController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5720967829F08C9200C4A285 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		576CF2FA29DC8DF100886E29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +352,7 @@
 		576CF37929E369AD00886E29 /* Conttrollers */ = {
 			isa = PBXGroup;
 			children = (
+				5720966829F0257300C4A285 /* MatchTeamDetailedModule */,
 				576CF37629E3699100886E29 /* MatchCollectionController.swift */,
 			);
 			path = Conttrollers;
@@ -330,7 +400,7 @@
 				576CF38729E7C2B300886E29 /* NetworkingRequest.swift */,
 				576CF38F29E7D74A00886E29 /* NetworkingDataFetch.swift */,
 				576CF3BF29EEBF0400886E29 /* ConfigURL.swift */,
-				57C1F6FF29EF3FAD000D707F /* GetImage.swift */,
+				57C1F6FF29EF3FAD000D707F /* GetImageRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -382,6 +452,7 @@
 		57F9965A29B4A5330062E8E9 /* MultiSport */ = {
 			isa = PBXGroup;
 			children = (
+				5720967629F08C8400C4A285 /* StatisticModule */,
 				576CF38629E7C25800886E29 /* Networking */,
 				576CF2FF29DC985000886E29 /* LogInModule */,
 				57F9967129B4A6CD0062E8E9 /* MainModule */,
@@ -562,12 +633,15 @@
 				576CF3C029EEBF0400886E29 /* ConfigURL.swift in Sources */,
 				57F9966029B4A5330062E8E9 /* MainViewController.swift in Sources */,
 				57C1F6FD29EF06A7000D707F /* Test2+CoreDataProperties.swift in Sources */,
+				5720966C29F025B100C4A285 /* MatchesTeamController.swift in Sources */,
 				576CF30929DCA37B00886E29 /* SportTypeCollectionViewCell.swift in Sources */,
 				576CF2FC29DC8E0E00886E29 /* SportType.swift in Sources */,
+				5720967329F062A000C4A285 /* MatchesTeamTableCell.swift in Sources */,
 				57F9967729B4A7350062E8E9 /* UIColor + Extensions.swift in Sources */,
 				576CF37029E329A600886E29 /* MaintTableViewController.swift in Sources */,
 				576CF37E29E36BDF00886E29 /* TeamModel.swift in Sources */,
 				576CF38029E36D6F00886E29 /* MatchCollectionViewCell.swift in Sources */,
+				5720967529F0787400C4A285 /* HeaderMatchSectionView.swift in Sources */,
 				57C1F6F529EF060E000D707F /* DataBase.xcdatamodeld in Sources */,
 				576CF38E29E7D73500886E29 /* DataRequest.swift in Sources */,
 				57F9967929B4A7480062E8E9 /* UIFont + Extensions.swift in Sources */,
@@ -575,17 +649,19 @@
 				57F9968F29B4EE300062E8E9 /* UIViewController + Extensions.swift in Sources */,
 				576CF32A29DF3A9D00886E29 /* MatchTableViewCell.swift in Sources */,
 				576CF30F29DCBB3500886E29 /* MainTableViewCell.swift in Sources */,
+				5720967029F0618400C4A285 /* MatchesTeamTable.swift in Sources */,
 				576CF30629DC993800886E29 /* SportTypeCollectionView.swift in Sources */,
 				576CF32729DF39D400886E29 /* MatchesTableView.swift in Sources */,
 				576CF37729E3699100886E29 /* MatchCollectionController.swift in Sources */,
 				57C1F6FA29EF06A7000D707F /* Test+CoreDataClass.swift in Sources */,
 				576CF32529DF399300886E29 /* MatchController.swift in Sources */,
 				576CF31D29DEEB2E00886E29 /* MainTableViewLastCell.swift in Sources */,
+				5720967A29F08CAC00C4A285 /* StatisticMatchController.swift in Sources */,
 				57F9965E29B4A5330062E8E9 /* SceneDelegate.swift in Sources */,
 				576CF39029E7D74A00886E29 /* NetworkingDataFetch.swift in Sources */,
 				576CF30429DC989600886E29 /* LoginController.swift in Sources */,
 				576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */,
-				57C1F70029EF3FAD000D707F /* GetImage.swift in Sources */,
+				57C1F70029EF3FAD000D707F /* GetImageRequest.swift in Sources */,
 				576CF31329DCBECB00886E29 /* UILabel + Extensions.swift in Sources */,
 				576CF31129DCBDF300886E29 /* UIImageView + Extensions.swift in Sources */,
 				57C1F6FB29EF06A7000D707F /* Test+CoreDataProperties.swift in Sources */,

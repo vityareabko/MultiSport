@@ -31,7 +31,7 @@ enum Host: String {
 }
 
 enum APIPath {
-    case fixtures(next: Int? = 10, leagueID: LeaguesId)
+    case fixtures(next: Int? = 1, leagueID: LeaguesId)
     
     // we get path - https:/api..../fixtures?
     var path: String {

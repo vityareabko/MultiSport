@@ -44,22 +44,7 @@ class MatchesTableView: UITableView {
     }
     
     // MARK: Functions
-//    private func sortTableView() {
-//        let data = SportDescription.createData()
-//        let allLeagues = SportDescriptionTitle.allCases
-//        self.sectionsTableView = [SportDescriptionSection]()
-//
-//        allLeagues.forEach { league in
-//            let itemsLegue = data.filter { item in
-//                item.title == league
-//            }
-//            if !itemsLegue.isEmpty{
-//                let section = SportDescriptionSection(title: league, items: itemsLegue)
-//                self.sectionsTableView.append(section)
-//            }
-//        }
-//    }
-  
+
     public func setData(model: [SportSection]) {
         sectionsTableView = model
         print(sectionsTableView.count)
@@ -103,18 +88,7 @@ extension MatchesTableView: UITableViewDataSource, UITableViewDelegate {
         }
         let model = sectionsTableView[indexPath.section].items[indexPath.row]
         cell.setData(model: model)
-
+        
         return cell
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let topSectionIndex = self.indexPathsForVisibleRows?.first?.section ?? 0
-        
-        if topSectionIndex == 0 && self.contentOffset.y >= sectionHeight*2 {
-            // нужно зафиксировать секцию 
-            
-        }
-    }
-    
-    
 }

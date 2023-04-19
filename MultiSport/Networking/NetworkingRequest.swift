@@ -19,17 +19,19 @@ class NetworkingRequest {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = getApiKey()
         
-        URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            DispatchQueue.main.async {
-                print("url: - ",url)
-                if let error = error {
-                    complition(.failure(error))
+        DispatchQueue.global(qos: .background).async {
+            URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        complition(.failure(error))
+                    }
+                    guard let data = data else { return }
+                    complition(.success(data))
+                    
                 }
-                guard let data = data else { return }
-                complition(.success(data))
-                
-            }
-        }.resume()
+            }.resume()
+        }
+        
     }
 }
 

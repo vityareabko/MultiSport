@@ -13,6 +13,9 @@ class MatchController: UIViewController {
     private let childTableController = MatchesTableController()
     private let childCollectionController = MatchCollectionController()
     
+    private var childControllerMatchesTeam: MatchesTeamController?
+    
+    
     // MARK: - UI Components
     private lazy var segmentControl : UISegmentedControl = {
         let sc = UISegmentedControl(items: ["UPCOMING", "COMPLETED"])
@@ -33,6 +36,8 @@ class MatchController: UIViewController {
         setConstraints()
         
         setupSecondViewController(viewController: childTableController, view: segmentControl)
+        
+        childCollectionController.setDelegate(delagateVC: self)
     }
     
     
@@ -48,13 +53,30 @@ class MatchController: UIViewController {
         switch sender.selectedSegmentIndex{
         case 0:
             removeChildController(childController: childCollectionController)
+            if let childControllerMatchesTeam = childControllerMatchesTeam {
+                removeChildController(childController: childControllerMatchesTeam)
+            }
             setupSecondViewController(viewController: childTableController, view: segmentControl)
         case 1:
             removeChildController(childController: childTableController)
+            if let childControllerMatchesTeam = childControllerMatchesTeam {
+                removeChildController(childController: childControllerMatchesTeam)
+            }
             setupSecondViewController(viewController: childCollectionController, view: segmentControl)
         default:
             print("errorc")
         }
+    }
+}
+
+// MARK: - TeamMatchDetailedProtocol
+extension MatchController: TeamMatchDetailedProtocol {
+    func selectTeamMatchesDetailed() {
+        if let lastChildController = children.last {
+            removeChildController(childController: lastChildController)
+        }
+        childControllerMatchesTeam = MatchesTeamController()
+        setupSecondViewController(viewController: childControllerMatchesTeam!, view: segmentControl)
     }
 }
 

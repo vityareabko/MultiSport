@@ -66,7 +66,6 @@ class MatchTableViewCell: UITableViewCell {
         teamFirst.numberOfLines = 2
         teamFirst.textAlignment = .center
         teamSecond.numberOfLines = 2
-        
 
         self.addSubview(commonStackView)
         self.addSubview(lineSeparator)
@@ -82,8 +81,8 @@ class MatchTableViewCell: UITableViewCell {
     private func setStackView() {
         let timeStackView = UIStackView(arrangedSubviews: [iconClock, timeStartMatchLabel])
         timeStackView.axis = .horizontal
-        timeStackView.spacing = 7
-        timeStackView.distribution = .equalSpacing
+        timeStackView.spacing = 3
+        timeStackView.distribution = .fill
         
         timeAndDateStackViewVertical = UIStackView(arrangedSubviews: [dateLabel, lineSeparatorTime, timeStackView])
         timeAndDateStackViewVertical.axis = .vertical
@@ -109,6 +108,21 @@ class MatchTableViewCell: UITableViewCell {
         teamSecond.text = model.teamAway
         teamFirsIcon.image = model.teamHomeIcon
         teamSecondIcon.image = model.teamAwayIcon
+        
+        let formaterDay = DateFormatter()
+        formaterDay.dateFormat = "EEEEEEE dd"
+        
+        let formaterTime = DateFormatter()
+        formaterTime.dateFormat = "HH:mm"
+        
+//        let date = formaterDay.date(from: model.matchDate)
+//        let time = formaterTime.date(from: model.matchDate)
+        let date = formaterDay.string(from: model.matchDate)
+        let time = formaterTime.string(from: model.matchDate)
+        print("date - ",date)
+        print("time - ",time)
+        timeStartMatchLabel.text = time
+        dateLabel.text = date
         
 //        timeStartMatchLabel.text = model.
 //        dateLabel.text = model.matchDate
