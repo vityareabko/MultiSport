@@ -27,7 +27,7 @@ struct ServerData {
 
 enum Host: String {
     case release = "release.api-football-beta.p.rapidapi.com"
-    case developer = "api-football-beta.p.rapidapi.com/v3/"
+    case developer = "api-football-beta.p.rapidapi.com"
 }
 
 enum APIPath {
@@ -37,7 +37,7 @@ enum APIPath {
     var path: String {
         switch self {
         case .fixtures(_,_):
-            return "fixtures"
+            return "v3/fixtures"
         }
     }
     
@@ -70,13 +70,19 @@ struct NetworkManager {
             return nil
         }
         
-        // TODO: - todo
+//        var urlComponents = URLComponents.init(url: url, resolvingAgainstBaseURL: false)
+//        urlComponents?.path = apiPath.path
+//        urlComponents?.queryItems = apiPath.parameters
+
         if #available(iOS 16.0, *) {
             url.append(path: apiPath.path)
             url.append(queryItems: apiPath.parameters)
         } else {
             // Fallback on earlier versions
+//            url.appendPathComponent(apiPath.path)
+
         }
+//
         
         return url
         

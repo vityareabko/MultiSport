@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol HeaderTapProtocol: AnyObject {
+    func hideContentSection(index: Int)
+}
+
 class HeaderMatchSectionView : UIView {
+    
+    weak var headerTapDelegate : HeaderTapProtocol?
+    var sectionIndex: Int?
     
     // MARK: - UI Components
     private let labelDate = UILabel(text: "19 Feb", textColor: .systemGray2, font: .gothamRegular12())
@@ -26,12 +33,21 @@ class HeaderMatchSectionView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(didtapSuperview))
+        self.addGestureRecognizer(recognizer)
+        
         setupUI()
         setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func didtapSuperview() {
+        print("tap")
+        guard let idx = sectionIndex else { return }
+        headerTapDelegate?.hideContentSection(index: idx)
     }
     
     private func setupUI() {
@@ -94,9 +110,6 @@ extension HeaderMatchSectionView {
             stackViewTeam2.leadingAnchor.constraint(equalTo: scoreTeam.trailingAnchor, constant: 10),
             stackViewTeam2.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             stackViewTeam2.heightAnchor.constraint(equalToConstant: 30),
-
-            
-      
         ])
     }
 }

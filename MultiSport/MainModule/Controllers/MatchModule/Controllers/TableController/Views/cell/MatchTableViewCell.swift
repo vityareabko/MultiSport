@@ -115,17 +115,13 @@ class MatchTableViewCell: UITableViewCell {
         let formaterTime = DateFormatter()
         formaterTime.dateFormat = "HH:mm"
         
-//        let date = formaterDay.date(from: model.matchDate)
-//        let time = formaterTime.date(from: model.matchDate)
+
         let date = formaterDay.string(from: model.matchDate)
         let time = formaterTime.string(from: model.matchDate)
-        print("date - ",date)
-        print("time - ",time)
+
         timeStartMatchLabel.text = time
         dateLabel.text = date
         
-//        timeStartMatchLabel.text = model.
-//        dateLabel.text = model.matchDate
     }
     
     

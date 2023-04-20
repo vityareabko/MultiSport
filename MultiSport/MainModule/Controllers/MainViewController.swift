@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
         let button = UIButton()
         let image = UIImage(systemName: "chevron.backward")?.withTintColor(.white, renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
-        button.setTitle("Back", for: .normal)
+        button.setTitle("Home", for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(didtapHome), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false

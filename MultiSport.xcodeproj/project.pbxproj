@@ -12,6 +12,8 @@
 		5720967329F062A000C4A285 /* MatchesTeamTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967229F062A000C4A285 /* MatchesTeamTableCell.swift */; };
 		5720967529F0787400C4A285 /* HeaderMatchSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967429F0787400C4A285 /* HeaderMatchSectionView.swift */; };
 		5720967A29F08CAC00C4A285 /* StatisticMatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967929F08CAC00C4A285 /* StatisticMatchController.swift */; };
+		5720967D29F18D6200C4A285 /* StatisticMatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967C29F18D6200C4A285 /* StatisticMatchTableView.swift */; };
+		5720968029F18E5E00C4A285 /* StatisticMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967F29F18E5E00C4A285 /* StatisticMatchTableViewCell.swift */; };
 		576CF2FC29DC8E0E00886E29 /* SportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF2FB29DC8E0E00886E29 /* SportType.swift */; };
 		576CF2FE29DC910B00886E29 /* MainTablesTypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF2FD29DC910B00886E29 /* MainTablesTypeItem.swift */; };
 		576CF30429DC989600886E29 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF30329DC989600886E29 /* LoginController.swift */; };
@@ -56,7 +58,6 @@
 		57F9967F29B4AB800062E8E9 /* COPYRIGHT.txt in Resources */ = {isa = PBXBuildFile; fileRef = 57F9967B29B4AB800062E8E9 /* COPYRIGHT.txt */; };
 		57F9968029B4AB800062E8E9 /* GothamPro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F9967C29B4AB800062E8E9 /* GothamPro.ttf */; };
 		57F9968129B4AB800062E8E9 /* GothamPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F9967D29B4AB800062E8E9 /* GothamPro-Light.ttf */; };
-		57F9968529B4BDAA0062E8E9 /* UIcustomMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9968429B4BDAA0062E8E9 /* UIcustomMainButton.swift */; };
 		57F9968F29B4EE300062E8E9 /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9968E29B4EE300062E8E9 /* UIViewController + Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,8 @@
 		5720967229F062A000C4A285 /* MatchesTeamTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesTeamTableCell.swift; sourceTree = "<group>"; };
 		5720967429F0787400C4A285 /* HeaderMatchSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMatchSectionView.swift; sourceTree = "<group>"; };
 		5720967929F08CAC00C4A285 /* StatisticMatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatchController.swift; sourceTree = "<group>"; };
+		5720967C29F18D6200C4A285 /* StatisticMatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatchTableView.swift; sourceTree = "<group>"; };
+		5720967F29F18E5E00C4A285 /* StatisticMatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatchTableViewCell.swift; sourceTree = "<group>"; };
 		576CF2FB29DC8E0E00886E29 /* SportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportType.swift; sourceTree = "<group>"; };
 		576CF2FD29DC910B00886E29 /* MainTablesTypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTablesTypeItem.swift; sourceTree = "<group>"; };
 		576CF30329DC989600886E29 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -112,7 +115,6 @@
 		57F9967B29B4AB800062E8E9 /* COPYRIGHT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYRIGHT.txt; sourceTree = "<group>"; };
 		57F9967C29B4AB800062E8E9 /* GothamPro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamPro.ttf; sourceTree = "<group>"; };
 		57F9967D29B4AB800062E8E9 /* GothamPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamPro-Light.ttf"; sourceTree = "<group>"; };
-		57F9968429B4BDAA0062E8E9 /* UIcustomMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIcustomMainButton.swift; sourceTree = "<group>"; };
 		57F9968E29B4EE300062E8E9 /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,13 +129,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5720966829F0257300C4A285 /* MatchTeamDetailedModule */ = {
+		5720966829F0257300C4A285 /* MatchTeamDetailedController */ = {
 			isa = PBXGroup;
 			children = (
 				5720966929F0258E00C4A285 /* Views */,
 				5720966A29F0259200C4A285 /* Controllers */,
 			);
-			path = MatchTeamDetailedModule;
+			path = MatchTeamDetailedController;
 			sourceTree = "<group>";
 		};
 		5720966929F0258E00C4A285 /* Views */ = {
@@ -182,8 +184,18 @@
 		5720967829F08C9200C4A285 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5720967E29F18E5500C4A285 /* cell */,
+				5720967C29F18D6200C4A285 /* StatisticMatchTableView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5720967E29F18E5500C4A285 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				5720967F29F18E5E00C4A285 /* StatisticMatchTableViewCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		576CF2FA29DC8DF100886E29 /* Model */ = {
@@ -247,6 +259,7 @@
 		576CF32129DF395B00886E29 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5720966829F0257300C4A285 /* MatchTeamDetailedController */,
 				576CF38129E371A900886E29 /* TableController */,
 				576CF37529E3698000886E29 /* CollectionController */,
 				576CF32429DF399300886E29 /* MatchController.swift */,
@@ -275,14 +288,6 @@
 				576CF32929DF3A9D00886E29 /* MatchTableViewCell.swift */,
 			);
 			path = cell;
-			sourceTree = "<group>";
-		};
-		576CF35F29E3060A00886E29 /* button */ = {
-			isa = PBXGroup;
-			children = (
-				57F9968429B4BDAA0062E8E9 /* UIcustomMainButton.swift */,
-			);
-			path = button;
 			sourceTree = "<group>";
 		};
 		576CF36029E3061100886E29 /* CollectionSportHorizontalList */ = {
@@ -352,7 +357,6 @@
 		576CF37929E369AD00886E29 /* Conttrollers */ = {
 			isa = PBXGroup;
 			children = (
-				5720966829F0257300C4A285 /* MatchTeamDetailedModule */,
 				576CF37629E3699100886E29 /* MatchCollectionController.swift */,
 			);
 			path = Conttrollers;
@@ -516,7 +520,6 @@
 		57F9967429B4A6EE0062E8E9 /* Extensions + UICustomComponents */ = {
 			isa = PBXGroup;
 			children = (
-				57F9968329B4BD8C0062E8E9 /* ReuseUIComponent */,
 				57F9967629B4A7350062E8E9 /* UIColor + Extensions.swift */,
 				57F9967829B4A7480062E8E9 /* UIFont + Extensions.swift */,
 				576CF31029DCBDF300886E29 /* UIImageView + Extensions.swift */,
@@ -536,14 +539,6 @@
 				57F9967D29B4AB800062E8E9 /* GothamPro-Light.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		57F9968329B4BD8C0062E8E9 /* ReuseUIComponent */ = {
-			isa = PBXGroup;
-			children = (
-				576CF35F29E3060A00886E29 /* button */,
-			);
-			path = ReuseUIComponent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -626,7 +621,7 @@
 				576CF30D29DCBA0300886E29 /* MainTableView.swift in Sources */,
 				576CF31F29DF29A600886E29 /* SportFixture.swift in Sources */,
 				576CF2FE29DC910B00886E29 /* MainTablesTypeItem.swift in Sources */,
-				57F9968529B4BDAA0062E8E9 /* UIcustomMainButton.swift in Sources */,
+				5720967D29F18D6200C4A285 /* StatisticMatchTableView.swift in Sources */,
 				576CF32D29E1782E00886E29 /* SeactionMatchTableView.swift in Sources */,
 				576CF38829E7C2B300886E29 /* NetworkingRequest.swift in Sources */,
 				576CF38B29E7D0ED00886E29 /* getApiKey.swift in Sources */,
@@ -663,6 +658,7 @@
 				576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */,
 				57C1F70029EF3FAD000D707F /* GetImageRequest.swift in Sources */,
 				576CF31329DCBECB00886E29 /* UILabel + Extensions.swift in Sources */,
+				5720968029F18E5E00C4A285 /* StatisticMatchTableViewCell.swift in Sources */,
 				576CF31129DCBDF300886E29 /* UIImageView + Extensions.swift in Sources */,
 				57C1F6FB29EF06A7000D707F /* Test+CoreDataProperties.swift in Sources */,
 			);

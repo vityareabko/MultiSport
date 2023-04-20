@@ -47,7 +47,6 @@ class MatchesTableView: UITableView {
 
     public func setData(model: [SportSection]) {
         sectionsTableView = model
-        print(sectionsTableView.count)
     }
     
     
@@ -91,4 +90,6 @@ extension MatchesTableView: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    
 }

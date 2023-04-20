@@ -29,4 +29,24 @@ extension UIViewController {
         childController.removeFromParent()
         childController.view.removeFromSuperview()
     }
+    
+    // MARK: - setNavigation Bar
+    func setNavigationBar() {
+        let backAtHome: UIButton = {
+            let button = UIButton()
+            let image = UIImage(systemName: "chevron.backward")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+            button.setImage(image, for: .normal)
+            button.setTitle("Back", for: .normal)
+            button.tintColor = .white
+            button.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+            return button
+        }()
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backAtHome)
+    }
+    
+    // MARK: - Selectors
+    @objc private func dismissController() {
+        navigationController?.popViewController(animated: true)
+    }
 }
