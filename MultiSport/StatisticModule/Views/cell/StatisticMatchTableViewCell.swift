@@ -68,6 +68,8 @@ class StatisticMatchTableViewCell: UITableViewCell {
         self.addSubview(labelStatisticPoint)
         self.addSubview(labelAwayTeam)
         self.addSubview(labelHomeTeam)
+        
+        
 
     }
 }

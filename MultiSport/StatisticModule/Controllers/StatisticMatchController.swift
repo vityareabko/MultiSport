@@ -32,6 +32,24 @@ class StatisticMatchController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setConstraints()
+        
+        DispatchQueue.global().async {
+            
+            Task {
+                    await self.test()
+                }
+        }
+        
+    }
+    
+    private func test() async {
+        let a = await GetImageRequest.shared.test(with: "https://media-3.api-sports.io/football/teams/540.png")
+        let b = await GetImageRequest.shared.test(with: "https://media-1.api-sports.io/football/teams/724.png")
+
+        DispatchQueue.main.async {
+            self.logoTeamHome.image = a
+            self.logoTeamAway.image = b
+        }
     }
     
     
@@ -41,6 +59,8 @@ class StatisticMatchController: UIViewController {
         
         // из extesion + UIViewController
         setNavigationBar()
+        
+        
         
         labelMainTitle.textAlignment = .center
         labelTeamNameAway.textAlignment = .center

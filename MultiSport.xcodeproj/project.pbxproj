@@ -259,9 +259,9 @@
 		576CF32129DF395B00886E29 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5720966829F0257300C4A285 /* MatchTeamDetailedController */,
 				576CF38129E371A900886E29 /* TableController */,
 				576CF37529E3698000886E29 /* CollectionController */,
+				5720966829F0257300C4A285 /* MatchTeamDetailedController */,
 				576CF32429DF399300886E29 /* MatchController.swift */,
 			);
 			path = Controllers;

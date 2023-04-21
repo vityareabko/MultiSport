@@ -18,7 +18,9 @@ class NetworkDataFetch {
                 // декодируем наш json в нашу структуру
                 do {
                     let model = try JSONDecoder().decode(Welcome.self, from: data)
-                    response(model, nil)
+                    DispatchQueue.main.async {
+                        response(model, nil)
+                    }
                 } catch let jsonError {
                     // это ошибка декодирования
                     print("Failed to decode JSON :", jsonError)

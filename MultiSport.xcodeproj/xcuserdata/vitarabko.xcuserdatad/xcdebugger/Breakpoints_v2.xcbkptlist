@@ -7,33 +7,361 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6EE5AFA2-5BBB-4BE7-8658-75666E02B0E8"
-            shouldBeEnabled = "No"
+            uuid = "0B2CF967-A115-4819-8A37-F540CEA2E0AA"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "requestEvents(with:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0B2CF967-A115-4819-8A37-F540CEA2E0AA - ac0d48d06bb25498"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "528">
+               </Location>
+               <Location
+                  uuid = "0B2CF967-A115-4819-8A37-F540CEA2E0AA - f8d008adf6726376"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "1576">
+               </Location>
+               <Location
+                  uuid = "0B2CF967-A115-4819-8A37-F540CEA2E0AA - ac0d48d06bb25ba6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "536">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3064A74C-4AFA-4344-B776-5DADAB69928E"
-            shouldBeEnabled = "No"
+            uuid = "AA614CF8-81A8-4118-81F6-99D5A2F82A5C"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "requestEvents(with:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AA614CF8-81A8-4118-81F6-99D5A2F82A5C - ac0d48d06bb256ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "3416">
+               </Location>
+               <Location
+                  uuid = "AA614CF8-81A8-4118-81F6-99D5A2F82A5C - ac0d48d06bb256ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "3280">
+               </Location>
+               <Location
+                  uuid = "AA614CF8-81A8-4118-81F6-99D5A2F82A5C - eaeded2df52beea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "384">
+               </Location>
+               <Location
+                  uuid = "AA614CF8-81A8-4118-81F6-99D5A2F82A5C - 81396b52e01e2221"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AA21934B-0063-4139-98A7-B19F96276253"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "requestEvents(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AA21934B-0063-4139-98A7-B19F96276253 - 63e85d6da3cf132a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "AA21934B-0063-4139-98A7-B19F96276253 - b1573db743e9dfc0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "AA21934B-0063-4139-98A7-B19F96276253 - 2937c47901e5af28"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "AA21934B-0063-4139-98A7-B19F96276253 - ac0d48d06bb25172"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "3488">
+               </Location>
+               <Location
+                  uuid = "AA21934B-0063-4139-98A7-B19F96276253 - eaeded2df52beea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "384">
+               </Location>
+               <Location
+                  uuid = "AA21934B-0063-4139-98A7-B19F96276253 - 63e85d6da3cf13c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4317D365-C4BF-4361-93CC-91A461B03393"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "requestEvents(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4317D365-C4BF-4361-93CC-91A461B03393 - 81396b52e01e2728"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "4317D365-C4BF-4361-93CC-91A461B03393 - ff4573866f82ea49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "792">
+               </Location>
+               <Location
+                  uuid = "4317D365-C4BF-4361-93CC-91A461B03393 - 81396b52e01e2f49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4C0C879D-3E48-495D-9605-3ABF4D9E34E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "requestEvents(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4C0C879D-3E48-495D-9605-3ABF4D9E34E8 - 81396b52e01e2728"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "4C0C879D-3E48-495D-9605-3ABF4D9E34E8 - 81396b52e01e27d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 @Sendable () async -&gt; () in closure #1 (MultiSport.Response) -&gt; () in closure #1 (Swift.Optional&lt;MultiSport.Welcome&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MultiSport.MatchesTableController.requestEvents(with: Foundation.URL) -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/MainModule/Controllers/MatchModule/Controllers/TableController/Controllers/MatchesTableController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "356">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

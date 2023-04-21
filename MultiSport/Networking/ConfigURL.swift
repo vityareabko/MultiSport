@@ -10,6 +10,8 @@ import Foundation
 enum LeaguesId: Int {
     case laLeague = 140
     case nation = 5
+    case premierNational = 129
+    case premierLegue = 315
 }
 
 struct ServerData {
@@ -31,7 +33,7 @@ enum Host: String {
 }
 
 enum APIPath {
-    case fixtures(next: Int? = 1, leagueID: LeaguesId)
+    case fixtures(next: Int? = 3, leagueID: LeaguesId)
     
     // we get path - https:/api..../fixtures?
     var path: String {
@@ -73,7 +75,8 @@ struct NetworkManager {
 //        var urlComponents = URLComponents.init(url: url, resolvingAgainstBaseURL: false)
 //        urlComponents?.path = apiPath.path
 //        urlComponents?.queryItems = apiPath.parameters
-
+//
+//
         if #available(iOS 16.0, *) {
             url.append(path: apiPath.path)
             url.append(queryItems: apiPath.parameters)
