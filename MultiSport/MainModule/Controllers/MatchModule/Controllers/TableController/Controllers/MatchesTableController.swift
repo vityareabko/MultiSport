@@ -13,8 +13,6 @@ class MatchesTableController: UIViewController {
     private let matchesTableView = MatchesTableView()
     
     private var sections = [SportSection]()
-    
-    
 
     override func loadView() {
         super.loadView()
@@ -28,13 +26,13 @@ class MatchesTableController: UIViewController {
         
 //        let commingMatches = [item1, item2, item3, item4]
         
-        let commingMatches = [item1]
-
-
-        for request in commingMatches {
-            guard let r = request else { return }
-            self.requestEvents(with: r)
-        }
+//        let commingMatches = [item1]
+//
+//
+//        for request in commingMatches {
+//            guard let r = request else { return }
+//            self.requestEvents(with: r)
+//        }
     }
     
     
@@ -159,10 +157,9 @@ class MatchesTableController: UIViewController {
         // масив хранит в себе все о дате и команд соревнований
         var arrayFixtures = [SportFixture]()
 
-        NetworkDataFetch.shared.fetchResponse(urlRequest: url) { [weak self] result, error in
+        NetworkDataFetch.shared.fetchFutureFootballMatchesResponse(urlRequest: url) { [weak self] result, error in
 
             // пытаюсь получить модель нашей структуры
-//            if let model = result {
             guard let self = self,
                   let model = result,
                   let response = model.response,

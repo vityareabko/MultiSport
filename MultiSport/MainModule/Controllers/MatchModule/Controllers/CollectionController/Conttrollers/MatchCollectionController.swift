@@ -12,97 +12,89 @@ class MatchCollectionController: UIViewController {
     // MARK: - UI Components
     private let matchCollectionView = MatchCollectionView()
     private let countLast = 5
+    private var arrayTeams = [TeamModel]()
+    
+    override func loadView() {
+        super.loadView()
+//        let item1 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .premierLegue))
+//        let item2 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .laLeague))
+//        let item3 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .premierNational))
+//        let item4 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .nation))
+        
+//        let arrayRequests = [item1]
+        
+//        for request in arrayRequests {
+//            guard let r = request else { return }
+//            self.requestPastEvents(with: r)
+//        }
+        
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setConstraints()
-        
-        let item1 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .premierLegue))
-        let item2 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .laLeague))
-        let item3 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .premierNational))
-        let item4 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .nation))
-        
-        let arrayRequests = [item1]
-        
-        for request in arrayRequests {
-            guard let r = request else { return }
-//            self.requestPastEvents(with: r)
-        }
-        
-        
     }
     
     // MARK: - API Result Function
-//    private func requestPastEvents(with url: URL) {
-//
-//        var arrayFixtures = [SportFixture]()
-//
-//        NetworkDataFetch.shared.fetchResponse(urlRequest: url) { [weak self] result, error in
-//
-//            // пытаюсь получить модель нашей структуры
-////            if let model = result {
-//            guard let self = self,
-//                  let model = result,
-//                  let response = model.response,
-//                return
-//            }
-//
-//
-//            //  массив будет повторятся 3 = так как в указаниях next = 3
-//            response.forEach { item in
-//
-//                // получаем нужные данные
-//                guard let date = dateFormatter.date(from: item.fixture.date),
-//                      let homeTeamName = item.teams.home?.name,
-//                      let awayTeamName = item.teams.away?.name,
-//                      let urlStringLogoHomeTeam = item.teams.home?.logo,
-//                      let urlStringLogoAwayTeam = item.teams.away?.logo else {
-//                    return
-//                }
-//
-//
-//                var fixture = SportFixture(teamHome: homeTeamName,
-//                                           imageUrlHomeTeam: urlStringLogoHomeTeam,
-//                                           teamAway: awayTeamName,
-//                                           imageUrlAwayTeam: urlStringLogoAwayTeam,
-//                                           matchDate: date)
-//
-//
-//
-//                // получаю изображения логотипов команд
-//                Task {
-//                    let a = await GetImageRequest.shared.test(with: urlStringLogoHomeTeam)
-//                    let b = await GetImageRequest.shared.test(with: urlStringLogoAwayTeam)
-//
-//
-//                    // код выполняется после завершения скачивания изображений
-//                    DispatchQueue.main.async {
-//
-//                        fixture.teamHomeIcon = a
-//                        fixture.teamAwayIcon = b
-//
-//                        // добаляем в масив после того как добавили скаченные изображения
-//                        arrayFixtures.append(fixture)
-//
-//                        if arrayFixtures.count == response.count {
-//                            self.addSportSectionToTableView(leagueTitle: leagueTitle, fixtures: arrayFixtures)
-//                        }
-//                    }
-//                }
-//
-//            }
-//        }
-//    }
-//
-//    private func addSportSectionToTableView(leagueTitle: String, fixtures: [SportFixture]) {
-//        let section = SportSection(title: leagueTitle, items: fixtures)
-//        sections.append(section)
-//        matchesTableView.setData(model: sections)
-//        matchesTableView.reloadData()
-//    }
-//
+    private func requestPastEvents(with url: URL) {
+        
+        NetworkDataFetch.shared.fetchPastFootballMatchesResponse(urlRequest: url) { [weak self] result, error in
+
+            // пытаюсь получить модель нашей структуры
+            
+            guard let self = self,
+                  let model = result,
+                  let response = model.response else {
+                return
+            }
+
+            processResponse(response)
+            
+        }
+    }
+
+    // извлекаес все что нам нужно
+    func processResponse(_ response: [PastMatchesResponse]) {
+        for item in response {
+            guard case let .pastMatchesAwayClass(awayTeam) = item.teams.away,
+                  case let .pastMatchesAwayClass(homeTeam) = item.teams.home else {
+                return
+            }
+            
+            let homeTeamModel = createTeamModel(from: homeTeam)
+            let awayTeamModel = createTeamModel(from: awayTeam)
+            
+            downloadAndUpdateTeamLogo(for: homeTeamModel)
+            downloadAndUpdateTeamLogo(for: awayTeamModel)
+            
+        }
+    }
+
+    // создаем модель
+    func createTeamModel(from team: PastMatchesAwayClass) -> TeamModel {
+        return TeamModel(teamName: team.name, teamURLLogo: team.logo)
+    }
+
+    // скачиваем изображения и возвращаем обновленую модель c изображениями
+    func downloadAndUpdateTeamLogo(for team: TeamModel) {
+        Task {
+            let logo = await GetImageRequest.shared.test(with: team.teamURLLogo)
+            
+            DispatchQueue.main.async {
+                var updatedTeam = team
+                updatedTeam.teamLogo = logo
+                if !self.arrayTeams.contains(updatedTeam) {
+                    self.arrayTeams.append(updatedTeam)
+                }
+                self.matchCollectionView.setData(model: self.arrayTeams)
+                self.matchCollectionView.reloadData()
+            }
+        }
+    }
+    
+    
     // MARK: - UI Setup
     private func setupUI() {
         self.view.backgroundColor = .clear

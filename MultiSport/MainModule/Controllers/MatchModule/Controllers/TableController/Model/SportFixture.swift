@@ -111,30 +111,6 @@ struct SportFixture {
     var matchIcon: UIImage? {
         UIImage(named: "clock")
     }
-    
-    
-//    init(teamHome: String, teamHomeIcon: String, teamAway: String, teamAwayIcon: String, matchDate: Date) {
-//        self.teamHome = teamHome
-//        self.teamAway = teamAway
-//        self.matchDate = matchDate
-//        
-//        var image1: UIImage?
-//        var image2: UIImage?
-//        
-//        GetImageRequest.shared.getImages(urlString: [teamHomeIcon, teamAwayIcon]) { result in
-//            switch result {
-//            case .success(let images):
-//                image1 = images[0]
-//                image2 = images[1]
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//        
-//        self.teamHomeIcon = image1
-//        self.teamAwayIcon = image2
-//    }
-    
 }
 
 struct SportSection {

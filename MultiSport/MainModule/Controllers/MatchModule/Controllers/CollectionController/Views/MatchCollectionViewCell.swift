@@ -38,8 +38,8 @@ class MatchCollectionViewCell: UICollectionViewCell {
     }
     
     public func setData(model: TeamModel) {
-        self.teamImage.image = model.teamLogo
         self.teamlabel.text = model.teamName.uppercased()
+        self.teamImage.image = model.teamLogo
     }
 }
 

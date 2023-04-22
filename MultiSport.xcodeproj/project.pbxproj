@@ -42,6 +42,8 @@
 		576CF38E29E7D73500886E29 /* ModelFutureMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF38D29E7D73500886E29 /* ModelFutureMatches.swift */; };
 		576CF39029E7D74A00886E29 /* NetworkingDataFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF38F29E7D74A00886E29 /* NetworkingDataFetch.swift */; };
 		576CF3C029EEBF0400886E29 /* ConfigURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF3BF29EEBF0400886E29 /* ConfigURL.swift */; };
+		5781430D29F41F6F00DDE7D1 /* ModelDecoderPastMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781430C29F41F6F00DDE7D1 /* ModelDecoderPastMatches.swift */; };
+		5781430F29F420EC00DDE7D1 /* jsonNullAndOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781430E29F420EC00DDE7D1 /* jsonNullAndOther.swift */; };
 		57C1F6F529EF060E000D707F /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F329EF060E000D707F /* DataBase.xcdatamodeld */; };
 		57C1F6FA29EF06A7000D707F /* Test+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F629EF06A7000D707F /* Test+CoreDataClass.swift */; };
 		57C1F6FB29EF06A7000D707F /* Test+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F729EF06A7000D707F /* Test+CoreDataProperties.swift */; };
@@ -97,6 +99,8 @@
 		576CF38D29E7D73500886E29 /* ModelFutureMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFutureMatches.swift; sourceTree = "<group>"; };
 		576CF38F29E7D74A00886E29 /* NetworkingDataFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingDataFetch.swift; sourceTree = "<group>"; };
 		576CF3BF29EEBF0400886E29 /* ConfigURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigURL.swift; sourceTree = "<group>"; };
+		5781430C29F41F6F00DDE7D1 /* ModelDecoderPastMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDecoderPastMatches.swift; sourceTree = "<group>"; };
+		5781430E29F420EC00DDE7D1 /* jsonNullAndOther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonNullAndOther.swift; sourceTree = "<group>"; };
 		57C1F6F429EF060E000D707F /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
 		57C1F6F629EF06A7000D707F /* Test+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataClass.swift"; sourceTree = "<group>"; };
 		57C1F6F729EF06A7000D707F /* Test+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 		576CF32329DF396D00886E29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				576CF38D29E7D73500886E29 /* ModelFutureMatches.swift */,
 				576CF31E29DF29A600886E29 /* SportFixture.swift */,
 			);
 			path = Model;
@@ -366,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				576CF37D29E36BDF00886E29 /* TeamModel.swift */,
+				5781430C29F41F6F00DDE7D1 /* ModelDecoderPastMatches.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -420,7 +426,7 @@
 		576CF38C29E7D71900886E29 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				576CF38D29E7D73500886E29 /* ModelFutureMatches.swift */,
+				5781430E29F420EC00DDE7D1 /* jsonNullAndOther.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -626,6 +632,7 @@
 				576CF38829E7C2B300886E29 /* NetworkingRequest.swift in Sources */,
 				576CF38B29E7D0ED00886E29 /* getApiKey.swift in Sources */,
 				576CF3C029EEBF0400886E29 /* ConfigURL.swift in Sources */,
+				5781430F29F420EC00DDE7D1 /* jsonNullAndOther.swift in Sources */,
 				57F9966029B4A5330062E8E9 /* MainViewController.swift in Sources */,
 				57C1F6FD29EF06A7000D707F /* Test2+CoreDataProperties.swift in Sources */,
 				5720966C29F025B100C4A285 /* MatchesTeamController.swift in Sources */,
@@ -646,6 +653,7 @@
 				576CF30F29DCBB3500886E29 /* MainTableViewCell.swift in Sources */,
 				5720967029F0618400C4A285 /* MatchesTeamTable.swift in Sources */,
 				576CF30629DC993800886E29 /* SportTypeCollectionView.swift in Sources */,
+				5781430D29F41F6F00DDE7D1 /* ModelDecoderPastMatches.swift in Sources */,
 				576CF32729DF39D400886E29 /* MatchesTableView.swift in Sources */,
 				576CF37729E3699100886E29 /* MatchCollectionController.swift in Sources */,
 				57C1F6FA29EF06A7000D707F /* Test+CoreDataClass.swift in Sources */,

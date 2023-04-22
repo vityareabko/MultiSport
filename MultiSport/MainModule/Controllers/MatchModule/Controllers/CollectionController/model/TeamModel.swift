@@ -8,17 +8,21 @@
 
 import UIKit
 
-struct TeamModel {
-    let teamName: String
-    let teamLogo: UIImage?
+struct TeamModel : Equatable {
+//    let teamNameHome: String
+//    var teamLogoHome: UIImage?
+//    let teamLogoHomeURL: String
+//
+//    let teamNameAway: String
+//    var teamLogoAway: UIImage?
+//    let teamLogoAwayURL: String
     
-    static func createData() -> [TeamModel] {
-        let a1 = TeamModel(teamName: "Peters", teamLogo: UIImage(named: "team1"))
-        let a2 = TeamModel(teamName: "Peters", teamLogo: UIImage(named: "team2"))
-        let a3 = TeamModel(teamName: "Peters", teamLogo: UIImage(named: "team3"))
-        let a4 = TeamModel(teamName: "Peters", teamLogo: UIImage(named: "team4"))
-        let a5 = TeamModel(teamName: "Peters", teamLogo: UIImage(named: "team5"))
-        let a6 = TeamModel(teamName: "Peters", teamLogo: UIImage(named: "team6"))
-        return [a1,a2,a3,a4,a5,a6,a2,a3,a4,a5,a6]
+    let teamName: String
+    var teamLogo: UIImage?
+    let teamURLLogo: String
+    
+    static func ==(lhs: TeamModel, rhs: TeamModel) -> Bool {
+        return lhs.teamName == rhs.teamName
     }
 }
+

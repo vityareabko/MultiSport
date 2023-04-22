@@ -14,7 +14,7 @@ protocol TeamMatchDetailedProtocol: AnyObject {
 class MatchCollectionView: UICollectionView {
     
     private let layoutCollection = UICollectionViewFlowLayout()
-    private let teams = TeamModel.createData()
+    private var teams = [TeamModel]()
     
     weak var selectItemDelegate: TeamMatchDetailedProtocol?
     
@@ -37,6 +37,12 @@ class MatchCollectionView: UICollectionView {
         
         layoutCollection.minimumLineSpacing = 30
         layoutCollection.scrollDirection = .vertical
+    }
+    
+    public func setData(model: [TeamModel]) {
+        self.teams = model
+        
+        print(self.teams.count)
     }
 }
 

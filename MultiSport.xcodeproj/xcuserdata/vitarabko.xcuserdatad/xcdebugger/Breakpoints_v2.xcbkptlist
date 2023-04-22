@@ -7,17 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3AEBDB89-7459-4048-87FD-A27DD63C7C22"
+            uuid = "4290D10B-5FCB-4B42-8AD2-151246864AE0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MultiSport/MainModule/Controllers/MatchModule/Controllers/CollectionController/Conttrollers/MatchCollectionController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5"
-            endingLineNumber = "5"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "processResponse(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
