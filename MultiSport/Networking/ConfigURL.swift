@@ -33,12 +33,11 @@ enum Host: String {
 }
 
 enum APIPath {
-    case fixtures(next: Int? = 3, leagueID: LeaguesId)
-    
+    case fixtures(next: Int?, last: Int?, leagueID: LeaguesId)
     // we get path - https:/api..../fixtures?
     var path: String {
         switch self {
-        case .fixtures(_,_):
+        case .fixtures(_,_,_):
             return "v3/fixtures"
         }
     }
@@ -47,16 +46,19 @@ enum APIPath {
     var parameters: [URLQueryItem] {
         var result: [URLQueryItem] = []
         switch self {
-        case .fixtures(let next, let leagueId):
+        case .fixtures(let next, let last, let leagueId):
             if let theNext = next {
                 result.append(URLQueryItem(name: "next", value: "\(theNext)"))
+            }
+            
+            if let theLast = last {
+                result.append(URLQueryItem(name: "last", value: "\(theLast)"))
             }
             
             result.append(URLQueryItem(name: "league", value: "\(leagueId.rawValue)"))
         }
 
         return result
-        
     }
 }
 
@@ -82,11 +84,9 @@ struct NetworkManager {
             url.append(queryItems: apiPath.parameters)
         } else {
             // Fallback on earlier versions
-//            url.appendPathComponent(apiPath.path)
-
         }
 //
-        
+        print(url)
         return url
         
     }

@@ -16,7 +16,26 @@ class MatchesTableController: UIViewController {
     
     
 
+    override func loadView() {
+        super.loadView()
+        
+        // Fixtures to come
+        let item1 = NetworkManager.shared.request(with: .fixtures(next: 5, last: nil, leagueID: .laLeague))
+//        let item2 = NetworkManager.shared.request(with: .fixtures(leagueID: .nation))
+//        let item3 = NetworkManager.shared.request(with: .fixtures(leagueID: .premierLegue))
+//        let item4 = NetworkManager.shared.request(with: .fixtures(leagueID: .premierNational))
+        
+        
+//        let commingMatches = [item1, item2, item3, item4]
+        
+        let commingMatches = [item1]
 
+
+        for request in commingMatches {
+            guard let r = request else { return }
+            self.requestEvents(with: r)
+        }
+    }
     
     
     // MARK: - Lifecycle
@@ -24,222 +43,186 @@ class MatchesTableController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setConstraints()
-        
-        // Fixtures to come
-        let item1 = NetworkManager.shared.request(with: .fixtures(leagueID: .laLeague))
-        let item2 = NetworkManager.shared.request(with: .fixtures(leagueID: .nation))
-        let item3 = NetworkManager.shared.request(with: .fixtures(leagueID: .premierLegue))
-        let item4 = NetworkManager.shared.request(with: .fixtures(leagueID: .premierNational))
-        
-        
-        let commingMatches = [item1, item2, item3, item4]
-        
-
-        for request in commingMatches {
-            guard let r = request else { return }
-            self.requestEvents(with: r)
-        }
-        
-        
-
     }
 
 
     
-                        
-    // MARK: - API Reqeust Function
-    private func requestEvents(with url: URL) {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
-        // масив хранит в себе все о дате и команд соревнований
-        var arrayFixtures = [SportFixture]()
-        
-        var leagueTitle: String = ""
-        
-        
-        
-        NetworkDataFetch.shared.fetchResponse(urlRequest: url) { result, error in
-            
-            // пытаюсь получить модель нашей структуры
-            if let model = result {
-                
-                guard let response = model.response else { return }
-                
-                // получили названия лиги
-                leagueTitle = response.first?.league.name ?? "Error"
-                
-                //  массив будет повторятся 3 = так как в указаниях next = 3
-                response.forEach { item in
-                    // получили дату события
-                    
-                    guard let date = dateFormatter.date(from: item.fixture.date) else {
-                        return
-                    }
-                    
-                    // получили имена команд
-                    guard let homeTeamName = item.teams.home?.name,
-                          let awayTeamName = item.teams.away?.name else {
-                        return
-                    }
-                    
-                   
-                    
-                    guard let urlStringLogoHomeTeam = item.teams.home?.logo,
-                          let urlStringLogoAwayTeam = item.teams.away?.logo else {
-                        return
-                    }
-                    
-                    var fixture = SportFixture(teamHome: homeTeamName, imageUrlHomeTeam: urlStringLogoHomeTeam, teamAway: awayTeamName, imageUrlAwayTeam: urlStringLogoAwayTeam, matchDate: date)
-                   
-                    // получаю изображения логотипов команд
-                    
-                    Task {
-                        
-                        let a = await GetImageRequest.shared.test(with: urlStringLogoHomeTeam)
-                        let b = await GetImageRequest.shared.test(with: urlStringLogoAwayTeam)
-                        
-                        
-                        
-                        print(urlStringLogoHomeTeam)
-                        print(urlStringLogoAwayTeam)
-                        
-                        
-                        DispatchQueue.main.async {
-                            
-                            fixture.teamHomeIcon = a
-                            fixture.teamAwayIcon = b
-                            
-                            arrayFixtures.append(fixture)
-                            if arrayFixtures.count == response.count {
-                                let s = SportSection(title: leagueTitle, items: arrayFixtures)
-                                self.sections.append(s)
-                                self.matchesTableView.setData(model: self.sections)
-                                self.matchesTableView.reloadData()
-                                
-                            }
-                        }
-                        
-                    }
-                }
-        
-                
-               
-               
-                    
-//                    let s = SportSection(title: leagueTitle, items: arrayFixtures)
-//                    sections.append(s)
+    
+//    // MARK: - API Reqeust Function
+//    func fetchFixtures(_ response: [FixtureResponse], leagueTitle: String) {
+//        var arrayFixtures = [SportFixture]()
 //
-//                    self.matchesTableView.setData(model: sections)
-//                    self.matchesTableView.reloadData()
-                    
-                
-                
-                
-                
-                
-                
-//                    GetImageRequest.shared.getImages(urlString: [urlStringLogoHomeTeam, urlStringLogoAwayTeam]) { result in
-//                        switch result {
-//                        case .success(let images):
-//                            fixture.teamHomeIcon = images[0]
-//                            fixture.teamAwayIcon = images[1]
+//        // Создаем DispatchGroup для организации операций в группу
+//        let dispatchGroup = DispatchGroup()
 //
-//                        case .failure(let error):
-//                            print(error.localizedDescription)
-//                        }
-//                    }
-                    
-                    
-                
-                    
-                    
-                    
-                        
-                    
-                
-                
-                
-            }
-        }
-        
-        
-    }
-            
-            // пытаюсь получить модель нашей структуры
-//            if let model = result {
-//                var arrayFixtures = [SportFixture]()
-//
-//                guard let response = model.response else { return }
-//
-//                guard let titleSection = response.first?.league.name else {
-//                    return
-//                }
-//
-//                response.forEach { item in
-//
-//                    guard let teamHomeName = item.teams.home?.name,
-//                          let teamAwayName = item.teams.away?.name else {
-//                        return
-//                    }
-//
-//
-//
-//                    let dateFormatter = DateFormatter()
-//                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-//
-//                    guard let date = dateFormatter.date(from: item.fixture.date) else {
-//                        return
-//                    }
-//
-//                    guard let urlStringLogoTeamHome = item.teams.home?.logo,
-//                          let urlStringLogoTeamAway = item.teams.away?.logo else {
-//                        return
-//                    }
-//
-//
-//                    //                    var itemFixtures = SportFixture(teamHome: teamHomeName, teamHomeIcon: urlStringLogoTeamHome, teamAway: teamAwayName, teamAwayIcon: urlStringLogoTeamAway, matchDate: date)
-//                    //                        GetImageRequest.shared.getImages(urlString: [urlStringLogoTeamHome, urlStringLogoTeamAway]) { result in
-//                    //                            switch result {
-//                    //                            case .success(let images):
-//                    //                                itemFixtures.teamHomeIcon = images[0]
-//                    //                                itemFixtures.teamAwayIcon = images[1]
-//                    //
-//                    //                            case .failure(let error):
-//                    //                                print(error.localizedDescription)
-//                    //                            }
-//                    //                        }
-//
-//                    DispatchQueue.main.async {
-//                        Task {
-//                            var itemFixtures = SportFixture(teamHome: teamHomeName, teamHomeIcon: nil, teamAway: teamAwayName, teamAwayIcon: nil, matchDate: date)
-//
-//                            let a = await GetImageRequest.shared.test(with: urlStringLogoTeamHome)
-//                            let b = await GetImageRequest.shared.test(with: urlStringLogoTeamAway)
-//
-//                            itemFixtures.teamHomeIcon = a
-//                            itemFixtures.teamAwayIcon = b
-//
-//                            arrayFixtures.append(itemFixtures)
-//
-//
-//
-//
-//                            let s = SportSection(title: titleSection, items: arrayFixtures)
-//                            self.sections.append(s)
-//
-//
-//                            // TODO: - это часть должно быть в viewDidLoad - но она там не работает
-//                            matchesTableView.setData(model: sections)
-//                            matchesTableView.reloadData()
-//                        }
-//                    }
-//                }
+//        // Проходим по каждому элементу массива response с использованием цикла for-in
+//        for fixtureResponse in response {
+//            // Получаем дату матча из свойства date объекта Fixture
+//            guard let date = dateFormatter.date(from: fixtureResponse.fixture.date) else {
+//                continue
 //            }
+//
+//            // Получаем названия команд из объектов Team
+//            guard let homeTeamName = fixtureResponse.teams.home?.name,
+//                  let awayTeamName = fixtureResponse.teams.away?.name else {
+//                continue
+//            }
+//
+//            // Получаем URL логотипов команд из объектов Team
+//            guard let homeTeamLogoUrlString = fixtureResponse.teams.home?.logo,
+//                  let awayTeamLogoUrlString = fixtureResponse.teams.away?.logo else {
+//                continue
+//            }
+//
+//            // Создаем объект SportFixture с использованием полученных данных
+//            let fixture = SportFixture(teamHome: homeTeamName,
+//                                       imageUrlHomeTeam: homeTeamLogoUrlString,
+//                                       teamAway: awayTeamName,
+//                                       imageUrlAwayTeam: awayTeamLogoUrlString,
+//                                       matchDate: date)
+//
+//            // Добавляем операцию в DispatchGroup для загрузки логотипов команд
+//            dispatchGroup.enter()
+//            downloadTeamLogos(homeLogoUrlString: homeTeamLogoUrlString,
+//                              awayLogoUrlString: awayTeamLogoUrlString) { homeTeamLogo, awayTeamLogo in
+//
+//                // После завершения загрузки логотипов команд, обновляем объект SportFixture и добавляем его в массив
+//                fixture.teamHomeIcon = homeTeamLogo
+//                fixture.teamAwayIcon = awayTeamLogo
+//                arrayFixtures.append(fixture)
+//
+//                // Убираем операцию из DispatchGroup после ее завершения
+//                dispatchGroup.leave()
+//            }
+//        }
+//
+//        // Запускаем замыкание после завершения всех операций в DispatchGroup
+//        dispatchGroup.notify(queue: DispatchQueue.main) {
+//            // Создаем словарь SportFixture сгруппированных по дате матча и сортируем его по ключу
+//            let sportFixtureDictionary = arrayFixtures
+//                .reduce(into: [String: [SportFixture]]()) { result, fixture in
+//                    let key = dateFormatter.string(from: fixture.matchDate)
+//                    result[key, default: []].append(fixture)
+//                }
+//                .sorted(by: { $0.key < $1.key })
+//
+//            // Создаем массив SportSection из словаря SportFixture и обновляем таблицу
+//            let sportSections = sportFixtureDictionary.map { key, fixtures in
+//                SportSection(title: key, items: fixtures)
+//            }
+//
+//            self.matchesTableView.setData(model: sportSections)
+//            self.matchesTableView.reloadData()
+//        }
+//    }
+//
+//    // Функция для загрузки логотипов команд
+//    func downloadTeamLogos(homeLogoUrlString: String, awayLogoUrlString: String, completion: @escaping (UIImage?, UIImage?) -> Void) {
+//        var homeTeamLogo: UIImage?
+//        var awayTeamLogo: UIImage?
+//
+//        // Создаем DispatchGroup для организации операций в групп
+//        let dispatchGroup = DispatchGroup()
+//
+//        // Добавляем операцию в DispatchGroup для загрузки логотипа домашней команды
+//        dispatchGroup.enter()
+//        GetImageRequest.shared.test(with: homeLogoUrlString) { image in
+//            homeTeamLogo = image
+//
+//            // Убираем операцию из DispatchGroup после ее завершения
+//            dispatchGroup.leave()
+//        }
+//
+//        // Добавляем операцию в DispatchGroup для загрузки логотипа гостевой команды
+//        dispatchGroup.enter()
+//        GetImageRequest.shared.test(with: awayLogoUrlString) { image in
+//            awayTeamLogo = image
+//
+//            // Убираем операцию из DispatchGroup после ее завершения
+//            dispatchGroup.leave()
+//        }
+//
+//        // Запускаем замыкание после завершения всех операций в DispatchGroup
+//        dispatchGroup.notify(queue: DispatchQueue.main) {
+//            completion(homeTeamLogo, awayTeamLogo)
 //        }
 //    }
     
+    
+                        
+    // MARK: - API Result Function
+    private func requestEvents(with url: URL) {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+        // масив хранит в себе все о дате и команд соревнований
+        var arrayFixtures = [SportFixture]()
+
+        NetworkDataFetch.shared.fetchResponse(urlRequest: url) { [weak self] result, error in
+
+            // пытаюсь получить модель нашей структуры
+//            if let model = result {
+            guard let self = self,
+                  let model = result,
+                  let response = model.response,
+                  let leagueTitle = response.first?.league.name else {
+                return
+            }
+                        
+
+            //  массив будет повторятся 3 = так как в указаниях next = 3
+            response.forEach { item in
+                
+                // получаем нужные данные
+                guard let date = dateFormatter.date(from: item.fixture.date),
+                      let homeTeamName = item.teams.home?.name,
+                      let awayTeamName = item.teams.away?.name,
+                      let urlStringLogoHomeTeam = item.teams.home?.logo,
+                      let urlStringLogoAwayTeam = item.teams.away?.logo else {
+                    return
+                }
+
+
+                var fixture = SportFixture(teamHome: homeTeamName,
+                                           imageUrlHomeTeam: urlStringLogoHomeTeam,
+                                           teamAway: awayTeamName,
+                                           imageUrlAwayTeam: urlStringLogoAwayTeam,
+                                           matchDate: date)
+                    
+                   
+                
+                // получаю изображения логотипов команд
+                Task {
+                    let a = await GetImageRequest.shared.test(with: urlStringLogoHomeTeam)
+                    let b = await GetImageRequest.shared.test(with: urlStringLogoAwayTeam)
+
+
+                    // код выполняется после завершения скачивания изображений
+                    DispatchQueue.main.async {
+
+                        fixture.teamHomeIcon = a
+                        fixture.teamAwayIcon = b
+
+                        // добаляем в масив после того как добавили скаченные изображения
+                        arrayFixtures.append(fixture)
+
+                        if arrayFixtures.count == response.count {
+                            self.addSportSectionToTableView(leagueTitle: leagueTitle, fixtures: arrayFixtures)
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    private func addSportSectionToTableView(leagueTitle: String, fixtures: [SportFixture]) {
+        let section = SportSection(title: leagueTitle, items: fixtures)
+        sections.append(section)
+        matchesTableView.setData(model: sections)
+        matchesTableView.reloadData()
+    }
     
     // MARK: - UI Setup
     private func setupUI() {

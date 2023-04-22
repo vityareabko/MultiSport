@@ -109,9 +109,6 @@ class MatchTableViewCell: UITableViewCell {
         teamFirsIcon.image = model.teamHomeIcon
         teamSecondIcon.image = model.teamAwayIcon
         
-        print(model.teamHomeIcon)
-        print(model.teamAwayIcon)
-        
         let formaterDay = DateFormatter()
         formaterDay.dateFormat = "EEEEEEE dd"
         

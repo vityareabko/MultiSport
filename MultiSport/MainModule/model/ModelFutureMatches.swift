@@ -6,7 +6,7 @@
 import Foundation
 
 // MARK: - Welcome
-struct Welcome: Codable {
+struct FutureFootballMatches: Codable {
     let welcomeGet: String?
     let errors: [JSONAny]?
     let results: Int?

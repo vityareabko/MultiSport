@@ -39,7 +39,7 @@
 		576CF38529E371F200886E29 /* MatchesTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF38429E371F200886E29 /* MatchesTableController.swift */; };
 		576CF38829E7C2B300886E29 /* NetworkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF38729E7C2B300886E29 /* NetworkingRequest.swift */; };
 		576CF38B29E7D0ED00886E29 /* getApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF38A29E7D0ED00886E29 /* getApiKey.swift */; };
-		576CF38E29E7D73500886E29 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF38D29E7D73500886E29 /* DataRequest.swift */; };
+		576CF38E29E7D73500886E29 /* ModelFutureMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF38D29E7D73500886E29 /* ModelFutureMatches.swift */; };
 		576CF39029E7D74A00886E29 /* NetworkingDataFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF38F29E7D74A00886E29 /* NetworkingDataFetch.swift */; };
 		576CF3C029EEBF0400886E29 /* ConfigURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF3BF29EEBF0400886E29 /* ConfigURL.swift */; };
 		57C1F6F529EF060E000D707F /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F329EF060E000D707F /* DataBase.xcdatamodeld */; };
@@ -94,7 +94,7 @@
 		576CF38429E371F200886E29 /* MatchesTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesTableController.swift; sourceTree = "<group>"; };
 		576CF38729E7C2B300886E29 /* NetworkingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingRequest.swift; sourceTree = "<group>"; };
 		576CF38A29E7D0ED00886E29 /* getApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getApiKey.swift; sourceTree = "<group>"; };
-		576CF38D29E7D73500886E29 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
+		576CF38D29E7D73500886E29 /* ModelFutureMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFutureMatches.swift; sourceTree = "<group>"; };
 		576CF38F29E7D74A00886E29 /* NetworkingDataFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingDataFetch.swift; sourceTree = "<group>"; };
 		576CF3BF29EEBF0400886E29 /* ConfigURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigURL.swift; sourceTree = "<group>"; };
 		57C1F6F429EF060E000D707F /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
@@ -420,7 +420,7 @@
 		576CF38C29E7D71900886E29 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				576CF38D29E7D73500886E29 /* DataRequest.swift */,
+				576CF38D29E7D73500886E29 /* ModelFutureMatches.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -638,7 +638,7 @@
 				576CF38029E36D6F00886E29 /* MatchCollectionViewCell.swift in Sources */,
 				5720967529F0787400C4A285 /* HeaderMatchSectionView.swift in Sources */,
 				57C1F6F529EF060E000D707F /* DataBase.xcdatamodeld in Sources */,
-				576CF38E29E7D73500886E29 /* DataRequest.swift in Sources */,
+				576CF38E29E7D73500886E29 /* ModelFutureMatches.swift in Sources */,
 				57F9967929B4A7480062E8E9 /* UIFont + Extensions.swift in Sources */,
 				57F9965C29B4A5330062E8E9 /* AppDelegate.swift in Sources */,
 				57F9968F29B4EE300062E8E9 /* UIViewController + Extensions.swift in Sources */,

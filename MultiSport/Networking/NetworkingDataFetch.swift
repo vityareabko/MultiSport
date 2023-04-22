@@ -11,13 +11,13 @@ class NetworkDataFetch {
     static let shared = NetworkDataFetch()
     private init() {}
  
-    func fetchResponse(urlRequest: URL, response: @escaping (Welcome?, Error?) -> Void) {
+    func fetchResponse(urlRequest: URL, response: @escaping (FutureFootballMatches?, Error?) -> Void) {
         NetworkingRequest.shared.requestData(url: urlRequest) { result in
             switch result {
             case .success(let data):
                 // декодируем наш json в нашу структуру
                 do {
-                    let model = try JSONDecoder().decode(Welcome.self, from: data)
+                    let model = try JSONDecoder().decode(FutureFootballMatches.self, from: data)
                     DispatchQueue.main.async {
                         response(model, nil)
                     }
