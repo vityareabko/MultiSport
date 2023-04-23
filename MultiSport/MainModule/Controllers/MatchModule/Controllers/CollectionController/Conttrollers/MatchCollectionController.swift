@@ -11,47 +11,68 @@ class MatchCollectionController: UIViewController {
     
     // MARK: - UI Components
     private let matchCollectionView = MatchCollectionView()
-    private let countLast = 5
+    
+    // этот масив мы будем передавать для обновления интерфейса с обработанами уже данными
     private var arrayTeams = [TeamModel]()
+
+    // это число возвращаемих item в response
+    private let countLast = 5
     
-    override func loadView() {
-        super.loadView()
-//        let item1 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .premierLegue))
-//        let item2 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .laLeague))
-//        let item3 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .premierNational))
-//        let item4 = NetworkManager.shared.request(with: .fixtures(next: nil, last: countLast, leagueID: .nation))
-        
-//        let arrayRequests = [item1]
-        
-//        for request in arrayRequests {
-//            guard let r = request else { return }
-//            self.requestPastEvents(with: r)
-//        }
-        
-    }
-    
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setConstraints()
+        
+        // делаем запросы и обновляем колекцию с данными
+        loadPastEvents()
+    }
+
+    // обработка запросв в асинхроном режиме
+    private func loadPastEvents() {
+        // let leagueIDs: [LeagueID] = [.premierLegue, .laLeague, .premierNational, .nation]
+        let leagueIDs: [LeagueID] = [.premierLegue]
+        
+        Task {
+            await withTaskGroup(of: Void.self) { group in
+                for leagueID in leagueIDs {
+                    group.addTask {
+                        await self.fetchPastEvents(for: leagueID)
+                    }
+                }
+            }
+            
+            // Здесь мы можем обновить UI или выполнить другие действия после завершения всех запросов
+            
+        }
     }
     
-    // MARK: - API Result Function
+    
+    // делаем запросы по ид лиги
+    private func fetchPastEvents(for leagueID: LeagueID) async {
+        let request = NetworkManager.shared.request(with: .fixturesLast(last: countLast, leagueID: leagueID))
+        guard let r = request else { return }
+        self.requestPastEvents(with: r)
+    }
+    
+    
+    // MARK: - API Result Functions
     private func requestPastEvents(with url: URL) {
-        
-        NetworkDataFetch.shared.fetchPastFootballMatchesResponse(urlRequest: url) { [weak self] result, error in
-
-            // пытаюсь получить модель нашей структуры
+        NetworkDataFetch.shared.fetchPastFootballMatchesResponse(urlRequest: url) { [weak self] result in
             
-            guard let self = self,
-                  let model = result,
-                  let response = model.response else {
-                return
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let data):
+                guard let dataResponse = data.response else {
+                    return
+                }
+                self.processResponse(dataResponse)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-
-            processResponse(response)
-            
         }
     }
 
@@ -66,6 +87,7 @@ class MatchCollectionController: UIViewController {
             let homeTeamModel = createTeamModel(from: homeTeam)
             let awayTeamModel = createTeamModel(from: awayTeam)
             
+            
             downloadAndUpdateTeamLogo(for: homeTeamModel)
             downloadAndUpdateTeamLogo(for: awayTeamModel)
             
@@ -74,14 +96,16 @@ class MatchCollectionController: UIViewController {
 
     // создаем модель
     func createTeamModel(from team: PastMatchesAwayClass) -> TeamModel {
-        return TeamModel(teamName: team.name, teamURLLogo: team.logo)
+        return TeamModel(id: team.id, teamName: team.name, teamURLLogo: team.logo)
     }
 
     // скачиваем изображения и возвращаем обновленую модель c изображениями
     func downloadAndUpdateTeamLogo(for team: TeamModel) {
         Task {
+            // скачяивания логотипа команды
             let logo = await GetImageRequest.shared.test(with: team.teamURLLogo)
             
+            // код выполняется после скачивания
             DispatchQueue.main.async {
                 var updatedTeam = team
                 updatedTeam.teamLogo = logo

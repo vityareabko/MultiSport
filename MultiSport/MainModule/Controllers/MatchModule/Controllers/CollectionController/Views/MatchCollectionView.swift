@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TeamMatchDetailedProtocol: AnyObject {
-    func selectTeamMatchesDetailed()
+    func selectTeamMatchesDetailed(model: TeamModel)
 }
 
 class MatchCollectionView: UICollectionView {
@@ -41,8 +41,6 @@ class MatchCollectionView: UICollectionView {
     
     public func setData(model: [TeamModel]) {
         self.teams = model
-        
-        print(self.teams.count)
     }
 }
 
@@ -65,7 +63,8 @@ extension MatchCollectionView: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectItemDelegate?.selectTeamMatchesDetailed()
+        let model = teams[indexPath.row]
+        selectItemDelegate?.selectTeamMatchesDetailed(model: model)
     }
 }
 

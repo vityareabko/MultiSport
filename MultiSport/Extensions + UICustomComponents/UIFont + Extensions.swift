@@ -66,6 +66,10 @@ extension UIFont {
         return UIFont.init(name: "GothamPro-Bold", size: 24)
     }
     
+    static func gothamBold64() -> UIFont? {
+        return UIFont.init(name: "GothamPro-Bold", size: 64)
+    }
+    
 }
 
 //Gotham Pro

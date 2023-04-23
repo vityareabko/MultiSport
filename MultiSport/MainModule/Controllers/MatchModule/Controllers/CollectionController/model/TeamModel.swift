@@ -16,7 +16,7 @@ struct TeamModel : Equatable {
 //    let teamNameAway: String
 //    var teamLogoAway: UIImage?
 //    let teamLogoAwayURL: String
-    
+    let id: Int
     let teamName: String
     var teamLogo: UIImage?
     let teamURLLogo: String

@@ -5,14 +5,14 @@
 //  Created by Витя Рябко on 18/04/23.
 //
 
-import Foundation
+//V3 - Fixtures by team id
 
-enum LeaguesId: Int {
-    case laLeague = 140
-    case nation = 5
-    case premierNational = 129
-    case premierLegue = 315
-}
+// нужны параметры
+// status = FT - всегда это уже законченые матчи
+// last = последнее матчи
+// team - это id команды
+
+import Foundation
 
 struct ServerData {
     static var shared = ServerData()
@@ -33,29 +33,49 @@ enum Host: String {
 }
 
 enum APIPath {
-    case fixtures(next: Int?, last: Int?, leagueID: LeaguesId)
+    case fixturesNext(next: Int? = 5, leagueID: LeagueID)
+    case fixturesLast(last: Int? = 5, leagueID: LeagueID)
+    case fixturesByTeamId(status: String = "FT", last: Int? = 15, teamID: Int)
+    
     // we get path - https:/api..../fixtures?
     var path: String {
         switch self {
-        case .fixtures(_,_,_):
+        case .fixturesNext(_,_):
+            return "v3/fixtures"
+        case .fixturesLast(_,_):
+            return "v3/fixtures"
+        case .fixturesByTeamId(_,_,_):
             return "v3/fixtures"
         }
     }
     
-    // get ["next","value"] = https:/api..../fixtures?&next=10
+    // get ["next","value"] = https:/api..../{path}?&next=10
     var parameters: [URLQueryItem] {
         var result: [URLQueryItem] = []
         switch self {
-        case .fixtures(let next, let last, let leagueId):
+        case .fixturesNext(let next, let leagueId):
             if let theNext = next {
                 result.append(URLQueryItem(name: "next", value: "\(theNext)"))
             }
             
+            result.append(URLQueryItem(name: "league", value: "\(leagueId.rawValue)"))
+        
+        case .fixturesLast(let last, let leagueId):
             if let theLast = last {
                 result.append(URLQueryItem(name: "last", value: "\(theLast)"))
             }
             
             result.append(URLQueryItem(name: "league", value: "\(leagueId.rawValue)"))
+            
+        case .fixturesByTeamId(let status, let last, let teamID):
+            
+            result.append(URLQueryItem(name: "status", value: "\(status)"))
+            
+            result.append(URLQueryItem(name: "team", value: "\(teamID)"))
+            
+            if let theLast = last {
+                result.append(URLQueryItem(name: "last", value: "\(theLast)"))
+            }
         }
 
         return result

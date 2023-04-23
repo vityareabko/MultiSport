@@ -8,7 +8,7 @@
 import UIKit
 
 protocol StatisticMatchProtocol: AnyObject {
-    func presentStatistic()
+    func presentStatistic(idFixture: Int)
 }
 
 protocol ChangeConstrainProtocol: AnyObject {
@@ -20,6 +20,11 @@ class MatchesTeamTable: UITableView {
     
     weak var statisticMatchDelegate: StatisticMatchProtocol?
     weak var changeConstrainDelegate: ChangeConstrainProtocol?
+    
+    private var modelFixtures = [PastFixturesByTeamID]()
+    
+    // id вибраного матча
+    private var idFixture: Int = -1
     
     /* это multiplier который мы меняем при скролле в changeContstraints в протоколе - ChangeConstrainProtocol */
     let logoMainTeamInitialWidth: CGFloat = 0.35
@@ -49,19 +54,24 @@ class MatchesTeamTable: UITableView {
         self.delegate = self
         self.dataSource = self
         self.separatorStyle = .none
-        
-
     }
     
-    @objc private func didTapStatistiscButton(){
-        statisticMatchDelegate?.presentStatistic()
+    // MARK: - setData
+    public func setData(model: [PastFixturesByTeamID]) {
+        self.modelFixtures = model
+    }
+    
+    //  при нажатия на кнопку будет передаваться idFixture которой я присвоил когда размещались ячейки
+    @objc private func didTapStatistiscButton(sender: UIButton) {
+        statisticMatchDelegate?.presentStatistic(idFixture: sender.tag)
+
     }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension MatchesTeamTable: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        5
+        modelFixtures.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -69,6 +79,9 @@ extension MatchesTeamTable: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerMatchSectionView = HeaderMatchSectionView()
+        
+        headerMatchSectionView.setData(model: modelFixtures[section])
+        
         headerMatchSectionView.sectionIndex = section
         headerMatchSectionView.headerTapDelegate = self
         return headerMatchSectionView
@@ -86,7 +99,11 @@ extension MatchesTeamTable: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MatchesTeamTableCell.identifier, for: indexPath) as? MatchesTeamTableCell else {
             return UITableViewCell()
         }
+        
+        cell.setData(model: modelFixtures[indexPath.section])
+        
         cell.statisticButton.addTarget(self, action: #selector(didTapStatistiscButton), for: .touchUpInside)
+        cell.statisticButton.tag = modelFixtures[indexPath.section].fixtureId
         
         return cell
     }
@@ -108,7 +125,6 @@ extension MatchesTeamTable: UITableViewDelegate, UITableViewDataSource {
         
         changeConstrainDelegate?.changeContstraints(width: width, height: height)
     }
-    
 }
 
 extension MatchesTeamTable : HeaderTapProtocol {

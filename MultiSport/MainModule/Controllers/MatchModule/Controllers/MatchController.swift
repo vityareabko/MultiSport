@@ -71,12 +71,17 @@ class MatchController: UIViewController {
 
 // MARK: - TeamMatchDetailedProtocol
 extension MatchController: TeamMatchDetailedProtocol {
-    func selectTeamMatchesDetailed() {
+    func selectTeamMatchesDetailed(model: TeamModel) {
         if let lastChildController = children.last {
             removeChildController(childController: lastChildController)
         }
         childControllerMatchesTeam = MatchesTeamController()
-        setupSecondViewController(viewController: childControllerMatchesTeam!, view: segmentControl)
+        
+        guard let vc = childControllerMatchesTeam else { return }
+        vc.setData(model: model)
+        
+        
+        setupSecondViewController(viewController: vc, view: segmentControl)
     }
 }
 

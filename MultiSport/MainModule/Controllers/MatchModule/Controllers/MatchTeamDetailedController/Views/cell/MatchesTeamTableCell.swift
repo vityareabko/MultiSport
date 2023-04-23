@@ -14,8 +14,8 @@ class MatchesTeamTableCell: UITableViewCell {
     
     // MARK: - UI Components
     private let footballFieldImage = UIImageView(imageName: "footballFieldImage")
-    private let labelWinTeam = UILabel(text: "54%", textColor: .specialOrangeColor, font: .gothamBold24())
-    private let labelLosseTeam = UILabel(text: "46%", textColor: .systemGray3, font: .gothamBold24())
+    private let labelLeftTeam = UILabel(text: "54%", textColor: .specialOrangeColor, font: .gothamBold64())
+    private let labelRightTeam = UILabel(text: "46%", textColor: .specialOrangeColor, font: .gothamBold64())
     
     private let footballFieldleftPart: UIView = {
         let view = UIView()
@@ -53,8 +53,8 @@ class MatchesTeamTableCell: UITableViewCell {
         self.backgroundColor = .clear
         self.selectionStyle = .none
         
-        footballFieldImage.addSubview(labelWinTeam)
-        footballFieldImage.addSubview(labelLosseTeam)
+        footballFieldImage.addSubview(labelLeftTeam)
+        footballFieldImage.addSubview(labelRightTeam)
         footballFieldImage.contentMode = .scaleToFill
         footballFieldImage.image?.withRenderingMode(.alwaysTemplate)
         footballFieldImage.tintColor = .specialLight
@@ -63,6 +63,31 @@ class MatchesTeamTableCell: UITableViewCell {
         self.addSubview(footballFieldRightPart)
         self.addSubview(footballFieldImage)
         self.contentView.addSubview(statisticButton)
+    }
+    
+    public func setData(model: PastFixturesByTeamID) {
+//        self.labelWinTeam.text = "()"
+        self.labelRightTeam.text = "\(model.winHomeTeam ? model.goalsHomeTeam : model.goalsAwayTeam)"
+        self.labelRightTeam.text = "\(model.winAwayTeam ? model.goalsAwayTeam : model.goalsHomeTeam)"
+        
+        self.labelLeftTeam.text =  "\(model.goalsHomeTeam)"
+        self.labelRightTeam.text = "\(model.goalsAwayTeam)"
+        
+        if model.winHomeTeam {
+            self.labelLeftTeam.textColor = .specialOrangeColor
+            self.labelRightTeam.textColor = .systemGray3
+            
+            self.footballFieldleftPart.alpha = 0.1
+            self.footballFieldRightPart.alpha = 0.05
+            
+        } else {
+            self.labelLeftTeam.textColor = .systemGray3
+            self.labelRightTeam.textColor = .specialOrangeColor
+            
+            self.footballFieldleftPart.alpha = 0.05
+            self.footballFieldRightPart.alpha = 0.1
+        }
+
     }
 }
 
@@ -86,10 +111,10 @@ extension MatchesTeamTableCell {
             footballFieldRightPart.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
             footballFieldRightPart.heightAnchor.constraint(equalToConstant: 160),
             
-            labelWinTeam.centerXAnchor.constraint(equalTo: footballFieldleftPart.centerXAnchor),
-            labelWinTeam.centerYAnchor.constraint(equalTo: footballFieldleftPart.centerYAnchor),
-            labelLosseTeam.centerXAnchor.constraint(equalTo: footballFieldRightPart.centerXAnchor),
-            labelLosseTeam.centerYAnchor.constraint(equalTo: footballFieldRightPart.centerYAnchor),
+            labelLeftTeam.centerXAnchor.constraint(equalTo: footballFieldleftPart.centerXAnchor),
+            labelLeftTeam.centerYAnchor.constraint(equalTo: footballFieldleftPart.centerYAnchor),
+            labelRightTeam.centerXAnchor.constraint(equalTo: footballFieldRightPart.centerXAnchor),
+            labelRightTeam.centerYAnchor.constraint(equalTo: footballFieldRightPart.centerYAnchor),
    
             statisticButton.topAnchor.constraint(equalTo: footballFieldleftPart.bottomAnchor, constant: 20),
             statisticButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),

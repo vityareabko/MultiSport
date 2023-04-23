@@ -30,6 +30,14 @@ class HeaderMatchSectionView : UIView {
     private var stackViewTeam1 = UIStackView()
     private var stackViewTeam2 = UIStackView()
     
+    private let backView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .specialBagroubdSubviews
+        view.layer.cornerRadius = 7
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -51,18 +59,18 @@ class HeaderMatchSectionView : UIView {
     }
     
     private func setupUI() {
-        self.backgroundColor = .specialBagroubdSubviews
-        self.layer.cornerRadius = 7
+        self.backgroundColor = .specialMainBaground
         
         labelDate.textAlignment = .center
         scoreTeam.textAlignment = .center
         labelTeamName2.textAlignment = .right
         
         setStackView()
-        self.addSubview(labelDate)
-        self.addSubview(scoreTeam)
-        self.addSubview(stackViewTeam1)
-        self.addSubview(stackViewTeam2)
+        self.addSubview(backView)
+        backView.addSubview(labelDate)
+        backView.addSubview(scoreTeam)
+        backView.addSubview(stackViewTeam1)
+        backView.addSubview(stackViewTeam2)
     }
     
     // MARK: - set StackView
@@ -80,12 +88,32 @@ class HeaderMatchSectionView : UIView {
         stackViewTeam2.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    public func setData(model: PastFixturesByTeamID) {
+        self.labelTeamName1.text = model.homeTeamName
+        self.labelTeamName2.text = model.awayTeamName
+        self.logoTeam1.image = model.logoHomeTeam
+        self.logoTeam2.image = model.logoAwayTeam
+        
+        self.scoreTeam.text = model.score
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        
+        self.labelDate.text = dateFormatter.string(from: model.dateFixture)
+    }
+    
 }
 
 extension HeaderMatchSectionView {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
+            backView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            backView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            backView.topAnchor.constraint(equalTo: self.topAnchor),
+            backView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
             labelDate.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
             labelDate.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             labelDate.trailingAnchor.constraint(equalTo: self.trailingAnchor),

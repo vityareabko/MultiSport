@@ -7,86 +7,75 @@
 
 import UIKit
 
+// для отключения проверку сертификата
+class InsecureURLSessionDelegate: NSObject, URLSessionDelegate {
+    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
+    }
+}
+
+
 class GetImageRequest {
     static let shared = GetImageRequest()
     private init() {}
+
+
+    // это экземпляр URLSession без проверки сертикфиката
+    private let insecureSession = URLSession(configuration: .default, delegate: InsecureURLSessionDelegate(), delegateQueue: nil)
     
-//    func getImage(urlString: String, completion: @escaping (Result<UIImage?,Error>) -> Void) {
-//    
-//        guard let url = URL(string: urlString) else { return }
-//        
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            DispatchQueue.global(qos: .userInitiated).async {
-//                guard let data = data,
-//                      let image = UIImage(data: data) else {
-//                    return
-//                }
-//                
-//                DispatchQueue.main.async {
-//                    completion(.success(image))
-//                }
-//            }
-//        }.resume()
-//        
-//    }
-    
-//    func getImages(urlString: [String], compltion: @escaping (Result<[UIImage?],Error>) -> Void) {
-//        var images = [UIImage?]()
-//        urlString.forEach { urlS in
-//            getImage(urlString: urlS) { result in
-//                switch result {
-//                case .success(let image):
-//                    images.append(image)
-//                case .failure(let error):
-//                    print(error.localizedDescription)
-//                }
-//            }
+    // Кеш для хранения изображений
+    private let imageCache = NSCache<NSString, UIImage>()
+//
+//    func test(with urlString: String?) async -> UIImage? {
+//        guard let string = urlString,
+//              let url = URL(string: string) else {
+//            return nil
 //        }
-//        compltion(.success(images))
-//    }
-    
-//    func getImages(urlString: [String], completion: @escaping (Result<[UIImage?],Error>) -> Void) {
-//        var images = [UIImage?]()
-//        let group = DispatchGroup()
 //
-//        for urlS in urlString {
-//            group.enter()
-//            getImage(urlString: urlS) { res in
-//                switch res {
-//                case .success(let image):
-//                    images.append(image)
-//                case .failure(let error):
-//                    print(error.localizedDescription)
-//                    images.append(nil)
-//                }
-//                group.leave()
-//            }
-//
-//            group.notify(queue: .main) {
-//                completion(.success(images))
-//            }
+//        do {
+//            let (data, _) = try await insecureSession.data(from: url)
+//            return UIImage(data: data)
+//        } catch {
+//            print("Failed to load image: \(error.localizedDescription)")
+//            return nil
 //        }
 //    }
-//    
-    
-    func test(with urlString: String?) async -> UIImage? {
         
-        guard
-            let string = urlString,
-            let url = URL.init(string: string)
-        else {
+    func test(with urlString: String, retryAttempts: Int = 10, delayBetweenRetries: TimeInterval = 2.0) async -> UIImage? {
+        guard let url = URL(string: urlString) else {
             return nil
         }
-        
-        guard
-            let theData = try? Data(contentsOf: url),
-            let image = UIImage(data: theData)
-        else {
-            return nil
+
+        // Проверка, есть ли изображение в кеше
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) {
+            return cachedImage
         }
+
         
-        return image
+        for attempt in 1...retryAttempts {
+            do {
+                let (data, _) = try await insecureSession.data(from: url)
+                if let image = UIImage(data: data) {
+                    
+                    imageCache.setObject(image, forKey: urlString as NSString)
+                    return image
+                }
+            } catch {
+                print("Failed to load image on attempt \(attempt): \(error.localizedDescription)")
+                if attempt < retryAttempts {
+                    do {
+                        try await Task.sleep(nanoseconds: UInt64(delayBetweenRetries * 1_000_000_000))
+                    } catch {
+                        print("Error during Task.sleep: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+
+        return nil
     }
-        
-    
 }
+
+
+
+
