@@ -27,7 +27,6 @@
 		576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF31829DCC99300886E29 /* UIButton + Extensions.swift */; };
 		576CF31D29DEEB2E00886E29 /* MainTableViewLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF31C29DEEB2E00886E29 /* MainTableViewLastCell.swift */; };
 		576CF31F29DF29A600886E29 /* SportFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF31E29DF29A600886E29 /* SportFixture.swift */; };
-		576CF32529DF399300886E29 /* MatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF32429DF399300886E29 /* MatchController.swift */; };
 		576CF32729DF39D400886E29 /* MatchesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF32629DF39D400886E29 /* MatchesTableView.swift */; };
 		576CF32A29DF3A9D00886E29 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF32929DF3A9D00886E29 /* MatchTableViewCell.swift */; };
 		576CF32D29E1782E00886E29 /* SeactionMatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF32C29E1782E00886E29 /* SeactionMatchTableView.swift */; };
@@ -90,7 +89,6 @@
 		576CF31829DCC99300886E29 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		576CF31C29DEEB2E00886E29 /* MainTableViewLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewLastCell.swift; sourceTree = "<group>"; };
 		576CF31E29DF29A600886E29 /* SportFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportFixture.swift; sourceTree = "<group>"; };
-		576CF32429DF399300886E29 /* MatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchController.swift; sourceTree = "<group>"; };
 		576CF32629DF39D400886E29 /* MatchesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesTableView.swift; sourceTree = "<group>"; };
 		576CF32929DF3A9D00886E29 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		576CF32C29E1782E00886E29 /* SeactionMatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeactionMatchTableView.swift; sourceTree = "<group>"; };
@@ -145,14 +143,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5720966829F0257300C4A285 /* MatchTeamDetailedController */ = {
+		5720966829F0257300C4A285 /* CollectionSelectedMatchController */ = {
 			isa = PBXGroup;
 			children = (
 				5781431029F4916200DDE7D1 /* model */,
 				5720966929F0258E00C4A285 /* Views */,
 				5720966A29F0259200C4A285 /* Controllers */,
 			);
-			path = MatchTeamDetailedController;
+			path = CollectionSelectedMatchController;
 			sourceTree = "<group>";
 		};
 		5720966929F0258E00C4A285 /* Views */ = {
@@ -265,33 +263,6 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
-		576CF32029DF38F700886E29 /* MatchModule */ = {
-			isa = PBXGroup;
-			children = (
-				576CF32229DF396500886E29 /* Views */,
-				576CF32129DF395B00886E29 /* Controllers */,
-			);
-			path = MatchModule;
-			sourceTree = "<group>";
-		};
-		576CF32129DF395B00886E29 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				576CF38129E371A900886E29 /* TableController */,
-				576CF37529E3698000886E29 /* CollectionController */,
-				5720966829F0257300C4A285 /* MatchTeamDetailedController */,
-				576CF32429DF399300886E29 /* MatchController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		576CF32229DF396500886E29 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		576CF32329DF396D00886E29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,14 +325,14 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		576CF37529E3698000886E29 /* CollectionController */ = {
+		576CF37529E3698000886E29 /* SegmentCollectionController */ = {
 			isa = PBXGroup;
 			children = (
 				576CF37C29E36BC800886E29 /* model */,
 				576CF37829E369A600886E29 /* Views */,
 				576CF37929E369AD00886E29 /* Conttrollers */,
 			);
-			path = CollectionController;
+			path = SegmentCollectionController;
 			sourceTree = "<group>";
 		};
 		576CF37829E369A600886E29 /* Views */ = {
@@ -390,14 +361,14 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		576CF38129E371A900886E29 /* TableController */ = {
+		576CF38129E371A900886E29 /* SegmentTableController */ = {
 			isa = PBXGroup;
 			children = (
 				576CF32329DF396D00886E29 /* Model */,
 				576CF38329E371BB00886E29 /* Views */,
 				576CF38229E371B600886E29 /* Controllers */,
 			);
-			path = TableController;
+			path = SegmentTableController;
 			sourceTree = "<group>";
 		};
 		576CF38229E371B600886E29 /* Controllers */ = {
@@ -542,7 +513,9 @@
 		57F9967229B4A6D60062E8E9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				576CF32029DF38F700886E29 /* MatchModule */,
+				576CF38129E371A900886E29 /* SegmentTableController */,
+				576CF37529E3698000886E29 /* SegmentCollectionController */,
+				5720966829F0257300C4A285 /* CollectionSelectedMatchController */,
 				576CF36B29E3293E00886E29 /* MainTableViewController */,
 				57F9965F29B4A5330062E8E9 /* MainViewController.swift */,
 			);
@@ -692,7 +665,6 @@
 				576CF32729DF39D400886E29 /* MatchesTableView.swift in Sources */,
 				576CF37729E3699100886E29 /* MatchCollectionController.swift in Sources */,
 				57C1F6FA29EF06A7000D707F /* Test+CoreDataClass.swift in Sources */,
-				576CF32529DF399300886E29 /* MatchController.swift in Sources */,
 				576CF31D29DEEB2E00886E29 /* MainTableViewLastCell.swift in Sources */,
 				5781431229F4917400DDE7D1 /* TeamHistory.swift in Sources */,
 				5720967A29F08CAC00C4A285 /* StatisticMatchController.swift in Sources */,

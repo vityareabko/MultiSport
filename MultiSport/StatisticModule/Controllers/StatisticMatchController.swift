@@ -10,6 +10,8 @@ import UIKit
 
 //V3 - Fixtures by fixture id
 
+// TODO: - демонстрация №9
+
 class StatisticMatchController: UIViewController {
     
     // id матча
@@ -68,6 +70,7 @@ class StatisticMatchController: UIViewController {
     private func processResponse(_ response: [StatisticMatchResponse]) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
    
         for item in response {
 
@@ -85,10 +88,12 @@ class StatisticMatchController: UIViewController {
                 return
             }
             
+            dateFormatter.dateFormat = "MMM d"
+            
             self.labelTeamNameHome.text = homeTeam.name
             self.labelTeamNameAway.text = awayTeam.name
             self.labelScore.text = "\(scoreHomeTeam) : \(scoreAwayTeam)"
-            self.labelDate.text = "\(date)"
+            self.labelDate.text = dateFormatter.string(from: date)
             let awayTeamURLlogo = awayTeam.logo
             let homeTeamURLlogo = homeTeam.logo
             
@@ -96,12 +101,11 @@ class StatisticMatchController: UIViewController {
             
             downloadAndUpdateTeamLogo(with: [homeTeamURLlogo, awayTeamURLlogo])
         
-            
-            // создания
+            // извлекаем даные из декодированой структуры в нашу структуру
             let teamHomeStats = processTeamStatistics(team: homeTeam, stats: item.statistics)
             let teamAwayStats = processTeamStatistics(team: awayTeam, stats: item.statistics)
 
-            
+            // пытаемся извлечь данные
             if var homeStats = teamHomeStats, var awayStats = teamAwayStats {
                 calculateAction(team1: &homeStats, team2: &awayStats)
                 
@@ -277,7 +281,7 @@ class StatisticMatchController: UIViewController {
             
             // если у нас приходит value в типе Int
             if let intValue = getValue(statistic: stat) as? Int {
-                print("\(team.name) \(stat.type): \(intValue)")
+//                print("\(team.name) \(stat.type): \(intValue)")
                 
                 switch stat.type {
                 case "Shots on Goal":
@@ -315,9 +319,7 @@ class StatisticMatchController: UIViewController {
             
             // если у нас приходит value в типе String
             if let stringValue = getValue(statistic: stat) as? String {
-        
-                print("\(team.name) \(stat.type): \(stringValue)")
-                
+//                print("\(team.name) \(stat.type): \(stringValue)")
                 switch stat.type {
                 case "Ball Possession":
                     statisticTeam.ballPossession = stringValue

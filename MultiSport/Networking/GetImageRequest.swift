@@ -7,6 +7,8 @@
 
 import UIKit
 
+// TODO: - демонстрация №5
+
 // для отключения проверку сертификата
 class InsecureURLSessionDelegate: NSObject, URLSessionDelegate {
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {

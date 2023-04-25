@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: - демонстрация №6
 
 class NetworkingRequest {
     static let shared = NetworkingRequest()

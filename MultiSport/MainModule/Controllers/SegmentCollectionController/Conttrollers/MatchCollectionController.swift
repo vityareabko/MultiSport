@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: - демонстрация №2
 class MatchCollectionController: UIViewController {
     
     // MARK: - UI Components
@@ -26,7 +27,8 @@ class MatchCollectionController: UIViewController {
         setConstraints()
         
         // делаем запросы и обновляем колекцию с данными
-        loadPastEvents()
+//        loadPastEvents()
+        print("это колекция с комндами")
     }
 
     // обработка запросв в асинхроном режиме

@@ -25,6 +25,7 @@ class StatisticMatchTableView: UITableView {
     
     private func config() {
         self.backgroundColor = .clear
+        self.showsVerticalScrollIndicator = false
     }
     
     private func setDelegate() {

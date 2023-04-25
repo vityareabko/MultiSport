@@ -7,6 +7,8 @@
 
 import Foundation
 
+// TODO: - демонстрация №3
+
 enum DataFetchError: Error {
     case decodingError(Error)
     case networkError(Error)

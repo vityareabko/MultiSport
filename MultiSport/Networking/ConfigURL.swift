@@ -5,14 +5,10 @@
 //  Created by Витя Рябко on 18/04/23.
 //
 
-//V3 - Fixtures by team id
-
-// нужны параметры
-// status = FT - всегда это уже законченые матчи
-// last = последнее матчи
-// team - это id команды
+// TODO: - демонстрация №4
 
 import Foundation
+
 
 struct ServerData {
     static var shared = ServerData()
@@ -104,7 +100,7 @@ struct NetworkManager {
             url.append(path: apiPath.path)
             url.append(queryItems: apiPath.parameters)
         } else {
-            
+            // TODO: - сделать для версии ниже 16.0
         }
         
         

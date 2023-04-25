@@ -8,6 +8,7 @@
 import UIKit
 
 
+// TODO: - демонстрация №7
 
 class MatchesTeamController: UIViewController {
     
@@ -164,7 +165,6 @@ extension MatchesTeamController : StatisticMatchProtocol {
     func presentStatistic(idFixture: Int) {
         let vc = StatisticMatchController()
         vc.setIdFixture(idFixture: idFixture)
-        print(idFixture)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

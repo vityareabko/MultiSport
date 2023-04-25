@@ -53,6 +53,7 @@ class StatisticMatchTableViewCell: UITableViewCell {
     // MARK: - UI Setup
     private func setupUI() {
         self.backgroundColor = .clear
+        self.selectionStyle = .none
         
         labelAwayTeam.textAlignment = .center
         labelHomeTeam.textAlignment = .center
