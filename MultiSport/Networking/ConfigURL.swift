@@ -36,6 +36,7 @@ enum APIPath {
     case fixturesNext(next: Int? = 5, leagueID: LeagueID)
     case fixturesLast(last: Int? = 5, leagueID: LeagueID)
     case fixturesByTeamId(status: String = "FT", last: Int? = 15, teamID: Int)
+    case fixturesByFixturesID(idFixture: Int)
     
     // we get path - https:/api..../fixtures?
     var path: String {
@@ -45,6 +46,8 @@ enum APIPath {
         case .fixturesLast(_,_):
             return "v3/fixtures"
         case .fixturesByTeamId(_,_,_):
+            return "v3/fixtures"
+        case .fixturesByFixturesID(_):
             return "v3/fixtures"
         }
     }
@@ -64,18 +67,19 @@ enum APIPath {
             if let theLast = last {
                 result.append(URLQueryItem(name: "last", value: "\(theLast)"))
             }
-            
+    
             result.append(URLQueryItem(name: "league", value: "\(leagueId.rawValue)"))
             
         case .fixturesByTeamId(let status, let last, let teamID):
-            
-            result.append(URLQueryItem(name: "status", value: "\(status)"))
-            
-            result.append(URLQueryItem(name: "team", value: "\(teamID)"))
-            
             if let theLast = last {
                 result.append(URLQueryItem(name: "last", value: "\(theLast)"))
             }
+            
+            result.append(URLQueryItem(name: "status", value: "\(status)"))
+            result.append(URLQueryItem(name: "team", value: "\(teamID)"))
+            
+        case .fixturesByFixturesID(let idFixture):
+            result.append(URLQueryItem(name: "id", value: "\(idFixture)"))
         }
 
         return result
@@ -94,19 +98,28 @@ struct NetworkManager {
             return nil
         }
         
-//        var urlComponents = URLComponents.init(url: url, resolvingAgainstBaseURL: false)
-//        urlComponents?.path = apiPath.path
-//        urlComponents?.queryItems = apiPath.parameters
-//
-//
+//        var url1 = url
+        
         if #available(iOS 16.0, *) {
             url.append(path: apiPath.path)
             url.append(queryItems: apiPath.parameters)
         } else {
-            // Fallback on earlier versions
+            
         }
-//
+        
+        
+
+//        let path = apiPath.path
+//        let parametrs = apiPath.parameters
+//        url1.appendPathComponent(path)
+//        for param in parametrs {
+//            url1.appendPathComponent("\(param)")
+//        }
+//        print("url1",url1)  // url1 https://api-football-beta.p.rapidapi.com/v3/fixtures/last=5/league=315
+//        print("url",url)    // url https://api-football-beta.p.rapidapi.com/v3/fixtures?last=5&league=315
+        
         print(url)
+        
         return url
         
     }

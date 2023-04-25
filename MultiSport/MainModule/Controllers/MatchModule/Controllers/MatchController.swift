@@ -7,6 +7,11 @@
 
 import UIKit
 
+// протокол который менят удаленый контроллер что при нажатия назад мы показали предидущий контроллер
+protocol BackVCProtocol : AnyObject {
+    func changePrevVC(lastVC: UIViewController)
+}
+
 class MatchController: UIViewController {
     
     // MARK: - Controllers
@@ -15,6 +20,7 @@ class MatchController: UIViewController {
     
     private var childControllerMatchesTeam: MatchesTeamController?
     
+    weak var BackVCDelegate : BackVCProtocol?
     
     // MARK: - UI Components
     private lazy var segmentControl : UISegmentedControl = {
@@ -59,6 +65,7 @@ class MatchController: UIViewController {
             setupSecondViewController(viewController: childTableController, view: segmentControl)
         case 1:
             removeChildController(childController: childTableController)
+            
             if let childControllerMatchesTeam = childControllerMatchesTeam {
                 removeChildController(childController: childControllerMatchesTeam)
             }
@@ -73,6 +80,9 @@ class MatchController: UIViewController {
 extension MatchController: TeamMatchDetailedProtocol {
     func selectTeamMatchesDetailed(model: TeamModel) {
         if let lastChildController = children.last {
+            // сохраняем предыдущий контроллер чтобы при нажатия на кнопку назад вернуться к последнему контроллеру
+            BackVCDelegate?.changePrevVC(lastVC: lastChildController)
+            print(lastChildController)
             removeChildController(childController: lastChildController)
         }
         childControllerMatchesTeam = MatchesTeamController()

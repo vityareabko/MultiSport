@@ -47,6 +47,9 @@
 		5781431229F4917400DDE7D1 /* TeamHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781431129F4917400DDE7D1 /* TeamHistory.swift */; };
 		5781431429F5465500DDE7D1 /* ModelLeagueID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781431329F5465500DDE7D1 /* ModelLeagueID.swift */; };
 		5781431629F57D1700DDE7D1 /* PastFixturesByTeamID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781431529F57D1700DDE7D1 /* PastFixturesByTeamID.swift */; };
+		5781431929F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781431829F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift */; };
+		5781431B29F5D26900DDE7D1 /* FixturedMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781431A29F5D26900DDE7D1 /* FixturedMatch.swift */; };
+		5781431F29F6AA7600DDE7D1 /* StatisticMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781431E29F6AA7600DDE7D1 /* StatisticMatch.swift */; };
 		57C1F6F529EF060E000D707F /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F329EF060E000D707F /* DataBase.xcdatamodeld */; };
 		57C1F6FA29EF06A7000D707F /* Test+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F629EF06A7000D707F /* Test+CoreDataClass.swift */; };
 		57C1F6FB29EF06A7000D707F /* Test+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F729EF06A7000D707F /* Test+CoreDataProperties.swift */; };
@@ -107,6 +110,9 @@
 		5781431129F4917400DDE7D1 /* TeamHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamHistory.swift; sourceTree = "<group>"; };
 		5781431329F5465500DDE7D1 /* ModelLeagueID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLeagueID.swift; sourceTree = "<group>"; };
 		5781431529F57D1700DDE7D1 /* PastFixturesByTeamID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastFixturesByTeamID.swift; sourceTree = "<group>"; };
+		5781431829F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatchDecoder.swift; sourceTree = "<group>"; };
+		5781431A29F5D26900DDE7D1 /* FixturedMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturedMatch.swift; sourceTree = "<group>"; };
+		5781431E29F6AA7600DDE7D1 /* StatisticMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatch.swift; sourceTree = "<group>"; };
 		57C1F6F429EF060E000D707F /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
 		57C1F6F629EF06A7000D707F /* Test+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataClass.swift"; sourceTree = "<group>"; };
 		57C1F6F729EF06A7000D707F /* Test+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 		5720967629F08C8400C4A285 /* StatisticModule */ = {
 			isa = PBXGroup;
 			children = (
+				5781431729F5C8DF00DDE7D1 /* Model */,
 				5720967829F08C9200C4A285 /* Views */,
 				5720967729F08C8D00C4A285 /* Controllers */,
 			);
@@ -448,6 +455,16 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		5781431729F5C8DF00DDE7D1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5781431829F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift */,
+				5781431A29F5D26900DDE7D1 /* FixturedMatch.swift */,
+				5781431E29F6AA7600DDE7D1 /* StatisticMatch.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		57C1F6FE29EF06C3000D707F /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -683,6 +700,9 @@
 				576CF39029E7D74A00886E29 /* NetworkingDataFetch.swift in Sources */,
 				576CF30429DC989600886E29 /* LoginController.swift in Sources */,
 				576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */,
+				5781431929F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift in Sources */,
+				5781431F29F6AA7600DDE7D1 /* StatisticMatch.swift in Sources */,
+				5781431B29F5D26900DDE7D1 /* FixturedMatch.swift in Sources */,
 				57C1F70029EF3FAD000D707F /* GetImageRequest.swift in Sources */,
 				5781431429F5465500DDE7D1 /* ModelLeagueID.swift in Sources */,
 				576CF31329DCBECB00886E29 /* UILabel + Extensions.swift in Sources */,

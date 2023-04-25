@@ -154,6 +154,10 @@ class MatchesTableController: UIViewController {
 //    }
     
     
+    
+    // [StatisticTypeValue]
+    // [ [vopros, znachHome, znachAway] ]
+    
                         
     // MARK: - API Result Function
     private func requestEvents(with url: URL) {

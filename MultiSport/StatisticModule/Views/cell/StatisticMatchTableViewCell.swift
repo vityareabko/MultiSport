@@ -12,7 +12,7 @@ class StatisticMatchTableViewCell: UITableViewCell {
     static let identifier = "StatisticMatchTableViewCell"
     
     // MARK: - UI Components
-    private let labelHomeTeam = UILabel(text: "54", textColor: .specialOrangeColor, font: .gothamBold20())
+    private let labelHomeTeam = UILabel(text: "54", textColor: .specialLight, font: .gothamBold20())
     private let labelAwayTeam = UILabel(text: "46", textColor: .specialLight, font: .gothamBold20())
     private let labelStatisticPoint = UILabel(text: "action areas", textColor: .systemGray5, font: .gothamBold18())
     
@@ -59,17 +59,40 @@ class StatisticMatchTableViewCell: UITableViewCell {
         labelStatisticPoint.textAlignment = .center
         labelStatisticPoint.numberOfLines = 2
         labelStatisticPoint.text = labelStatisticPoint.text?.uppercased()
-        
-      
-        
+
         self.addSubview(topLine)
         self.addSubview(verticalLeftLine)
         self.addSubview(verticalRightLine)
         self.addSubview(labelStatisticPoint)
         self.addSubview(labelAwayTeam)
         self.addSubview(labelHomeTeam)
+    }
+    
+    public func setData(model: StatisticTypeValue) {
+        self.labelStatisticPoint.text = model.type
+        if let intValue = model.valueTeamHome, let intValue1 = model.valueTeamAway  {
+            // изменяем текст лейбов
+            self.labelHomeTeam.text = "\(intValue)"
+            self.labelAwayTeam.text = "\(intValue1)"
+            
+            // проверяем какой value больше и меняем цвет
+            self.labelHomeTeam.textColor = intValue > intValue1 ? .specialOrangeColor : .specialLight
+            self.labelAwayTeam.textColor = intValue1 > intValue ? .specialOrangeColor : .specialLight
+        }
         
-        
+        if let strValue = model.valueTeamHomeStr, let strValue1 = model.valueTeamAwayStr  {
+            // изменяем текст лейбов
+            self.labelHomeTeam.text = strValue
+            self.labelAwayTeam.text = strValue1
+            
+            // так как у нас тут данные приходят в виде проценат "54.5%" то мы извлекаем только цыфры чтобы сравнит какой больше и изменить цвет
+            let intValue = strValue.filter { $0.isNumber }
+            let intValue1 = strValue1.filter { $0.isNumber }
+            
+            // проверяем какой value больше и меняем цвет
+            self.labelHomeTeam.textColor = intValue > intValue1 ? .specialOrangeColor : .specialLight
+            self.labelAwayTeam.textColor = intValue1 > intValue ? .specialOrangeColor : .specialLight
+        }
 
     }
 }
@@ -94,8 +117,8 @@ extension StatisticMatchTableViewCell {
             verticalRightLine.widthAnchor.constraint(equalToConstant: 0.5),
             
             labelHomeTeam.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            labelHomeTeam.leadingAnchor.constraint(equalTo: topLine.leadingAnchor, constant: 20),
-            labelHomeTeam.trailingAnchor.constraint(equalTo: verticalLeftLine.leadingAnchor, constant: -20),
+            labelHomeTeam.leadingAnchor.constraint(equalTo: topLine.leadingAnchor, constant: 10),
+            labelHomeTeam.trailingAnchor.constraint(equalTo: verticalLeftLine.leadingAnchor, constant: -10),
             labelHomeTeam.heightAnchor.constraint(equalToConstant: 22),
             
             labelStatisticPoint.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -104,8 +127,8 @@ extension StatisticMatchTableViewCell {
             labelStatisticPoint.heightAnchor.constraint(equalToConstant: 50),
             
             labelAwayTeam.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            labelAwayTeam.trailingAnchor.constraint(equalTo: topLine.trailingAnchor, constant: -20),
-            labelAwayTeam.leadingAnchor.constraint(equalTo: verticalRightLine.trailingAnchor, constant: 20),
+            labelAwayTeam.trailingAnchor.constraint(equalTo: topLine.trailingAnchor, constant: -10),
+            labelAwayTeam.leadingAnchor.constraint(equalTo: verticalRightLine.trailingAnchor, constant: 10),
             labelAwayTeam.heightAnchor.constraint(equalToConstant: 22),
             
             

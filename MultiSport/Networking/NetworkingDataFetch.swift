@@ -93,7 +93,11 @@ class NetworkDataFetch {
         fetchData(urlRequest: urlRequest, completion: completion)
     }
     
-    func fetchHistoryTeamMatches(urlRequest: URL, completion: @escaping (Result<HistoryTeamMatchesWelcome, DataFetchError>) -> Void ){
+    func fetchHistoryTeamMatches(urlRequest: URL, completion: @escaping (Result<HistoryTeamMatchesWelcome, DataFetchError>) -> Void ) {
+        fetchData(urlRequest: urlRequest, completion: completion)
+    }
+    
+    func fetchStatisticMatchByIdFixtures(urlRequest: URL, completion: @escaping (Result<StatisticMatchWelcome, DataFetchError>) -> Void ) {
         fetchData(urlRequest: urlRequest, completion: completion)
     }
 }

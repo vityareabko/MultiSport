@@ -23,9 +23,6 @@ class MatchesTeamTable: UITableView {
     
     private var modelFixtures = [PastFixturesByTeamID]()
     
-    // id вибраного матча
-    private var idFixture: Int = -1
-    
     /* это multiplier который мы меняем при скролле в changeContstraints в протоколе - ChangeConstrainProtocol */
     let logoMainTeamInitialWidth: CGFloat = 0.35
     let logoMainTeamMinimumWidth: CGFloat = 0.15

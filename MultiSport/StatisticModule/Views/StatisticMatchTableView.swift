@@ -9,6 +9,8 @@ import UIKit
 
 class StatisticMatchTableView: UITableView {
     
+    private var statsTeams = [StatisticTypeValue]()
+    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         register(StatisticMatchTableViewCell.self, forCellReuseIdentifier: StatisticMatchTableViewCell.identifier)
@@ -29,7 +31,12 @@ class StatisticMatchTableView: UITableView {
         self.dataSource = self
         self.delegate = self
     }
+    
+    public func setData(_ stats: [StatisticTypeValue]){
+        self.statsTeams = stats
+    }
 }
+
 
 extension StatisticMatchTableView : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -38,7 +45,7 @@ extension StatisticMatchTableView : UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        30
+        self.statsTeams.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,6 +53,8 @@ extension StatisticMatchTableView : UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
+        
+        cell.setData(model: self.statsTeams[indexPath.row])
         return cell
     }
 }
