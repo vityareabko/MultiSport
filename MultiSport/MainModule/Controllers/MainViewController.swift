@@ -21,8 +21,6 @@ class MainViewController: UIViewController {
 
     private var childControllerMatchesTeam: MatchesTeamController? // контролеп который идет после нажатия кнопки в контролере с колецией команд
     
-    private var prevsVC = [UIViewController]()
-    
     // MARK: - UI Components
     private lazy var buttonComming = UIButton(text: "UPCOMING", textColor: .systemGray5, bgColor: .specialBagroubdSubviews, font: .gothamBold15())
     private lazy var buttonCompleted = UIButton(text: "COMPLETED", textColor: .systemGray5, bgColor: .specialBagroubdSubviews, font: .gothamBold15())
@@ -80,7 +78,6 @@ class MainViewController: UIViewController {
         return sc
     }()
     
-    
     private var stackViewButtons = UIStackView()
     
     
@@ -92,8 +89,6 @@ class MainViewController: UIViewController {
         setConstraints()
         setupSecondViewController(viewController: childControllerMainTable, view: segmentControl)
         sportTypeCollectionView.selecdItemCollectionDelegate = self
-        
-//        prevsVC.append(childControllerMainTable)
     }
     
     // MARK: - Setup UI
@@ -102,6 +97,8 @@ class MainViewController: UIViewController {
         
         setStackView()
         
+        // это у нас кнопки который при нажатия на них скрываются и передают таг в segmentControll
+        // и вместо кнопок уже показывается segmentControll - так по дизайну нужно
         buttonComming.addTarget(self, action: #selector(didtapButton), for: .touchUpInside)
         buttonCompleted.addTarget(self, action: #selector(didtapButton), for: .touchUpInside)
         buttonComming.tag = 0
@@ -145,11 +142,6 @@ class MainViewController: UIViewController {
         }
     }
     
-//    private func appendViewControllerToArray(vc: UIViewController) {
-//        if !self.prevsVC.contains(vc) {
-//            self.prevsVC.append(vc)
-//        }
-//    }
     
     // MARK: - Selectors
     @objc private func didTapLogin(){
@@ -173,6 +165,19 @@ class MainViewController: UIViewController {
         sender.isHidden = true
     }
     
+    // этот селектор работает только когда я нахожусь в MatchesTeamController потом я меняю на другой селектор
+    @objc private func didPrevController() {
+        if let lastChildController = children.last {
+            removeChildController(childController: lastChildController)
+        }
+        
+        backAtHome.removeTarget(self, action: #selector(didPrevController), for: .touchUpInside)
+        backAtHome.addTarget(self, action: #selector(didtapHome), for: .touchUpInside)
+        
+        childCollectionController = MatchCollectionController()
+        setupSecondViewController(viewController: childCollectionController!, view: segmentControl)
+    }
+    
     @objc private func didtapButton(sender: UIButton) {
         stackViewButtons.isHidden = true
         segmentControl.isHidden = false
@@ -181,10 +186,6 @@ class MainViewController: UIViewController {
         sportTypeCollectionView.selectItem(at: [0,0], animated: false, scrollPosition: .right)
         
         if let lastChildController = children.last {
-            if !self.prevsVC.contains(lastChildController) {
-                self.prevsVC.append(lastChildController)
-            }
-            print(self.prevsVC)
             removeChildController(childController: lastChildController)
         }
         
@@ -195,10 +196,6 @@ class MainViewController: UIViewController {
     // MARK: - Selectors
     @objc private func didTappedSegment(sender: UISegmentedControl) {
         if let lastChildController = children.last {
-            if !self.prevsVC.contains(lastChildController) {
-                self.prevsVC.append(lastChildController)
-            }
-            print(self.prevsVC)
             removeChildController(childController: lastChildController)
         }
         
@@ -231,8 +228,14 @@ extension MainViewController: TeamMatchDetailedProtocol {
         if let lastChildController = children.last {
             removeChildController(childController: lastChildController)
         }
+        
+        // это для того чтобы вернуться к предыдущему контроллеру а именно в MatchCollectionController
+        // так как он всегда будет предыдущим относительно этого контроллера так как он вызывается из этого контроллера
+        backAtHome.removeTarget(self, action: #selector(didtapHome), for: .touchUpInside)
+        backAtHome.addTarget(self, action: #selector(didPrevController), for: .touchUpInside)
+        
+        
         childControllerMatchesTeam = MatchesTeamController()
-
         guard let vc = childControllerMatchesTeam else { return }
         vc.setData(model: model)
         
