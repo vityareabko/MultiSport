@@ -16,8 +16,16 @@ extension UIFont {
     
     // MARK: - Regular
     
+    static func gothamRegular10() -> UIFont? {
+        return UIFont.init(name: "GothamPro", size: 10)
+    }
+    
     static func gothamRegular12() -> UIFont? {
         return UIFont.init(name: "GothamPro", size: 12)
+    }
+    
+    static func gothamRegular13() -> UIFont? {
+        return UIFont.init(name: "GothamPro", size: 13)
     }
     
     static func gothamRegular15() -> UIFont? {

@@ -19,4 +19,12 @@ extension UIButton {
         self.layer.cornerRadius = 7
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    convenience init(icon: UIImage) {
+        self.init(type: .system)
+        self.setBackgroundImage(icon, for: .normal)
+        self.contentMode = .scaleAspectFit
+        icon.withTintColor(.systemGray5, renderingMode: .alwaysTemplate)
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
 }

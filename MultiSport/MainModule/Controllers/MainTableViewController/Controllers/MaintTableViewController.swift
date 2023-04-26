@@ -28,9 +28,13 @@ class MaintTableViewController: UIViewController {
         self.view.addSubview(mainTableView)
         mainTableView.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    public func setDelegate(vc: UIViewController) {
+        mainTableView.pushToControllDelegate = vc as? PushToControllerProtocol
+    }
 }
 
-// MARK: - Extensions
+// MARK: - Contstraints
 extension MaintTableViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([

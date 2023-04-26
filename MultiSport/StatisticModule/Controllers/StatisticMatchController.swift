@@ -331,7 +331,6 @@ class StatisticMatchController: UIViewController {
                     break
                 }
             }
-                
         }
 
         return statisticTeam

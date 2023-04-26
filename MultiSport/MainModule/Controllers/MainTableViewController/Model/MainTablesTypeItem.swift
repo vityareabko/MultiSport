@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 enum MainTablesTypeItem: String, CaseIterable {
-    case statistics
     case calendar
     case notes
     case factor

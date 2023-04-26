@@ -49,6 +49,12 @@
 		5781431929F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781431829F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift */; };
 		5781431B29F5D26900DDE7D1 /* FixturedMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781431A29F5D26900DDE7D1 /* FixturedMatch.swift */; };
 		5781431F29F6AA7600DDE7D1 /* StatisticMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781431E29F6AA7600DDE7D1 /* StatisticMatch.swift */; };
+		5781432629F970B800DDE7D1 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781432529F970B800DDE7D1 /* CalendarController.swift */; };
+		5781432B29F9944D00DDE7D1 /* CalendarCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781432A29F9944D00DDE7D1 /* CalendarCollectionView.swift */; };
+		5781432E29F9953700DDE7D1 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781432D29F9953700DDE7D1 /* CalendarCollectionViewCell.swift */; };
+		5781433029F9A1CE00DDE7D1 /* Date + Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781432F29F9A1CE00DDE7D1 /* Date + Extenstions.swift */; };
+		5781433229F9DD0C00DDE7D1 /* EventByDateTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781433129F9DD0C00DDE7D1 /* EventByDateTableView.swift */; };
+		5781433429F9E1BB00DDE7D1 /* EventByDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781433329F9E1BB00DDE7D1 /* EventByDateTableViewCell.swift */; };
 		57C1F6F529EF060E000D707F /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F329EF060E000D707F /* DataBase.xcdatamodeld */; };
 		57C1F6FA29EF06A7000D707F /* Test+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F629EF06A7000D707F /* Test+CoreDataClass.swift */; };
 		57C1F6FB29EF06A7000D707F /* Test+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F729EF06A7000D707F /* Test+CoreDataProperties.swift */; };
@@ -111,6 +117,12 @@
 		5781431829F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatchDecoder.swift; sourceTree = "<group>"; };
 		5781431A29F5D26900DDE7D1 /* FixturedMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturedMatch.swift; sourceTree = "<group>"; };
 		5781431E29F6AA7600DDE7D1 /* StatisticMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatch.swift; sourceTree = "<group>"; };
+		5781432529F970B800DDE7D1 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		5781432A29F9944D00DDE7D1 /* CalendarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionView.swift; sourceTree = "<group>"; };
+		5781432D29F9953700DDE7D1 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		5781432F29F9A1CE00DDE7D1 /* Date + Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extenstions.swift"; sourceTree = "<group>"; };
+		5781433129F9DD0C00DDE7D1 /* EventByDateTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventByDateTableView.swift; sourceTree = "<group>"; };
+		5781433329F9E1BB00DDE7D1 /* EventByDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventByDateTableViewCell.swift; sourceTree = "<group>"; };
 		57C1F6F429EF060E000D707F /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
 		57C1F6F629EF06A7000D707F /* Test+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataClass.swift"; sourceTree = "<group>"; };
 		57C1F6F729EF06A7000D707F /* Test+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -225,7 +237,6 @@
 		576CF2FF29DC985000886E29 /* LogInModule */ = {
 			isa = PBXGroup;
 			children = (
-				576CF30229DC986C00886E29 /* Models */,
 				576CF30129DC986400886E29 /* Views */,
 				576CF30029DC985D00886E29 /* Controllers */,
 			);
@@ -245,13 +256,6 @@
 			children = (
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		576CF30229DC986C00886E29 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		576CF30729DCA37000886E29 /* cell */ = {
@@ -389,7 +393,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		576CF38629E7C25800886E29 /* Networking */ = {
+		576CF38629E7C25800886E29 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
 				576CF38729E7C2B300886E29 /* NetworkingRequest.swift */,
@@ -397,7 +401,7 @@
 				576CF3BF29EEBF0400886E29 /* ConfigURL.swift */,
 				57C1F6FF29EF3FAD000D707F /* GetImageRequest.swift */,
 			);
-			path = Networking;
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 		576CF38929E7D0D500886E29 /* API */ = {
@@ -436,6 +440,50 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5781432029F9701300DDE7D1 /* CalendarModule */ = {
+			isa = PBXGroup;
+			children = (
+				5781432229F9702000DDE7D1 /* Views */,
+				5781432329F9703200DDE7D1 /* controllers */,
+			);
+			path = CalendarModule;
+			sourceTree = "<group>";
+		};
+		5781432229F9702000DDE7D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5781432C29F9952000DDE7D1 /* cell */,
+				5781432A29F9944D00DDE7D1 /* CalendarCollectionView.swift */,
+				5781433129F9DD0C00DDE7D1 /* EventByDateTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5781432329F9703200DDE7D1 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5781432529F970B800DDE7D1 /* CalendarController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		5781432429F9708A00DDE7D1 /* Authorisation */ = {
+			isa = PBXGroup;
+			children = (
+				576CF2FF29DC985000886E29 /* LogInModule */,
+			);
+			path = Authorisation;
+			sourceTree = "<group>";
+		};
+		5781432C29F9952000DDE7D1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				5781432D29F9953700DDE7D1 /* CalendarCollectionViewCell.swift */,
+				5781433329F9E1BB00DDE7D1 /* EventByDateTableViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		57C1F6FE29EF06C3000D707F /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,10 +515,11 @@
 		57F9965A29B4A5330062E8E9 /* MultiSport */ = {
 			isa = PBXGroup;
 			children = (
+				5781432429F9708A00DDE7D1 /* Authorisation */,
+				5781432029F9701300DDE7D1 /* CalendarModule */,
 				5720967629F08C8400C4A285 /* StatisticModule */,
-				576CF38629E7C25800886E29 /* Networking */,
-				576CF2FF29DC985000886E29 /* LogInModule */,
 				57F9967129B4A6CD0062E8E9 /* MainModule */,
+				576CF38629E7C25800886E29 /* NetworkManager */,
 				57F9967429B4A6EE0062E8E9 /* Extensions + UICustomComponents */,
 				57F9967029B4A6BE0062E8E9 /* Aplication */,
 				57F9966F29B4A6460062E8E9 /* Suport */,
@@ -539,6 +588,7 @@
 				576CF31229DCBECB00886E29 /* UILabel + Extensions.swift */,
 				576CF31829DCC99300886E29 /* UIButton + Extensions.swift */,
 				57F9968E29B4EE300062E8E9 /* UIViewController + Extensions.swift */,
+				5781432F29F9A1CE00DDE7D1 /* Date + Extenstions.swift */,
 			);
 			path = "Extensions + UICustomComponents";
 			sourceTree = "<group>";
@@ -636,8 +686,11 @@
 				576CF2FE29DC910B00886E29 /* MainTablesTypeItem.swift in Sources */,
 				5720967D29F18D6200C4A285 /* StatisticMatchTableView.swift in Sources */,
 				5781431629F57D1700DDE7D1 /* PastFixturesByTeamID.swift in Sources */,
+				5781432E29F9953700DDE7D1 /* CalendarCollectionViewCell.swift in Sources */,
 				576CF32D29E1782E00886E29 /* SeactionMatchTableView.swift in Sources */,
 				576CF38829E7C2B300886E29 /* NetworkingRequest.swift in Sources */,
+				5781433029F9A1CE00DDE7D1 /* Date + Extenstions.swift in Sources */,
+				5781432B29F9944D00DDE7D1 /* CalendarCollectionView.swift in Sources */,
 				576CF38B29E7D0ED00886E29 /* getApiKey.swift in Sources */,
 				576CF3C029EEBF0400886E29 /* ConfigURL.swift in Sources */,
 				5781430F29F420EC00DDE7D1 /* jsonNullAndOther.swift in Sources */,
@@ -653,6 +706,7 @@
 				576CF38029E36D6F00886E29 /* MatchCollectionViewCell.swift in Sources */,
 				5720967529F0787400C4A285 /* HeaderMatchSectionView.swift in Sources */,
 				57C1F6F529EF060E000D707F /* DataBase.xcdatamodeld in Sources */,
+				5781432629F970B800DDE7D1 /* CalendarController.swift in Sources */,
 				576CF38E29E7D73500886E29 /* ModelFutureMatches.swift in Sources */,
 				57F9967929B4A7480062E8E9 /* UIFont + Extensions.swift in Sources */,
 				57F9965C29B4A5330062E8E9 /* AppDelegate.swift in Sources */,
@@ -671,12 +725,14 @@
 				57F9965E29B4A5330062E8E9 /* SceneDelegate.swift in Sources */,
 				576CF39029E7D74A00886E29 /* NetworkingDataFetch.swift in Sources */,
 				576CF30429DC989600886E29 /* LoginController.swift in Sources */,
+				5781433229F9DD0C00DDE7D1 /* EventByDateTableView.swift in Sources */,
 				576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */,
 				5781431929F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift in Sources */,
 				5781431F29F6AA7600DDE7D1 /* StatisticMatch.swift in Sources */,
 				5781431B29F5D26900DDE7D1 /* FixturedMatch.swift in Sources */,
 				57C1F70029EF3FAD000D707F /* GetImageRequest.swift in Sources */,
 				5781431429F5465500DDE7D1 /* ModelLeagueID.swift in Sources */,
+				5781433429F9E1BB00DDE7D1 /* EventByDateTableViewCell.swift in Sources */,
 				576CF31329DCBECB00886E29 /* UILabel + Extensions.swift in Sources */,
 				5720968029F18E5E00C4A285 /* StatisticMatchTableViewCell.swift in Sources */,
 				576CF31129DCBDF300886E29 /* UIImageView + Extensions.swift in Sources */,

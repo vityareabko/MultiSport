@@ -89,6 +89,7 @@ class MainViewController: UIViewController {
         setConstraints()
         setupSecondViewController(viewController: childControllerMainTable, view: segmentControl)
         sportTypeCollectionView.selecdItemCollectionDelegate = self
+        childControllerMainTable.setDelegate(vc: self)
     }
     
     // MARK: - Setup UI
@@ -108,6 +109,7 @@ class MainViewController: UIViewController {
         self.view.addSubview(stackViewButtons)
         self.view.addSubview(segmentControl)
         sportTypeCollectionView.translatesAutoresizingMaskIntoConstraints = false
+
     }
     
     
@@ -190,6 +192,7 @@ class MainViewController: UIViewController {
         }
         
         segmentControlCotntollers(selectItem: sender.tag)
+        // в зависимости от нажатой кнопки меняю selectedSegmentIndex
         segmentControl.selectedSegmentIndex = sender.tag
     }
     
@@ -198,11 +201,8 @@ class MainViewController: UIViewController {
         if let lastChildController = children.last {
             removeChildController(childController: lastChildController)
         }
-        
         segmentControlCotntollers(selectItem: sender.selectedSegmentIndex)
     }
-    
-    
 }
 
 // MARK: - SelecdItemCollectionProtocol
@@ -234,7 +234,6 @@ extension MainViewController: TeamMatchDetailedProtocol {
         backAtHome.removeTarget(self, action: #selector(didtapHome), for: .touchUpInside)
         backAtHome.addTarget(self, action: #selector(didPrevController), for: .touchUpInside)
         
-        
         childControllerMatchesTeam = MatchesTeamController()
         guard let vc = childControllerMatchesTeam else { return }
         vc.setData(model: model)
@@ -242,6 +241,39 @@ extension MainViewController: TeamMatchDetailedProtocol {
         setupSecondViewController(viewController: vc, view: segmentControl)
     }
 }
+
+// MARK: - PushToControllerProtocol
+extension MainViewController: PushToControllerProtocol {
+    func pushToControll(categories: MainTablesTypeItem) {
+        switch categories {
+        case .calendar:
+            let vc = CalendarController()
+            vc.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(vc, animated: true)
+        case .notes:
+            print("notes")
+        case .factor:
+            print("factor")
+        case .favorites:
+            print("favorites")
+        case .league:
+            print("league")
+        case .team:
+            print("team")
+        case .transfer:
+            print("transfer")
+        case .victories:
+            print("victories")
+        case .betSimulation:
+            print("betSimulation")
+        case .myBets:
+            print("myBets")
+        case .shop:
+            print("shop")
+        }
+    }
+}
+
 
 // MARK: - Contstraints
 extension MainViewController {

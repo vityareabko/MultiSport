@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol PushToControllerProtocol: AnyObject {
+    func pushToControll(categories: MainTablesTypeItem)
+}
+
 class MainTableView: UITableView {
 
     private let mainTableTypeItems = MainTablesTypeItem.allCases
+    
+    weak var pushToControllDelegate: PushToControllerProtocol?
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -74,7 +80,9 @@ extension MainTableView: UITableViewDataSource {
 }
 
 extension MainTableView: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pushToControllDelegate?.pushToControll(categories: mainTableTypeItems[indexPath.row])
+    }
 }
 
 
