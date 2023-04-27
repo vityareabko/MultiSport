@@ -17,10 +17,9 @@ class EventByDateTableViewCell: UITableViewCell {
     private let teamFirst = UILabel(text: "Mosc city", textColor: .systemGray5, font: .gothamRegular15())
     private let teamSecond = UILabel(text: "Ekatburg", textColor: .systemGray5, font: .gothamRegular15())
     
-    private let teamFirsIcon = UIImageView(imageName: "mosk")
-    private let teamSecondIcon = UIImageView(imageName: "ekatvurg")
+    private let teamFirsIcon = UIImageView(imageName: "team1")
+    private let teamSecondIcon = UIImageView(imageName: "team2")
     
-    private let iconClock = UIImageView(imageName: "clock")
     private let timeStartMatchLabel = UILabel(text: "07:00", textColor: .specialOrangeColor, font: .gothamRegular13())
     private let dateLabel = UILabel(text: "17 Feb", textColor: .systemGray5, font: .gothamRegular13())
     
@@ -63,7 +62,7 @@ class EventByDateTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         
         dateLabel.textAlignment = .center
-        iconClock.tintColor = .specialOrangeColor
+        timeStartMatchLabel.textAlignment = .center
         teamFirst.numberOfLines = 2
         teamFirst.textAlignment = .center
         teamSecond.numberOfLines = 2
@@ -79,7 +78,7 @@ class EventByDateTableViewCell: UITableViewCell {
     
     // MARK: - setup StackView
     private func setStackView() {
-        let timeStackView = UIStackView(arrangedSubviews: [iconClock, timeStartMatchLabel])
+        let timeStackView = UIStackView(arrangedSubviews: [timeStartMatchLabel])
         timeStackView.axis = .horizontal
         timeStackView.spacing = 3
         timeStackView.distribution = .fill

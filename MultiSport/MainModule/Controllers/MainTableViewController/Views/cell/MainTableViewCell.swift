@@ -12,7 +12,7 @@ class MainTableViewCell : UITableViewCell {
     static let identifier = "MainTableViewCell"
     
     // MARK: - Ui Components
-    private var iconCell = UIImageView(imageName: "Error")
+    private var iconCell = UIImageView(imageName: "team1")
     private var titleCell = UILabel(text: "Error", textColor: .systemGray5, font: .gothamBold18())
     private var arrowIcon: UIImageView = {
         let iv = UIImageView()

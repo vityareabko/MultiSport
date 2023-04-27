@@ -41,7 +41,6 @@ class NetworkingRequest {
                     // Сохраняем данные в кэше
                     self.cache.setObject(data as NSData, forKey: url as NSURL)
                     completion(.success(data))
-                    print("CASHE")
                 }
             }
         }.resume()

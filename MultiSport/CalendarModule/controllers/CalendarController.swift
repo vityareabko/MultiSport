@@ -6,6 +6,8 @@
 //
 
 import UIKit
+// TODO: - для таблицы и колекции данные будут приходить из БД
+// TODO: - Нужно спроектировать БД
 
 class CalendarController: UIViewController {
     
@@ -14,11 +16,13 @@ class CalendarController: UIViewController {
     
     // MARK: - UI Components
     private let calendarCollection = CalendarCollectionView()
+    
+    
     private let eventByDateTableView = EventByDateTableView()
     
     private let titleLabelController = UILabel(text: "Calendar", textColor: .specialOrangeColor, font: .gothamBold22())
-    private let calendarButtonleft = UIButton(icon: UIImage(systemName: "chevron.backward")!)
-    private let calendarButtonRight = UIButton(icon: UIImage(systemName: "chevron.right")!)
+    private let calendarButtonleft = UIButton(icon: UIImage(systemName: "chevron.backward") ?? UIImage())
+    private let calendarButtonRight = UIButton(icon: UIImage(systemName: "chevron.right") ?? UIImage())
     private let calendarLabelDate = UILabel(text: "", textColor: .systemGray5, font: .gothamBold14())
 
     private let weekDay1 = UILabel(text: "MON", textColor: .specialLight, font: .gothamRegular12())

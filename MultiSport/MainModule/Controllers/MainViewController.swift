@@ -248,10 +248,10 @@ extension MainViewController: PushToControllerProtocol {
         switch categories {
         case .calendar:
             let vc = CalendarController()
-            vc.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(vc, animated: true)
         case .notes:
-            print("notes")
+            let vc = NotesController()
+            navigationController?.pushViewController(vc, animated: true)
         case .factor:
             print("factor")
         case .favorites:

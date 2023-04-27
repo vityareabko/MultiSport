@@ -14,7 +14,7 @@ class SportTypeCollectionViewCell: UICollectionViewCell {
     // MARK: - Ui Components
     private let icontSport: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "Error")?.withRenderingMode(.alwaysTemplate)
+        imageView.image = UIImage(named: "team1")?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = .systemGray5
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false

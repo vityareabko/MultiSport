@@ -55,6 +55,10 @@
 		5781433029F9A1CE00DDE7D1 /* Date + Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781432F29F9A1CE00DDE7D1 /* Date + Extenstions.swift */; };
 		5781433229F9DD0C00DDE7D1 /* EventByDateTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781433129F9DD0C00DDE7D1 /* EventByDateTableView.swift */; };
 		5781433429F9E1BB00DDE7D1 /* EventByDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781433329F9E1BB00DDE7D1 /* EventByDateTableViewCell.swift */; };
+		5781433A29FAA1BB00DDE7D1 /* NotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781433929FAA1BB00DDE7D1 /* NotesController.swift */; };
+		5781433C29FAAB6200DDE7D1 /* NoticeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781433B29FAAB6200DDE7D1 /* NoticeTableView.swift */; };
+		5781434129FAAC6F00DDE7D1 /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781434029FAAC6F00DDE7D1 /* NoticeTableViewCell.swift */; };
+		5781434529FB019500DDE7D1 /* NoticeTableViewLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781434429FB019500DDE7D1 /* NoticeTableViewLastCell.swift */; };
 		57C1F6F529EF060E000D707F /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F329EF060E000D707F /* DataBase.xcdatamodeld */; };
 		57C1F6FA29EF06A7000D707F /* Test+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F629EF06A7000D707F /* Test+CoreDataClass.swift */; };
 		57C1F6FB29EF06A7000D707F /* Test+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6F729EF06A7000D707F /* Test+CoreDataProperties.swift */; };
@@ -123,6 +127,10 @@
 		5781432F29F9A1CE00DDE7D1 /* Date + Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extenstions.swift"; sourceTree = "<group>"; };
 		5781433129F9DD0C00DDE7D1 /* EventByDateTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventByDateTableView.swift; sourceTree = "<group>"; };
 		5781433329F9E1BB00DDE7D1 /* EventByDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventByDateTableViewCell.swift; sourceTree = "<group>"; };
+		5781433929FAA1BB00DDE7D1 /* NotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesController.swift; sourceTree = "<group>"; };
+		5781433B29FAAB6200DDE7D1 /* NoticeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableView.swift; sourceTree = "<group>"; };
+		5781434029FAAC6F00DDE7D1 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		5781434429FB019500DDE7D1 /* NoticeTableViewLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewLastCell.swift; sourceTree = "<group>"; };
 		57C1F6F429EF060E000D707F /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
 		57C1F6F629EF06A7000D707F /* Test+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataClass.swift"; sourceTree = "<group>"; };
 		57C1F6F729EF06A7000D707F /* Test+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -484,6 +492,41 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		5781433529FAA16B00DDE7D1 /* NotesModule */ = {
+			isa = PBXGroup;
+			children = (
+				5781433729FAA18000DDE7D1 /* Views */,
+				5781433629FAA17700DDE7D1 /* Contorollers */,
+			);
+			path = NotesModule;
+			sourceTree = "<group>";
+		};
+		5781433629FAA17700DDE7D1 /* Contorollers */ = {
+			isa = PBXGroup;
+			children = (
+				5781433929FAA1BB00DDE7D1 /* NotesController.swift */,
+			);
+			path = Contorollers;
+			sourceTree = "<group>";
+		};
+		5781433729FAA18000DDE7D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5781433D29FAAC4B00DDE7D1 /* cell */,
+				5781433B29FAAB6200DDE7D1 /* NoticeTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5781433D29FAAC4B00DDE7D1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				5781434029FAAC6F00DDE7D1 /* NoticeTableViewCell.swift */,
+				5781434429FB019500DDE7D1 /* NoticeTableViewLastCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		57C1F6FE29EF06C3000D707F /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				5781432429F9708A00DDE7D1 /* Authorisation */,
+				5781433529FAA16B00DDE7D1 /* NotesModule */,
 				5781432029F9701300DDE7D1 /* CalendarModule */,
 				5720967629F08C8400C4A285 /* StatisticModule */,
 				57F9967129B4A6CD0062E8E9 /* MainModule */,
@@ -703,7 +747,9 @@
 				57F9967729B4A7350062E8E9 /* UIColor + Extensions.swift in Sources */,
 				576CF37029E329A600886E29 /* MaintTableViewController.swift in Sources */,
 				576CF37E29E36BDF00886E29 /* TeamModel.swift in Sources */,
+				5781433A29FAA1BB00DDE7D1 /* NotesController.swift in Sources */,
 				576CF38029E36D6F00886E29 /* MatchCollectionViewCell.swift in Sources */,
+				5781434129FAAC6F00DDE7D1 /* NoticeTableViewCell.swift in Sources */,
 				5720967529F0787400C4A285 /* HeaderMatchSectionView.swift in Sources */,
 				57C1F6F529EF060E000D707F /* DataBase.xcdatamodeld in Sources */,
 				5781432629F970B800DDE7D1 /* CalendarController.swift in Sources */,
@@ -711,6 +757,7 @@
 				57F9967929B4A7480062E8E9 /* UIFont + Extensions.swift in Sources */,
 				57F9965C29B4A5330062E8E9 /* AppDelegate.swift in Sources */,
 				57F9968F29B4EE300062E8E9 /* UIViewController + Extensions.swift in Sources */,
+				5781433C29FAAB6200DDE7D1 /* NoticeTableView.swift in Sources */,
 				576CF32A29DF3A9D00886E29 /* MatchTableViewCell.swift in Sources */,
 				576CF30F29DCBB3500886E29 /* MainTableViewCell.swift in Sources */,
 				5720967029F0618400C4A285 /* MatchesTeamTable.swift in Sources */,
@@ -724,6 +771,7 @@
 				5720967A29F08CAC00C4A285 /* StatisticMatchController.swift in Sources */,
 				57F9965E29B4A5330062E8E9 /* SceneDelegate.swift in Sources */,
 				576CF39029E7D74A00886E29 /* NetworkingDataFetch.swift in Sources */,
+				5781434529FB019500DDE7D1 /* NoticeTableViewLastCell.swift in Sources */,
 				576CF30429DC989600886E29 /* LoginController.swift in Sources */,
 				5781433229F9DD0C00DDE7D1 /* EventByDateTableView.swift in Sources */,
 				576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */,
