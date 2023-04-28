@@ -16,12 +16,13 @@ protocol ChangeConstrainProtocol: AnyObject {
 }
 
 class MatchesTeamTable: UITableView {
-
+    
     
     weak var statisticMatchDelegate: StatisticMatchProtocol?
     weak var changeConstrainDelegate: ChangeConstrainProtocol?
     
     private var modelFixtures = [PastFixturesByTeamID]()
+    private var data = [PastFixturesByTeamID]()
     
     /* это multiplier который мы меняем при скролле в changeContstraints в протоколе - ChangeConstrainProtocol */
     let logoMainTeamInitialWidth: CGFloat = 0.35
@@ -44,6 +45,8 @@ class MatchesTeamTable: UITableView {
         self.backgroundColor = .clear
         self.bounces = false
         self.showsVerticalScrollIndicator = false
+        
+
     }
     
     // MARK: - setDelegate
@@ -51,17 +54,19 @@ class MatchesTeamTable: UITableView {
         self.delegate = self
         self.dataSource = self
         self.separatorStyle = .none
+        
+
     }
     
     // MARK: - setData
     public func setData(model: [PastFixturesByTeamID]) {
         self.modelFixtures = model
+        self.modelFixtures[0].isExpandable = true
     }
     
     //  при нажатия на кнопку будет передаваться idFixture которой я присвоил когда размещались ячейки
     @objc private func didTapStatistiscButton(sender: UIButton) {
         statisticMatchDelegate?.presentStatistic(idFixture: sender.tag)
-
     }
 }
 
@@ -72,8 +77,9 @@ extension MatchesTeamTable: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        70
+        80
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerMatchSectionView = HeaderMatchSectionView()
         
@@ -85,11 +91,21 @@ extension MatchesTeamTable: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        260
+        
+        if self.modelFixtures[indexPath.section].isExpandable {
+            return 280
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        
+        if self.modelFixtures[section].isExpandable {
+            return 1
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,7 +114,7 @@ extension MatchesTeamTable: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.setData(model: modelFixtures[indexPath.section])
-        
+        cell.clipsToBounds = true
         cell.statisticButton.addTarget(self, action: #selector(didTapStatistiscButton), for: .touchUpInside)
         cell.statisticButton.tag = modelFixtures[indexPath.section].fixtureId
         
@@ -121,11 +137,19 @@ extension MatchesTeamTable: UITableViewDelegate, UITableViewDataSource {
         
         
         changeConstrainDelegate?.changeContstraints(width: width, height: height)
+        
+
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
     }
 }
 
 extension MatchesTeamTable : HeaderTapProtocol {
-    func hideContentSection(index: Int) {
-        // TODO: - слелать colapseСontent в секции
+    // TODO: - при скрытия ячейки скролл выбрасывает в самый верх
+    func showContentSection(index: Int) {
+        self.modelFixtures[index].isExpandable = !self.modelFixtures[index].isExpandable
+        self.reloadSections([index], with: .fade)
     }
 }

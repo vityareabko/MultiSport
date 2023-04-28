@@ -38,8 +38,11 @@ class MatchesTeamController: UIViewController {
         setDelegate()
         setConstraints()
         
+        matchesTeamTable.sectionHeaderTopPadding = 0
+        
         // запросы и обновления таблицы
         fetchPastTeamEvents()
+        
     }
     
     
@@ -83,10 +86,6 @@ class MatchesTeamController: UIViewController {
                 return
             }
             
-            guard let winHomeTeam = homeTeam.winner,
-                  let winAwayTeam = awayTeam.winner else {
-                return
-            }
             
             let fixtureId = item.fixture.id
             let nameTeamHome = homeTeam.name
@@ -103,11 +102,11 @@ class MatchesTeamController: UIViewController {
             let fixture = PastFixturesByTeamID(fixtureId: fixtureId,
                                                 homeTeamName: nameTeamHome,
                                                 logoURLHomeTeam: logoURLTeamHome,
-                                                winHomeTeam: winHomeTeam,
+                                                winHomeTeam: homeTeam.winner ?? nil,
                                                 goalsHomeTeam: goalsHomeTeam,
                                                 awayTeamName: nameTeamAway,
                                                 logoURLAwayTeam: logoURLTeamAway,
-                                                winAwayTeam: winAwayTeam,
+                                                winAwayTeam: awayTeam.winner ?? nil,
                                                 goalsAwayTeam: goalsAwayTeam,
                                                 dateFixture: dateFixture,
                                                 score: scoreFixture)

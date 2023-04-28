@@ -57,11 +57,7 @@ class NoticeTableViewCell: UITableViewCell {
         self.addSubview(back)
         back.addSubview(noteTitle)
         back.addSubview(noteBody)
-        back.addSubview(stackViewTools)
-        
-        
-
-        
+        back.addSubview(stackViewTools)        
     }
     
     private func setStackView() {

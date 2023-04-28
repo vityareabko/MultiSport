@@ -6,8 +6,13 @@
 //
 
 import UIKit
+protocol NoticeProtocol: AnyObject {
+    func createNotice()
+}
 
 class NoticeTableView: UITableView {
+    
+    weak var noticeDelegate: NoticeProtocol?
     
     private let numberOfRows = 4
     
@@ -39,7 +44,9 @@ class NoticeTableView: UITableView {
         self.delegate = self
     }
     
-    
+    @objc private func didTappedAddNoteButton() {
+        noticeDelegate?.createNotice()
+    }
     
     
 }
@@ -67,7 +74,7 @@ extension NoticeTableView: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTableViewLastCell.identifier) as? NoticeTableViewLastCell else {
                 return UITableViewCell()
             }
-            
+            cell.addNoteButton.addTarget(self, action: #selector(didTappedAddNoteButton), for: .touchUpInside)
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTableViewCell.identifier, for: indexPath) as? NoticeTableViewCell else {

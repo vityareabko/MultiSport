@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HeaderTapProtocol: AnyObject {
-    func hideContentSection(index: Int)
+    func showContentSection(index: Int)
 }
 
 class HeaderMatchSectionView : UIView {
@@ -38,6 +38,13 @@ class HeaderMatchSectionView : UIView {
         return view
     }()
     
+    private let separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -53,9 +60,8 @@ class HeaderMatchSectionView : UIView {
     }
     
     @objc private func didtapSuperview() {
-        print("tap")
         guard let idx = sectionIndex else { return }
-        headerTapDelegate?.hideContentSection(index: idx)
+        headerTapDelegate?.showContentSection(index: idx)
     }
     
     private func setupUI() {
@@ -66,11 +72,15 @@ class HeaderMatchSectionView : UIView {
         labelTeamName2.textAlignment = .right
         
         setStackView()
+        
         self.addSubview(backView)
+        self.addSubview(separatorView)
         backView.addSubview(labelDate)
         backView.addSubview(scoreTeam)
         backView.addSubview(stackViewTeam1)
         backView.addSubview(stackViewTeam2)
+        
+        
     }
     
     // MARK: - set StackView
@@ -109,14 +119,20 @@ extension HeaderMatchSectionView {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
+            
+            separatorView.topAnchor.constraint(equalTo: self.bottomAnchor),
+            separatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            separatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            separatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
             backView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             backView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             backView.topAnchor.constraint(equalTo: self.topAnchor),
-            backView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            backView.bottomAnchor.constraint(equalTo: separatorView.topAnchor, constant: -15),
             
-            labelDate.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            labelDate.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            labelDate.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            labelDate.topAnchor.constraint(equalTo: backView.topAnchor, constant: 5),
+            labelDate.leadingAnchor.constraint(equalTo: backView.leadingAnchor),
+            labelDate.trailingAnchor.constraint(equalTo: backView.trailingAnchor),
             labelDate.heightAnchor.constraint(equalToConstant: 13),
             
             logoTeam1.widthAnchor.constraint(equalToConstant: 30),
@@ -124,20 +140,22 @@ extension HeaderMatchSectionView {
             logoTeam2.widthAnchor.constraint(equalToConstant: 30),
             logoTeam2.heightAnchor.constraint(equalToConstant: 30),
             
-            scoreTeam.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 3),
-            scoreTeam.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            scoreTeam.centerYAnchor.constraint(equalTo: backView.centerYAnchor, constant: 3),
+            scoreTeam.centerXAnchor.constraint(equalTo: backView.centerXAnchor),
             scoreTeam.heightAnchor.constraint(equalToConstant: 30),
             scoreTeam.widthAnchor.constraint(equalToConstant: 60),
             
-            stackViewTeam1.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 3),
-            stackViewTeam1.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            stackViewTeam1.centerYAnchor.constraint(equalTo: backView.centerYAnchor, constant: 3),
+            stackViewTeam1.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 10),
             stackViewTeam1.trailingAnchor.constraint(equalTo: scoreTeam.leadingAnchor, constant: -10),
             stackViewTeam1.heightAnchor.constraint(equalToConstant: 30),
             
-            stackViewTeam2.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 3),
+            stackViewTeam2.centerYAnchor.constraint(equalTo: backView.centerYAnchor, constant: 3),
             stackViewTeam2.leadingAnchor.constraint(equalTo: scoreTeam.trailingAnchor, constant: 10),
-            stackViewTeam2.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            stackViewTeam2.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -10),
             stackViewTeam2.heightAnchor.constraint(equalToConstant: 30),
+            
+            
         ])
     }
 }

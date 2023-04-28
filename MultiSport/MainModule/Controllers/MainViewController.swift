@@ -251,7 +251,12 @@ extension MainViewController: PushToControllerProtocol {
             navigationController?.pushViewController(vc, animated: true)
         case .notes:
             let vc = NotesController()
-            navigationController?.pushViewController(vc, animated: true)
+            
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+
+//            navigationController?.pushViewController(vc, animated: true)
+            present(nav, animated: true)
         case .factor:
             print("factor")
         case .favorites:

@@ -67,25 +67,37 @@ class MatchesTeamTableCell: UITableViewCell {
     
     public func setData(model: PastFixturesByTeamID) {
 //        self.labelWinTeam.text = "()"
-        self.labelRightTeam.text = "\(model.winHomeTeam ? model.goalsHomeTeam : model.goalsAwayTeam)"
-        self.labelRightTeam.text = "\(model.winAwayTeam ? model.goalsAwayTeam : model.goalsHomeTeam)"
         
-        self.labelLeftTeam.text =  "\(model.goalsHomeTeam)"
-        self.labelRightTeam.text = "\(model.goalsAwayTeam)"
-        
-        if model.winHomeTeam {
-            self.labelLeftTeam.textColor = .specialOrangeColor
-            self.labelRightTeam.textColor = .systemGray3
+        if model.winAwayTeam != nil {
+//            self.labelRightTeam.text = "\(model.winHomeTeam! ? model.goalsHomeTeam : model.goalsAwayTeam)"
+//            self.labelRightTeam.text = "\(model.winAwayTeam! ? model.goalsAwayTeam : model.goalsHomeTeam)"
+//
+            self.labelLeftTeam.text =  "\(model.goalsHomeTeam)"
+            self.labelRightTeam.text = "\(model.goalsAwayTeam)"
             
-            self.footballFieldleftPart.alpha = 0.1
-            self.footballFieldRightPart.alpha = 0.05
-            
+            if model.winHomeTeam! {
+                self.labelLeftTeam.textColor = .specialOrangeColor
+                self.labelRightTeam.textColor = .systemGray3
+                
+                self.footballFieldleftPart.alpha = 0.1
+                self.footballFieldRightPart.alpha = 0.05
+                
+            } else {
+                self.labelLeftTeam.textColor = .systemGray3
+                self.labelRightTeam.textColor = .specialOrangeColor
+                
+                self.footballFieldleftPart.alpha = 0.05
+                self.footballFieldRightPart.alpha = 0.1
+            }
         } else {
-            self.labelLeftTeam.textColor = .systemGray3
+            self.labelLeftTeam.text =  "\(model.goalsHomeTeam)"
+            self.labelRightTeam.text = "\(model.goalsAwayTeam)"
+            
+            self.labelLeftTeam.textColor = .specialOrangeColor
             self.labelRightTeam.textColor = .specialOrangeColor
             
             self.footballFieldleftPart.alpha = 0.05
-            self.footballFieldRightPart.alpha = 0.1
+            self.footballFieldRightPart.alpha = 0.05
         }
 
     }

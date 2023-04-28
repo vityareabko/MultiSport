@@ -13,16 +13,19 @@ struct PastFixturesByTeamID {
     let homeTeamName: String
     var logoHomeTeam: UIImage?
     let logoURLHomeTeam: String
-    let winHomeTeam: Bool
+    let winHomeTeam: Bool?
     let goalsHomeTeam: Int
     
     let awayTeamName: String
     var logoAwayTeam: UIImage?
     let logoURLAwayTeam: String
-    let winAwayTeam: Bool
+    let winAwayTeam: Bool?
     let goalsAwayTeam: Int
     
     let dateFixture: Date
     let score: String
     
+    var isExpandable: Bool = false
+    
 }
+

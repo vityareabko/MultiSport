@@ -21,8 +21,9 @@ class NotesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setDelegate()
         setConstraints()
-        setNavigationBar()
+//        setNavigationBar()
     }
     
     
@@ -39,6 +40,20 @@ class NotesController: UIViewController {
 //        self.noticeTableView.estimatedRowHeight = 170 - можно указывать мин значения ячейки, а можно и не указывать
         self.noticeTableView.rowHeight = NoticeTableView.automaticDimension
     }
+    
+    private func setDelegate() {
+        noticeTableView.noticeDelegate = self
+    }
+    
+}
+// MARK: - NoticeProtocol
+extension NotesController: NoticeProtocol {
+    func createNotice() {
+        let vc = CreateNoteController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
 }
 
 // MARK: - Extensions

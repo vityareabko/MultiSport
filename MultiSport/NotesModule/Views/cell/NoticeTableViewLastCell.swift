@@ -12,7 +12,7 @@ class NoticeTableViewLastCell: UITableViewCell {
     static let identifier = "NoticeTableViewLastCell"
     
     // MARK: - UI Components
-    private let addNoteButton = UIButton(icon: UIImage(named: "addButton") ?? UIImage())
+    let addNoteButton = UIButton(icon: UIImage(named: "addButton") ?? UIImage())
     private let addNoteLabel = UILabel(text: "ADD A NOTE", textColor: .specialOrangeColor, font: .gothamBold15())
     
     
