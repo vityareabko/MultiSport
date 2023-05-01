@@ -14,6 +14,12 @@
 		5720967A29F08CAC00C4A285 /* StatisticMatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967929F08CAC00C4A285 /* StatisticMatchController.swift */; };
 		5720967D29F18D6200C4A285 /* StatisticMatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967C29F18D6200C4A285 /* StatisticMatchTableView.swift */; };
 		5720968029F18E5E00C4A285 /* StatisticMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720967F29F18E5E00C4A285 /* StatisticMatchTableViewCell.swift */; };
+		572927C329FD2BDD007B037D /* FactorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572927C229FD2BDD007B037D /* FactorController.swift */; };
+		572927C729FD7961007B037D /* DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 572927C529FD7961007B037D /* DB.xcdatamodeld */; };
+		572927CA29FD7EE9007B037D /* Notice+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572927C829FD7EE9007B037D /* Notice+CoreDataClass.swift */; };
+		572927CB29FD7EE9007B037D /* Notice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572927C929FD7EE9007B037D /* Notice+CoreDataProperties.swift */; };
+		572927CE29FD8186007B037D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572927CD29FD8186007B037D /* CoreDataManager.swift */; };
+		572927D129FDC9D7007B037D /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572927D029FDC9D7007B037D /* UIView + Extension.swift */; };
 		576CF2FC29DC8E0E00886E29 /* SportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF2FB29DC8E0E00886E29 /* SportType.swift */; };
 		576CF2FE29DC910B00886E29 /* MainTablesTypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF2FD29DC910B00886E29 /* MainTablesTypeItem.swift */; };
 		576CF30429DC989600886E29 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF30329DC989600886E29 /* LoginController.swift */; };
@@ -84,6 +90,12 @@
 		5720967929F08CAC00C4A285 /* StatisticMatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatchController.swift; sourceTree = "<group>"; };
 		5720967C29F18D6200C4A285 /* StatisticMatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatchTableView.swift; sourceTree = "<group>"; };
 		5720967F29F18E5E00C4A285 /* StatisticMatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticMatchTableViewCell.swift; sourceTree = "<group>"; };
+		572927C229FD2BDD007B037D /* FactorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorController.swift; sourceTree = "<group>"; };
+		572927C629FD7961007B037D /* DB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DB.xcdatamodel; sourceTree = "<group>"; };
+		572927C829FD7EE9007B037D /* Notice+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notice+CoreDataClass.swift"; sourceTree = "<group>"; };
+		572927C929FD7EE9007B037D /* Notice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notice+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		572927CD29FD8186007B037D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		572927D029FDC9D7007B037D /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		576CF2FB29DC8E0E00886E29 /* SportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportType.swift; sourceTree = "<group>"; };
 		576CF2FD29DC910B00886E29 /* MainTablesTypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTablesTypeItem.swift; sourceTree = "<group>"; };
 		576CF30329DC989600886E29 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -228,6 +240,65 @@
 				5720967F29F18E5E00C4A285 /* StatisticMatchTableViewCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		572927BE29FD2BA1007B037D /* FactorModule */ = {
+			isa = PBXGroup;
+			children = (
+				572927BF29FD2BA9007B037D /* Model */,
+				572927C029FD2BB0007B037D /* Views */,
+				572927C129FD2BC7007B037D /* Controllers */,
+			);
+			path = FactorModule;
+			sourceTree = "<group>";
+		};
+		572927BF29FD2BA9007B037D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		572927C029FD2BB0007B037D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		572927C129FD2BC7007B037D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				572927C229FD2BDD007B037D /* FactorController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		572927C429FD7948007B037D /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				572927C829FD7EE9007B037D /* Notice+CoreDataClass.swift */,
+				572927C929FD7EE9007B037D /* Notice+CoreDataProperties.swift */,
+				572927C529FD7961007B037D /* DB.xcdatamodeld */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		572927CC29FD8170007B037D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				572927CF29FD8198007B037D /* CoreDataManager */,
+				576CF38629E7C25800886E29 /* NetworkManager */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		572927CF29FD8198007B037D /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				572927CD29FD8186007B037D /* CoreDataManager.swift */,
+			);
+			path = CoreDataManager;
 			sourceTree = "<group>";
 		};
 		576CF2FA29DC8DF100886E29 /* Model */ = {
@@ -576,11 +647,12 @@
 			isa = PBXGroup;
 			children = (
 				5781432429F9708A00DDE7D1 /* Authorisation */,
+				572927BE29FD2BA1007B037D /* FactorModule */,
 				5781433529FAA16B00DDE7D1 /* NotesModule */,
 				5781432029F9701300DDE7D1 /* CalendarModule */,
 				5720967629F08C8400C4A285 /* StatisticModule */,
 				57F9967129B4A6CD0062E8E9 /* MainModule */,
-				576CF38629E7C25800886E29 /* NetworkManager */,
+				572927CC29FD8170007B037D /* Service */,
 				57F9967429B4A6EE0062E8E9 /* Extensions + UICustomComponents */,
 				57F9967029B4A6BE0062E8E9 /* Aplication */,
 				57F9966F29B4A6460062E8E9 /* Suport */,
@@ -591,6 +663,7 @@
 		57F9966F29B4A6460062E8E9 /* Suport */ = {
 			isa = PBXGroup;
 			children = (
+				572927C429FD7948007B037D /* DataBase */,
 				576CF38929E7D0D500886E29 /* API */,
 				57F9967A29B4AB800062E8E9 /* Fonts */,
 				57F9966429B4A5350062E8E9 /* Assets.xcassets */,
@@ -651,6 +724,7 @@
 				5781432F29F9A1CE00DDE7D1 /* Date + Extenstions.swift */,
 				5781434C29FC311500DDE7D1 /* UITextField + Extensions.swift */,
 				5781434E29FC3B7400DDE7D1 /* UITextView + Extension.swift */,
+				572927D029FDC9D7007B037D /* UIView + Extension.swift */,
 			);
 			path = "Extensions + UICustomComponents";
 			sourceTree = "<group>";
@@ -740,8 +814,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				572927C329FD2BDD007B037D /* FactorController.swift in Sources */,
+				572927CB29FD7EE9007B037D /* Notice+CoreDataProperties.swift in Sources */,
 				576CF38529E371F200886E29 /* MatchesTableController.swift in Sources */,
 				576CF37B29E369F400886E29 /* MatchCollectionView.swift in Sources */,
+				572927C729FD7961007B037D /* DB.xcdatamodeld in Sources */,
 				5781434729FC2B4D00DDE7D1 /* CreateNoteController.swift in Sources */,
 				576CF30D29DCBA0300886E29 /* MainTableView.swift in Sources */,
 				576CF31F29DF29A600886E29 /* SportFixture.swift in Sources */,
@@ -759,6 +836,7 @@
 				57F9966029B4A5330062E8E9 /* MainViewController.swift in Sources */,
 				5720966C29F025B100C4A285 /* MatchesTeamController.swift in Sources */,
 				576CF30929DCA37B00886E29 /* SportTypeCollectionViewCell.swift in Sources */,
+				572927D129FDC9D7007B037D /* UIView + Extension.swift in Sources */,
 				576CF2FC29DC8E0E00886E29 /* SportType.swift in Sources */,
 				5720967329F062A000C4A285 /* MatchesTeamTableCell.swift in Sources */,
 				57F9967729B4A7350062E8E9 /* UIColor + Extensions.swift in Sources */,
@@ -791,12 +869,14 @@
 				576CF30429DC989600886E29 /* LoginController.swift in Sources */,
 				5781433229F9DD0C00DDE7D1 /* EventByDateTableView.swift in Sources */,
 				576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */,
+				572927CE29FD8186007B037D /* CoreDataManager.swift in Sources */,
 				5781434F29FC3B7500DDE7D1 /* UITextView + Extension.swift in Sources */,
 				5781431929F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift in Sources */,
 				5781431F29F6AA7600DDE7D1 /* StatisticMatch.swift in Sources */,
 				5781431B29F5D26900DDE7D1 /* FixturedMatch.swift in Sources */,
 				57C1F70029EF3FAD000D707F /* GetImageRequest.swift in Sources */,
 				5781431429F5465500DDE7D1 /* ModelLeagueID.swift in Sources */,
+				572927CA29FD7EE9007B037D /* Notice+CoreDataClass.swift in Sources */,
 				5781433429F9E1BB00DDE7D1 /* EventByDateTableViewCell.swift in Sources */,
 				576CF31329DCBECB00886E29 /* UILabel + Extensions.swift in Sources */,
 				5720968029F18E5E00C4A285 /* StatisticMatchTableViewCell.swift in Sources */,
@@ -1016,6 +1096,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		572927C529FD7961007B037D /* DB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				572927C629FD7961007B037D /* DB.xcdatamodel */,
+			);
+			currentVersion = 572927C629FD7961007B037D /* DB.xcdatamodel */;
+			name = DB.xcdatamodeld;
+			path = ../../../../../../../Desktop/DB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 57F9965029B4A5330062E8E9 /* Project object */;
 }

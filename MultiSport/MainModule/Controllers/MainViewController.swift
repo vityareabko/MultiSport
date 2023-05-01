@@ -208,7 +208,6 @@ class MainViewController: UIViewController {
 // MARK: - SelecdItemCollectionProtocol
 extension MainViewController: SelecdItemCollectionProtocol {
     func changeViewController() {
-        // TODO: - нужно сделать когда находимся уже в 3 контролере к примеру в MatchesTeamController то уже нужно возвращаться к CollectionController или к TableController в зависимости какой был предыдущий
         backAtHome.isHidden = false
         if let lastChildController = children.last {
             removeChildController(childController: lastChildController)
@@ -247,18 +246,18 @@ extension MainViewController: PushToControllerProtocol {
     func pushToControll(categories: MainTablesTypeItem) {
         switch categories {
         case .calendar:
+            // TODO: - когда пушим то взникает какой-то API - что-то там ....
             let vc = CalendarController()
             navigationController?.pushViewController(vc, animated: true)
         case .notes:
             let vc = NotesController()
-            
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-
-//            navigationController?.pushViewController(vc, animated: true)
-            present(nav, animated: true)
+//            let nav = UINavigationController(rootViewController: vc)
+//            nav.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(vc, animated: true)
+//            present(nav, animated: true)
         case .factor:
-            print("factor")
+            let vc = FactorController()
+            navigationController?.pushViewController(vc, animated: true)
         case .favorites:
             print("favorites")
         case .league:

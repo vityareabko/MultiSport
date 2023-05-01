@@ -7,12 +7,12 @@
 
 import Foundation
 
-// TODO: - демонстрация №6
 
 class NetworkingRequest {
     static let shared = NetworkingRequest()
-    private let cache = NSCache<NSURL, NSData>()
     private init() {}
+    
+    private let cache = NSCache<NSURL, NSData>()
     
     func requestData(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         let request = NSMutableURLRequest(url: url,

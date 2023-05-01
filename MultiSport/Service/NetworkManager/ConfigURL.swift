@@ -5,8 +5,6 @@
 //  Created by Витя Рябко on 18/04/23.
 //
 
-// TODO: - демонстрация №4
-
 import Foundation
 
 
@@ -114,7 +112,7 @@ struct NetworkManager {
 //        print("url1",url1)  // url1 https://api-football-beta.p.rapidapi.com/v3/fixtures/last=5/league=315
 //        print("url",url)    // url https://api-football-beta.p.rapidapi.com/v3/fixtures?last=5&league=315
         
-        print(url)
+//        print(url)
         
         return url
         

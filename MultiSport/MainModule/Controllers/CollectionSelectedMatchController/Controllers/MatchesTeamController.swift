@@ -8,8 +8,6 @@
 import UIKit
 
 
-// TODO: - демонстрация №7
-
 class MatchesTeamController: UIViewController {
     
     // MARK: - Variables

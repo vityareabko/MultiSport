@@ -7,33 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1DCDB858-F6EF-4AA6-BC72-A242722F6E4C"
+            uuid = "7E58D78F-6832-460C-A856-2868A526B158"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MultiSport/NotesModule/Contorollers/NotesController.swift"
+            filePath = "MultiSport/NotesModule/Contorollers/CreateNoteModule/Controllers/CreateNoteController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "createNotice()"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "didTapSubmitButton()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F5BF4E4D-E78D-4ADD-9F8B-FAF1C807BA3A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MultiSport/NotesModule/Contorollers/NotesController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "createNotice()"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7E58D78F-6832-460C-A856-2868A526B158 - 84f910c645dabc90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiSport.CreateNoteController.didTapSubmitButton() -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/NotesModule/Contorollers/CreateNoteModule/Controllers/CreateNoteController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "7E58D78F-6832-460C-A856-2868A526B158 - 84f910c645dabc90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiSport.CreateNoteController.didTapSubmitButton() -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/NotesModule/Contorollers/CreateNoteModule/Controllers/CreateNoteController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "7E58D78F-6832-460C-A856-2868A526B158 - 84f910c645dabc90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiSport.CreateNoteController.didTapSubmitButton() -&gt; ()"
+                  moduleName = "MultiSport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitarabko/Documents/app/myRealProjects/MultiSport/MultiSport/NotesModule/Contorollers/CreateNoteModule/Controllers/CreateNoteController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -7,11 +7,6 @@
 
 import UIKit
 
-
-//V3 - Fixtures by fixture id
-
-// TODO: - демонстрация №9
-
 class StatisticMatchController: UIViewController {
     
     // id матча

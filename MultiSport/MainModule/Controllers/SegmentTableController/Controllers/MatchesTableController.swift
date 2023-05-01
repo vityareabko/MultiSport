@@ -7,7 +7,7 @@
 
 import UIKit
 
-// TODO: - демонстрация №1
+
 
 class MatchesTableController: UIViewController {
     
@@ -33,7 +33,7 @@ class MatchesTableController: UIViewController {
     
     // обработка запросв в асинхроном режиме
     private func loadFututreEvents() {
-        //let leagueIDs: [LeagueID] = [.premierLegue, .laLeague, .premierNational, .nation]
+//        let leagueIDs: [LeagueID] = [.premierLegue, .laLeague, .premierNational, .nation]
         let leagueIDs: [LeagueID] = [.premierLegue]
         Task {
             await withTaskGroup(of: Void.self, body: { group in
@@ -66,7 +66,7 @@ class MatchesTableController: UIViewController {
                     return
                 }
                 
-                processResponse(dataResponse)
+                self.processResponse(dataResponse)
                 
             case .failure(let error):
                 print(error.localizedDescription)

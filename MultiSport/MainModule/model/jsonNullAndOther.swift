@@ -14,8 +14,9 @@ class JSONNull: Codable, Hashable {
         return true
     }
 
-    public var hashValue: Int {
-        return 0
+    public func hash(into hasher: inout Hasher) {
+        // используем любое значение, которое должно влиять на хеш-значение
+        hasher.combine(0)
     }
 
     public init() {}

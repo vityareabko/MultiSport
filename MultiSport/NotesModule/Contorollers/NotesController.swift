@@ -12,9 +12,7 @@ class NotesController: UIViewController {
     // MARK: - UI Components
     private var noticeTableView = NoticeTableView()
     
-    
     private let titleLabelController = UILabel(text: "Notes", textColor: .specialOrangeColor, font: .gothamBold22())
-    
     
     
     // MARK: - Lifecycle
@@ -23,9 +21,23 @@ class NotesController: UIViewController {
         setupUI()
         setDelegate()
         setConstraints()
-//        setNavigationBar()
+        setNavigationBar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // Прокручиваем UITableView до верха
+        noticeTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
+        let allNotice = CoreDataManager.shared.fetchObjects(entity: Notice.self, sortDescriptors: [sortDescriptor])
+        noticeTableView.setData(models: allNotice)
+        noticeTableView.reloadData()
+        
+        
+    }
+  
     
     // MARK: - UI Setup
     private func setupUI() {
@@ -36,26 +48,23 @@ class NotesController: UIViewController {
         
         noticeTableView.translatesAutoresizingMaskIntoConstraints = false
         
-        // устанавливаю динамическую высоту для ячейки таблицы
-//        self.noticeTableView.estimatedRowHeight = 170 - можно указывать мин значения ячейки, а можно и не указывать
-        self.noticeTableView.rowHeight = NoticeTableView.automaticDimension
+        // устанавливаю динамическую высоту для ячейки таблицы (использую другой способв в самой  self.noticeTableView)
+        // self.noticeTableView.rowHeight = NoticeTableView.automaticDimension
     }
     
     private func setDelegate() {
         noticeTableView.noticeDelegate = self
     }
-    
 }
+
 // MARK: - NoticeProtocol
 extension NotesController: NoticeProtocol {
     func createNotice() {
         let vc = CreateNoteController()
         navigationController?.pushViewController(vc, animated: true)
+        noticeTableView.reloadData()
     }
-    
-    
 }
-
 // MARK: - Extensions
 extension NotesController {
     private func setConstraints() {

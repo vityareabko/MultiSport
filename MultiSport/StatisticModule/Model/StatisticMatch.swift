@@ -26,7 +26,7 @@ struct StatisticTeam {
     var totalPasses: Int?
     var passesAcurate: Int?
     var passesPercent: String?
-    var expectedGoals: String?
+    var expectedGoals: String? 
     
     var actionAreas: String?
     

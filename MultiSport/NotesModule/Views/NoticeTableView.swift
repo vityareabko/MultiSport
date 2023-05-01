@@ -13,14 +13,13 @@ protocol NoticeProtocol: AnyObject {
 class NoticeTableView: UITableView {
     
     weak var noticeDelegate: NoticeProtocol?
-    
-    private let numberOfRows = 4
+    private var allNotice = [Notice]()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         register(NoticeTableViewCell.self, forCellReuseIdentifier: NoticeTableViewCell.identifier)
         register(NoticeTableViewLastCell.self, forCellReuseIdentifier: NoticeTableViewLastCell.identifier)
-        
+
         config()
         setDelegate()
     }
@@ -34,9 +33,7 @@ class NoticeTableView: UITableView {
         self.backgroundColor = .clear
         self.bounces = false
         self.showsVerticalScrollIndicator = false
-//        self.estimatedRowHeight = self.a
     }
-    
 
     // MARK: - setDelegate
     private func setDelegate() {
@@ -44,51 +41,74 @@ class NoticeTableView: UITableView {
         self.delegate = self
     }
     
+    public func setData(models: [Notice]) {
+        self.allNotice = models
+    }
+    
     @objc private func didTappedAddNoteButton() {
         noticeDelegate?.createNotice()
     }
     
-    
+    @objc private func didTappedDeleteButton(sender: UIButton) {
+        let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
+        let allObjects = CoreDataManager.shared.fetchObjects(entity: Notice.self, sortDescriptors: [sortDescriptor])
+        CoreDataManager.shared.deleteObject(allObjects[sender.tag])
+        self.allNotice.remove(at: sender.tag)
+        self.reloadData()
+    }
 }
 
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension NoticeTableView: UITableViewDataSource, UITableViewDelegate {  
-    // это фисированая высота ячейки - если ставлю ее то ничего не ломается и кнопка становится узабельной
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        170
-//    }
+extension NoticeTableView: UITableViewDataSource, UITableViewDelegate {
     
-//    // это динамическая высота ячейки - но я использую другой метод в NotesController - одной строчкой - self.noticeTableView.rowHeight = NoticeTableView.automaticDimension
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        170
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 270 // задаем фиксированую высоту ячейки
 //    }
 
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension // используем автоматический расчет высоты 
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.numberOfRows + 1
+        self.allNotice.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if indexPath.row == numberOfRows{
+        if indexPath.row == self.allNotice.count{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTableViewLastCell.identifier) as? NoticeTableViewLastCell else {
                 return UITableViewCell()
             }
+            
             cell.addNoteButton.addTarget(self, action: #selector(didTappedAddNoteButton), for: .touchUpInside)
+            
             return cell
+            
         } else {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTableViewCell.identifier, for: indexPath) as? NoticeTableViewCell else {
                 return UITableViewCell()
             }
             
-            if indexPath.row % 2 == 0 {
-                cell.noteBody.text = "West Brom ruthlessly exposed the 70-place gap between themselves. West Brom ruthlessly exposed the 70-place gap between themselves. West Brom ruthlessly exposed the 70-place gap between themselves. West Brom ruthlessly exposed the 70-place gap between themselves. West Brom ruthlessly exposed the 70-place gap between themselves. West Brom ruthlessly exposed the 70-place gap between themselves. West Brom ruthlessly exposed the 70-place gap between themselves"
+            cell.binButton.addTarget(self, action: #selector(didTappedDeleteButton), for: .touchUpInside)
+            cell.binButton.tag = indexPath.row
+
+            cell.reloadTableData = { [weak self] in
+                guard let self = self else { return }
+                self.reloadData()
+                let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
+                let allNotice = CoreDataManager.shared.fetchObjects(entity: Notice.self, sortDescriptors: [sortDescriptor])
+                self.setData(models: allNotice)
+                self.reloadData()
             }
+            
+            
+            cell.idModel = indexPath.row
+            cell.setData(model: self.allNotice[indexPath.row])
+            
+
             return cell
-        }
-        
-        
+        }  
     }
-    
-    
 }

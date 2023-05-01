@@ -100,12 +100,7 @@ extension MatchesTeamTable: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if self.modelFixtures[section].isExpandable {
-            return 1
-        } else {
-            return 0
-        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -140,16 +135,14 @@ extension MatchesTeamTable: UITableViewDelegate, UITableViewDataSource {
         
 
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-    }
 }
 
 extension MatchesTeamTable : HeaderTapProtocol {
-    // TODO: - при скрытия ячейки скролл выбрасывает в самый верх
     func showContentSection(index: Int) {
         self.modelFixtures[index].isExpandable = !self.modelFixtures[index].isExpandable
-        self.reloadSections([index], with: .fade)
+        self.reloadRows(at: [[index,0]], with: .none)
+
+//        self.scrollToRow(at: [index, 0], at: .bottom, animated: true)
+       
     }
 }

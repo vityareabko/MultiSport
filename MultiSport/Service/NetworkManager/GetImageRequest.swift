@@ -7,8 +7,6 @@
 
 import UIKit
 
-// TODO: - демонстрация №5
-
 // для отключения проверку сертификата
 class InsecureURLSessionDelegate: NSObject, URLSessionDelegate {
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
@@ -27,21 +25,6 @@ class GetImageRequest {
     
     // Кеш для хранения изображений
     private let imageCache = NSCache<NSString, UIImage>()
-//
-//    func test(with urlString: String?) async -> UIImage? {
-//        guard let string = urlString,
-//              let url = URL(string: string) else {
-//            return nil
-//        }
-//
-//        do {
-//            let (data, _) = try await insecureSession.data(from: url)
-//            return UIImage(data: data)
-//        } catch {
-//            print("Failed to load image: \(error.localizedDescription)")
-//            return nil
-//        }
-//    }
         
     func test(with urlString: String, retryAttempts: Int = 10, delayBetweenRetries: TimeInterval = 2.0) async -> UIImage? {
         guard let url = URL(string: urlString) else {

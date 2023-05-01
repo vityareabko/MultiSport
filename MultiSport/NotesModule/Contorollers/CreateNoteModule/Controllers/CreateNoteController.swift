@@ -6,7 +6,7 @@
 //
 
 import UIKit
-// TODO: - [Query] Error for queryMetaDataSync: 2
+
 class CreateNoteController: UIViewController {
     
     // MARK: - UI Components
@@ -15,7 +15,7 @@ class CreateNoteController: UIViewController {
     
     private let textViewNote = UITextView(placeholder: "Type your text here")
     
-    private let buttonSubmit = UIButton(text: "CREATE A NOTE", textColor: .specialMainBaground, bgColor: .specialOrangeColor, font: .gothamBold15())
+    private lazy var buttonSubmit = UIButton(text: "CREATE A NOTE", textColor: .specialMainBaground, bgColor: .specialOrangeColor, font: .gothamBold15())
 
     private var bottomDynamicConstraint: NSLayoutConstraint?
     private var heightDynamicConstraint: NSLayoutConstraint?
@@ -38,6 +38,8 @@ class CreateNoteController: UIViewController {
         
         let recognizerTap = UITapGestureRecognizer(target: self, action: #selector(recognizerAction))
         self.view.addGestureRecognizer(recognizerTap)
+        
+        buttonSubmit.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
         
         self.view.addSubview(titleLabelController)
         self.view.addSubview(titleNoteTextField)
@@ -85,6 +87,28 @@ class CreateNoteController: UIViewController {
         
         textViewNote.scrollRangeToVisible(textViewNote.selectedRange)
         
+    }
+    
+    @objc private func didTapSubmitButton() {
+        if titleNoteTextField.text == "" {
+            titleNoteTextField.shake(horizontal: 8)
+            return
+        }
+
+        if textViewNote.text == "" {
+            textViewNote.shake(horizontal: 8)
+            return
+        }
+    
+        let newNotice = CoreDataManager.shared.createObject(entity: Notice.self)
+        newNotice.createdAt = Date()
+        newNotice.updatedAt = Date()
+        newNotice.idUser = 0
+        newNotice.noticetitle = self.titleNoteTextField.text
+        newNotice.noticebody = self.textViewNote.text
+
+        CoreDataManager.shared.saveContext()
+        navigationController?.popViewController(animated: true)
     }
 }
 
