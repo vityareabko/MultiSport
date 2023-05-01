@@ -147,12 +147,12 @@ class MainViewController: UIViewController {
     
     // MARK: - Selectors
     @objc private func didTapLogin(){
-        let vc = LoginController()
+        let vc = SignInController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func didTapSignUP(){
-        let vc = LoginController()
+        let vc = SignUpController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

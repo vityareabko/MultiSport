@@ -27,6 +27,7 @@ class CreateNoteController: UIViewController {
         setConstraints()
         setDelegate()
         setNavigationBar()
+        setupGestureRecognizer()
         
         observersForKeyboardTextView()
     }
@@ -35,9 +36,6 @@ class CreateNoteController: UIViewController {
     // MARK: - UI Setup
     private func setupUI() {
         self.view.backgroundColor = .specialMainBaground
-        
-        let recognizerTap = UITapGestureRecognizer(target: self, action: #selector(recognizerAction))
-        self.view.addGestureRecognizer(recognizerTap)
         
         buttonSubmit.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
         
@@ -55,11 +53,6 @@ class CreateNoteController: UIViewController {
     
     private func setDelegate() {
         titleNoteTextField.delegate = self
-    }
-    
-    // MARK: - selector
-    @objc private func recognizerAction() {
-        self.view.endEditing(true)
     }
     
     @objc private func updateTextView(notification: Notification) {

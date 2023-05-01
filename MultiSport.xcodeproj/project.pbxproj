@@ -20,9 +20,10 @@
 		572927CB29FD7EE9007B037D /* Notice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572927C929FD7EE9007B037D /* Notice+CoreDataProperties.swift */; };
 		572927CE29FD8186007B037D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572927CD29FD8186007B037D /* CoreDataManager.swift */; };
 		572927D129FDC9D7007B037D /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572927D029FDC9D7007B037D /* UIView + Extension.swift */; };
+		572928832A005760007B037D /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572928822A005760007B037D /* SignUpController.swift */; };
 		576CF2FC29DC8E0E00886E29 /* SportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF2FB29DC8E0E00886E29 /* SportType.swift */; };
 		576CF2FE29DC910B00886E29 /* MainTablesTypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF2FD29DC910B00886E29 /* MainTablesTypeItem.swift */; };
-		576CF30429DC989600886E29 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF30329DC989600886E29 /* LoginController.swift */; };
+		576CF30429DC989600886E29 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF30329DC989600886E29 /* SignInController.swift */; };
 		576CF30629DC993800886E29 /* SportTypeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF30529DC993800886E29 /* SportTypeCollectionView.swift */; };
 		576CF30929DCA37B00886E29 /* SportTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF30829DCA37B00886E29 /* SportTypeCollectionViewCell.swift */; };
 		576CF30D29DCBA0300886E29 /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF30C29DCBA0300886E29 /* MainTableView.swift */; };
@@ -96,9 +97,10 @@
 		572927C929FD7EE9007B037D /* Notice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notice+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		572927CD29FD8186007B037D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		572927D029FDC9D7007B037D /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		572928822A005760007B037D /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		576CF2FB29DC8E0E00886E29 /* SportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportType.swift; sourceTree = "<group>"; };
 		576CF2FD29DC910B00886E29 /* MainTablesTypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTablesTypeItem.swift; sourceTree = "<group>"; };
-		576CF30329DC989600886E29 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		576CF30329DC989600886E29 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		576CF30529DC993800886E29 /* SportTypeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportTypeCollectionView.swift; sourceTree = "<group>"; };
 		576CF30829DCA37B00886E29 /* SportTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		576CF30C29DCBA0300886E29 /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,22 @@
 			path = CoreDataManager;
 			sourceTree = "<group>";
 		};
+		5729287F2A005708007B037D /* SingUpModule */ = {
+			isa = PBXGroup;
+			children = (
+				572928802A005710007B037D /* Controllers */,
+			);
+			path = SingUpModule;
+			sourceTree = "<group>";
+		};
+		572928802A005710007B037D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				572928822A005760007B037D /* SignUpController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		576CF2FA29DC8DF100886E29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,28 +327,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		576CF2FF29DC985000886E29 /* LogInModule */ = {
+		576CF2FF29DC985000886E29 /* SingInModule */ = {
 			isa = PBXGroup;
 			children = (
-				576CF30129DC986400886E29 /* Views */,
 				576CF30029DC985D00886E29 /* Controllers */,
 			);
-			path = LogInModule;
+			path = SingInModule;
 			sourceTree = "<group>";
 		};
 		576CF30029DC985D00886E29 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				576CF30329DC989600886E29 /* LoginController.swift */,
+				576CF30329DC989600886E29 /* SignInController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		576CF30129DC986400886E29 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		576CF30729DCA37000886E29 /* cell */ = {
@@ -545,7 +555,8 @@
 		5781432429F9708A00DDE7D1 /* Authorisation */ = {
 			isa = PBXGroup;
 			children = (
-				576CF2FF29DC985000886E29 /* LogInModule */,
+				5729287F2A005708007B037D /* SingUpModule */,
+				576CF2FF29DC985000886E29 /* SingInModule */,
 			);
 			path = Authorisation;
 			sourceTree = "<group>";
@@ -857,6 +868,7 @@
 				576CF30F29DCBB3500886E29 /* MainTableViewCell.swift in Sources */,
 				5720967029F0618400C4A285 /* MatchesTeamTable.swift in Sources */,
 				576CF30629DC993800886E29 /* SportTypeCollectionView.swift in Sources */,
+				572928832A005760007B037D /* SignUpController.swift in Sources */,
 				5781430D29F41F6F00DDE7D1 /* ModelDecoderPastMatches.swift in Sources */,
 				576CF32729DF39D400886E29 /* MatchesTableView.swift in Sources */,
 				576CF37729E3699100886E29 /* MatchCollectionController.swift in Sources */,
@@ -866,7 +878,7 @@
 				57F9965E29B4A5330062E8E9 /* SceneDelegate.swift in Sources */,
 				576CF39029E7D74A00886E29 /* NetworkingDataFetch.swift in Sources */,
 				5781434529FB019500DDE7D1 /* NoticeTableViewLastCell.swift in Sources */,
-				576CF30429DC989600886E29 /* LoginController.swift in Sources */,
+				576CF30429DC989600886E29 /* SignInController.swift in Sources */,
 				5781433229F9DD0C00DDE7D1 /* EventByDateTableView.swift in Sources */,
 				576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */,
 				572927CE29FD8186007B037D /* CoreDataManager.swift in Sources */,

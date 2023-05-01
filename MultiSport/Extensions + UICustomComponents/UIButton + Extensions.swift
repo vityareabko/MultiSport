@@ -27,4 +27,13 @@ extension UIButton {
         icon.withTintColor(.systemGray5, renderingMode: .alwaysTemplate)
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    convenience init(text: String, textColor: UIColor, font: UIFont?){
+        self.init(type: .system)
+        self.setTitle(text, for: .normal)
+        self.titleLabel?.font = font ?? .systemFont(ofSize: 18)
+        self.titleLabel?.attributedText = NSAttributedString(string: "Button Title", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+        self.tintColor = textColor
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
 }

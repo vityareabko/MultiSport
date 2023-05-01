@@ -49,4 +49,16 @@ extension UIViewController {
     @objc private func dismissController() {
         navigationController?.popViewController(animated: true)
     }
+    
+    // MARK: - GestureTapRecognizer
+    func setupGestureRecognizer() {
+        let recognizerTap = UITapGestureRecognizer(target: self, action: #selector(recognizerAction))
+        self.view.addGestureRecognizer(recognizerTap)
+    }
+    
+    @objc private func recognizerAction() {
+        self.view.endEditing(true)
+    }
+    
 }
+
