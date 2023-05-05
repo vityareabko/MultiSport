@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteMatch" representedClassName="FavoriteMatch" syncable="YES" codeGenerationType="class">
+        <relationship name="fixtureEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FixtureEvents"/>
+    </entity>
+    <entity name="FixtureEvents" representedClassName="FixtureEvents" syncable="YES" codeGenerationType="class">
+        <attribute name="dateFixture" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Note" representedClassName=".Note" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="userID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserTable"/>
+    </entity>
+    <entity name="Team" representedClassName="Team" syncable="YES" codeGenerationType="class">
+        <attribute name="teamLeague" optional="YES" attributeType="String"/>
+        <attribute name="teamLogo" optional="YES" attributeType="Binary"/>
+        <attribute name="teamName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="UserTable" representedClassName=".User" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="login" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="favoriteID" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FavoriteMatch"/>
+        <relationship name="notesID" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note"/>
+    </entity>
+</model>

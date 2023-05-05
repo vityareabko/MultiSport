@@ -14,14 +14,11 @@ class SignInController: UIViewController {
     private let subTitleText = UILabel(text: "Don’t have an account?", textColor: .systemGray5, font: .gothamRegular18())
     private let emailLabel = UILabel(text: "E-mail", textColor: .systemGray5, font: .gothamBold18())
     private let passwordLabel = UILabel(text: "Password", textColor: .systemGray5, font: .gothamBold18())
-    
     private let emailTextField = UITextField(placeholder: "Type your e-mail")
     private let passwordTextField = UITextField(placeholder: "Type your password")
-    
     private let buttonLink = UIButton(text: "Sign Up", textColor: .specialOrangeColor, font: .gothamBold18())
     private let signInButton = UIButton(text: "Sing In", textColor: .specialMainBaground, bgColor: .specialOrangeColor, font: .gothamBold15())
     private let forgetPassworButton = UIButton(text: "Forgot your password?", textColor: .systemGray3, font: .gothamLight18())
-    
     private var emailStackView = UIStackView()
     private var passStackView = UIStackView()
     
@@ -40,6 +37,8 @@ class SignInController: UIViewController {
     // MARK: - UI Setup
     private func setupUI() {
         self.view.backgroundColor = .specialMainBaground
+        
+        buttonLink.addTarget(self, action: #selector(didTappedSingUpButton), for: .touchUpInside)
         
         setStackView()
         passwordTextField.isSecureTextEntry = true
@@ -72,6 +71,16 @@ class SignInController: UIViewController {
     private func setDelegate() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
+    }
+    
+    // MARK: - selectors
+    @objc private func didTappedSingUpButton() {
+        if navigationController?.viewControllers.last(where: { $0 !== self }) is MainViewController {
+            let vc = SignUpController()
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 

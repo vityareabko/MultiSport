@@ -12,8 +12,7 @@ class CoreDataManager {
     static let shared = CoreDataManager()
     private init() {}
     
-   
-    
+
     // Создаем экземпляр NSPersistentContainer и загружаем хранилище данных с именем "DB"
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DB")
@@ -51,16 +50,19 @@ class CoreDataManager {
      // ...
 
      // Сохранение контекста после изменений
-     CoreDataManager.shared.saveContext()
+     CoreDataManager.shared.saveObject(newObject)
      */
-    func saveContext () {
-        if context.hasChanges {
-            do {
+
+    func saveObject(object: NSManagedObject? = nil) {
+        do {
+            if let object = object {
+                try object.managedObjectContext?.save()
+            } else if context.hasChanges {
                 try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
     
@@ -72,10 +74,14 @@ class CoreDataManager {
      // Обновление объекта
      // Изменение атрибутов объекта
      // ...
-     CoreDataManager.shared.updateObject()
+     CoreDataManager.shared.update(object: object) {
+        person.age = 30
+     }
      */
-    func updateObject() {
-        saveContext()
+    
+    func updateObject(object: NSManagedObject, changes: () -> Void) {
+        changes()
+        saveObject(object: object)
     }
 
     // delete object
@@ -84,7 +90,7 @@ class CoreDataManager {
      */
     func deleteObject(_ object: NSManagedObject) {
         context.delete(object)
-        saveContext()
+        saveObject()
     }
     
 

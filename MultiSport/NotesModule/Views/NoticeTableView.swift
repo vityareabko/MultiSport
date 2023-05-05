@@ -10,9 +10,14 @@ protocol NoticeProtocol: AnyObject {
     func createNotice()
 }
 
+protocol NoticeEditProtocol: AnyObject {
+    func editeNotice(index: Int)
+}
+
 class NoticeTableView: UITableView {
     
     weak var noticeDelegate: NoticeProtocol?
+    weak var noticeEditDelegate: NoticeEditProtocol?
     private var allNotice = [Notice]()
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -48,6 +53,9 @@ class NoticeTableView: UITableView {
     @objc private func didTappedAddNoteButton() {
         noticeDelegate?.createNotice()
     }
+    @objc private func didTappedEditButton(sender: UIButton) {
+        noticeEditDelegate?.editeNotice(index: sender.tag)
+    }
     
     @objc private func didTappedDeleteButton(sender: UIButton) {
         let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
@@ -80,9 +88,7 @@ extension NoticeTableView: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTableViewLastCell.identifier) as? NoticeTableViewLastCell else {
                 return UITableViewCell()
             }
-            
             cell.addNoteButton.addTarget(self, action: #selector(didTappedAddNoteButton), for: .touchUpInside)
-            
             return cell
             
         } else {
@@ -93,17 +99,10 @@ extension NoticeTableView: UITableViewDataSource, UITableViewDelegate {
             
             cell.binButton.addTarget(self, action: #selector(didTappedDeleteButton), for: .touchUpInside)
             cell.binButton.tag = indexPath.row
+            
+            cell.editButton.addTarget(self, action: #selector(didTappedEditButton), for: .touchUpInside)
+            cell.editButton.tag = indexPath.row
 
-            cell.reloadTableData = { [weak self] in
-                guard let self = self else { return }
-                self.reloadData()
-                let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
-                let allNotice = CoreDataManager.shared.fetchObjects(entity: Notice.self, sortDescriptors: [sortDescriptor])
-                self.setData(models: allNotice)
-                self.reloadData()
-            }
-            
-            
             cell.idModel = indexPath.row
             cell.setData(model: self.allNotice[indexPath.row])
             

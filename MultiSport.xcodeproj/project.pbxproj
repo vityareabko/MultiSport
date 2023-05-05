@@ -582,7 +582,7 @@
 		5781433629FAA17700DDE7D1 /* Contorollers */ = {
 			isa = PBXGroup;
 			children = (
-				5781434829FC2B6B00DDE7D1 /* CreateNoteModule */,
+				5781434829FC2B6B00DDE7D1 /* CreateNoteController */,
 				5781433929FAA1BB00DDE7D1 /* NotesController.swift */,
 			);
 			path = Contorollers;
@@ -606,36 +606,12 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
-		5781434829FC2B6B00DDE7D1 /* CreateNoteModule */ = {
-			isa = PBXGroup;
-			children = (
-				5781434A29FC2B8C00DDE7D1 /* model */,
-				5781434929FC2B8700DDE7D1 /* Views */,
-				5781434B29FC2B8F00DDE7D1 /* Controllers */,
-			);
-			path = CreateNoteModule;
-			sourceTree = "<group>";
-		};
-		5781434929FC2B8700DDE7D1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		5781434A29FC2B8C00DDE7D1 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		5781434B29FC2B8F00DDE7D1 /* Controllers */ = {
+		5781434829FC2B6B00DDE7D1 /* CreateNoteController */ = {
 			isa = PBXGroup;
 			children = (
 				5781434629FC2B4D00DDE7D1 /* CreateNoteController.swift */,
 			);
-			path = Controllers;
+			path = CreateNoteController;
 			sourceTree = "<group>";
 		};
 		57F9964F29B4A5330062E8E9 = {

@@ -54,15 +54,25 @@ class NotesController: UIViewController {
     
     private func setDelegate() {
         noticeTableView.noticeDelegate = self
+        noticeTableView.noticeEditDelegate = self
     }
 }
 
 // MARK: - NoticeProtocol
-extension NotesController: NoticeProtocol {
+extension NotesController: NoticeProtocol, NoticeEditProtocol{
+    func editeNotice(index: Int) {
+        let vc = CreateNoteController()
+        let sortDescriptor = NSSortDescriptor(key: "updatedAt", ascending: false)
+        let allObjects = CoreDataManager.shared.fetchObjects(entity: Notice.self, sortDescriptors: [sortDescriptor])
+        vc.editController = true
+        vc.model = allObjects[index]
+        vc.setData()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func createNotice() {
         let vc = CreateNoteController()
         navigationController?.pushViewController(vc, animated: true)
-        noticeTableView.reloadData()
     }
 }
 // MARK: - Extensions

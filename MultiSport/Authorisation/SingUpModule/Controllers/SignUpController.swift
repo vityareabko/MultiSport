@@ -44,6 +44,8 @@ class SignUpController: UIViewController {
     private func setupUI() {
         self.view.backgroundColor = .specialMainBaground
 
+        buttonLink.addTarget(self, action: #selector(didTappedSingInButton), for: .touchUpInside)
+        
         setStackView()
         
         self.view.addSubview(titleLabelController)
@@ -90,6 +92,16 @@ class SignUpController: UIViewController {
         passwordTextField.delegate = self
         emailTextField.delegate = self
         wordVerifcTextField.delegate = self
+    }
+    
+    // MARK: - selectors
+    @objc private func didTappedSingInButton() {
+        if navigationController?.viewControllers.last(where: { $0 !== self }) is MainViewController {
+            let vc = SignInController()
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 
