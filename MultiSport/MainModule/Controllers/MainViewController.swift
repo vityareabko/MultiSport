@@ -26,32 +26,43 @@ class MainViewController: UIViewController {
     private lazy var buttonCompleted = UIButton(text: "COMPLETED", textColor: .systemGray5, bgColor: .specialBagroubdSubviews, font: .gothamBold15())
 
     
-    private lazy var logIn: UIButton = {
+    private lazy var logOutButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(" LOG IN", for: .normal)
-        button.backgroundColor = .clear
-        button.titleLabel?.font = .gothamBold11()
-        button.tintColor = .white
+        button.setTitle("LogOut", for: .normal)
         let image = UIImage(named: "login")?.withTintColor(UIColor.specialOrangeColor, renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
-        button.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private lazy var signUp: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(" SIGN UP", for: .normal)
-        button.backgroundColor = .clear
         button.titleLabel?.font = .gothamBold11()
         button.tintColor = .white
-        let image = UIImage(named: "signup")?.withTintColor(UIColor.specialOrangeColor, renderingMode: .alwaysOriginal)
-        button.setImage(image, for: .normal)
-        button.addTarget(self, action: #selector(didTapSignUP), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTappedLogout), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+//    private lazy var logIn: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle(" LOG IN", for: .normal)
+//        button.backgroundColor = .clear
+//        button.titleLabel?.font = .gothamBold11()
+//        button.tintColor = .white
+//        let image = UIImage(named: "login")?.withTintColor(UIColor.specialOrangeColor, renderingMode: .alwaysOriginal)
+//        button.setImage(image, for: .normal)
+//        button.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
+//
+//    private lazy var signUp: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle(" SIGN UP", for: .normal)
+//        button.backgroundColor = .clear
+//        button.titleLabel?.font = .gothamBold11()
+//        button.tintColor = .white
+//        let image = UIImage(named: "signup")?.withTintColor(UIColor.specialOrangeColor, renderingMode: .alwaysOriginal)
+//        button.setImage(image, for: .normal)
+//        button.addTarget(self, action: #selector(didTapSignUP), for: .touchUpInside)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
+//
     private lazy var backAtHome: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "chevron.backward")?.withTintColor(.white, renderingMode: .alwaysOriginal)
@@ -115,8 +126,9 @@ class MainViewController: UIViewController {
     
     // MARK: - Settings navbar
     private func setNavbar() {
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: signUp), UIBarButtonItem(customView: logIn)]
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backAtHome)
+//        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: signUp), UIBarButtonItem(customView: logIn)]
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backAtHome)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: logOutButton)
     }
     
     
@@ -146,16 +158,27 @@ class MainViewController: UIViewController {
     
     
     // MARK: - Selectors
-    @objc private func didTapLogin(){
-        let vc = SignInController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+//    @objc private func didTapLogin(){
+//        let vc = SignInController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
+//
+//    @objc private func didTapSignUP(){
+//        let vc = SignUpController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
     
-    @objc private func didTapSignUP(){
-        let vc = SignUpController()
-        self.navigationController?.pushViewController(vc, animated: true)
+    @objc private func didTappedLogout() {
+        AuthService.shared.signOut { error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+                sceneDelegate.checkAuthentication()
+            }
+        }
     }
-    
     @objc private func didtapHome(sender: UIButton) {
         if let lastChildController = children.last {
             removeChildController(childController: lastChildController)

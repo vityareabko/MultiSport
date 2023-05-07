@@ -11,7 +11,7 @@ extension UITextField {
     convenience init(placeholder: String) {
         self.init()
         self.text = ""
-        self.font = .gothamBold15()
+        self.font = .gothamBold13()
         self.textColor = .systemGray4
         self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.specialLight])
         self.layer.cornerRadius = 7

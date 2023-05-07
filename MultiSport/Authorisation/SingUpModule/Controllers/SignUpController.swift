@@ -12,15 +12,15 @@ class SignUpController: UIViewController {
     private let titleLabelController = UILabel(text: "SING UP", textColor: .specialOrangeColor, font: .gothamBold22())
     private let subTitleText = UILabel(text: "Have an account?", textColor: .systemGray5, font: .gothamRegular18())
     
-    private let loginLabel = UILabel(text: "Login", textColor: .systemGray5, font: .gothamRegular18())
-    private let passwordLabel = UILabel(text: "Password", textColor: .systemGray5, font: .gothamRegular18())
+    private let usernameLabel = UILabel(text: "Username", textColor: .systemGray5, font: .gothamRegular18())
     private let emailLabel = UILabel(text: "E-mail", textColor: .systemGray5, font: .gothamRegular18())
-    private let wordVereficLabel = UILabel(text: "Word for verifying", textColor: .systemGray5, font: .gothamRegular18())
+    private let passwordLabel = UILabel(text: "Password", textColor: .systemGray5, font: .gothamRegular18())
+    private let passConfirmLabel = UILabel(text: "Password Confirmation", textColor: .systemGray5, font: .gothamRegular18())
     
-    private let loginTextField = UITextField(placeholder: "Type your login")
-    private let passwordTextField = UITextField(placeholder: "Type your password")
-    private let emailTextField = UITextField(placeholder: "Type your e-mail")
-    private let wordVerifcTextField = UITextField(placeholder: "Type your word for verifying")
+    private let usernameTextField = UITextField(placeholder: "username")
+    private let emailTextField = UITextField(placeholder: "e-mail")
+    private let passwordTextField = UITextField(placeholder: "password")
+    private let passConfirmTextField = UITextField(placeholder: "Confirm Password")
     
     
     private let buttonLink = UIButton(text: "Log In", textColor: .specialOrangeColor, font: .gothamBold18())
@@ -45,6 +45,11 @@ class SignUpController: UIViewController {
         self.view.backgroundColor = .specialMainBaground
 
         buttonLink.addTarget(self, action: #selector(didTappedSingInButton), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(registerAccountButton), for: .touchUpInside)
+        
+        passwordTextField.autocapitalizationType = .none
+        passConfirmTextField.autocapitalizationType = .none
+        emailTextField.autocapitalizationType = .none
         
         setStackView()
         
@@ -57,7 +62,7 @@ class SignUpController: UIViewController {
     
     // MARK: - setStackView
     private func setStackView() {
-        let loginStackView = UIStackView(arrangedSubviews: [loginLabel, loginTextField])
+        let loginStackView = UIStackView(arrangedSubviews: [usernameLabel, usernameTextField])
         loginStackView.axis = .vertical
         loginStackView.spacing = 15
         loginStackView.distribution = .equalSpacing
@@ -72,14 +77,13 @@ class SignUpController: UIViewController {
         emailStackView.spacing = 15
         emailStackView.distribution = .equalSpacing
         
-        let wordVerificStackView = UIStackView(arrangedSubviews: [wordVereficLabel, wordVerifcTextField])
-        wordVerificStackView.axis = .vertical
-        wordVerificStackView.spacing = 15
-        wordVerificStackView.distribution = .equalSpacing
+        let passConfirmStackView = UIStackView(arrangedSubviews: [passConfirmLabel, passConfirmTextField])
+        passConfirmStackView.axis = .vertical
+        passConfirmStackView.spacing = 15
+        passConfirmStackView.distribution = .equalSpacing
         
         
-        singUpStackView = UIStackView(arrangedSubviews: [loginStackView, passStackView,
-                                                 emailStackView, wordVerificStackView])
+        singUpStackView = UIStackView(arrangedSubviews: [loginStackView, emailStackView, passStackView, passConfirmStackView])
         
         singUpStackView.axis = .vertical
         singUpStackView.spacing = 30
@@ -88,21 +92,67 @@ class SignUpController: UIViewController {
     }
     
     private func setDelegate() {
-        loginTextField.delegate = self
+        usernameTextField.delegate = self
         passwordTextField.delegate = self
         emailTextField.delegate = self
-        wordVerifcTextField.delegate = self
+        passConfirmTextField.delegate = self
     }
     
     // MARK: - selectors
     @objc private func didTappedSingInButton() {
-        if navigationController?.viewControllers.last(where: { $0 !== self }) is MainViewController {
-            let vc = SignInController()
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
-            navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
+    }
+ 
+    @objc private func registerAccountButton() {
+        var signUpIsValidate = true
+        
+        if !Validator.isValidEmail(for: emailTextField.text ?? "") {
+            emailTextField.shake()
+            signUpIsValidate = false
+        }
+        
+        if !Validator.isValidUsername(for: usernameTextField.text ?? "") {
+            usernameTextField.shake()
+            signUpIsValidate = false
+        }
+        
+        if !Validator.isPasswordValid(for: passwordTextField.text ?? "") {
+            passwordTextField.shake()
+            passConfirmTextField.shake()
+            signUpIsValidate = false
+        }
+        
+        if passwordTextField.text != passConfirmTextField.text {
+            signUpIsValidate = false
+            passwordTextField.shake()
+            passConfirmTextField.shake()
+        }
+        
+        if signUpIsValidate {
+            let registerRequest = RegisterUserRequest(username: usernameTextField.text ?? "",
+                                        email: emailTextField.text ?? "",
+                                     password: passwordTextField.text ?? "")
+            AuthService.shared.registerUser(with: registerRequest) { [weak self] wasRegister, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                print("User \(registerRequest.username) was register - ", wasRegister)
+                
+                if wasRegister {
+                    if let sceneDelegate = self?.view.window?.windowScene?.delegate as? SceneDelegate {
+                        sceneDelegate.checkAuthentication()
+                    }
+                }
+            }
+            
+            
+//            navigationController?.popViewController(animated: false)
         }
     }
+    
+
+    
 }
 
 // MARK: - UITextFieldDelegate
@@ -130,10 +180,10 @@ extension SignUpController {
             buttonLink.leadingAnchor.constraint(equalTo: subTitleText.trailingAnchor, constant: 10),
             buttonLink.heightAnchor.constraint(equalToConstant: 20),
             
-            loginTextField.heightAnchor.constraint(equalToConstant: 50),
+            usernameTextField.heightAnchor.constraint(equalToConstant: 50),
             passwordTextField.heightAnchor.constraint(equalToConstant: 50),
             emailTextField.heightAnchor.constraint(equalToConstant: 50),
-            wordVerifcTextField.heightAnchor.constraint(equalToConstant: 50),
+            passConfirmTextField.heightAnchor.constraint(equalToConstant: 50),
             
             singUpStackView.topAnchor.constraint(equalTo: buttonLink.bottomAnchor, constant: 40),
             singUpStackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),

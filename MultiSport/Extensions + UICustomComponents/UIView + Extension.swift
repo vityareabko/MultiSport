@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    func shake(horizontal: CGFloat = 0, verticatly: CGFloat = 0){
+    func shake(horizontal: CGFloat = 5, verticatly: CGFloat = 0){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.05
         animation.repeatCount = 5

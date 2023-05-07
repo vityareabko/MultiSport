@@ -29,7 +29,7 @@ class SignInController: UIViewController {
         setupUI()
         setDelegate()
         setConstraints()
-        setNavigationBar()
+//        setNavigationBar()
         setupGestureRecognizer() 
     }
     
@@ -39,10 +39,13 @@ class SignInController: UIViewController {
         self.view.backgroundColor = .specialMainBaground
         
         buttonLink.addTarget(self, action: #selector(didTappedSingUpButton), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(signInAccountButton), for: .touchUpInside)
         
         setStackView()
         passwordTextField.isSecureTextEntry = true
         emailTextField.keyboardType = .emailAddress
+        emailTextField.autocapitalizationType = .none
+        passwordTextField.autocapitalizationType = .none
         
         self.view.addSubview(titleLabelController)
         self.view.addSubview(subTitleText)
@@ -74,13 +77,38 @@ class SignInController: UIViewController {
     }
     
     // MARK: - selectors
-    @objc private func didTappedSingUpButton() {
-        if navigationController?.viewControllers.last(where: { $0 !== self }) is MainViewController {
-            let vc = SignUpController()
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
-            navigationController?.popViewController(animated: true)
+    @objc private func signInAccountButton() {
+        var signInIsValidate = true
+        if !Validator.isValidEmail(for: emailTextField.text ?? "") {
+            emailTextField.shake()
+            signInIsValidate = false
         }
+        
+        if !Validator.isPasswordValid(for: passwordTextField.text ?? "") {
+            passwordTextField.shake()
+            signInIsValidate = false
+        }
+        
+        if signInIsValidate {
+            let loginRequest = LoginUserRequest(email: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "")
+            
+            AuthService.shared.signIn(with: loginRequest) { [weak self] error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    // TODO: - сделать alert что неправильные введены данные или какое-то сообщение чтобы пользователь увидел что данные неправильно введены...
+                    return
+                }
+                
+                if let sceneDelegate = self?.view.window?.windowScene?.delegate as? SceneDelegate {
+                    sceneDelegate.checkAuthentication()
+                }
+            }
+        }
+    }
+    
+    @objc private func didTappedSingUpButton() {
+        let vc = SignUpController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
