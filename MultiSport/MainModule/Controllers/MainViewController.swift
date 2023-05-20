@@ -10,7 +10,6 @@ import UIKit
 class MainViewController: UIViewController {
 
     // MARK: - Controllers
-//    private var childControllerMatchTable: MatchController?  //
     private let sportTypeCollectionView = SportTypeCollectionView() // это колекция
     
     private let childControllerMainTable = MaintTableViewController() // таблица с категореями
@@ -28,41 +27,21 @@ class MainViewController: UIViewController {
     
     private lazy var logOutButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("LogOut", for: .normal)
+//        button.setTitle("Logout", for: .normal)
         let image = UIImage(named: "login")?.withTintColor(UIColor.specialOrangeColor, renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
-        button.titleLabel?.font = .gothamBold11()
-        button.tintColor = .white
+//        button.titleLabel?.font = .gothamBold11()
+//        button.tintColor = .white
+        
+//        let spacing: CGFloat = 3
+//        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: -spacing)
+//        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -spacing, bottom: 0, right: spacing)
+        
         button.addTarget(self, action: #selector(didTappedLogout), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-//    private lazy var logIn: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setTitle(" LOG IN", for: .normal)
-//        button.backgroundColor = .clear
-//        button.titleLabel?.font = .gothamBold11()
-//        button.tintColor = .white
-//        let image = UIImage(named: "login")?.withTintColor(UIColor.specialOrangeColor, renderingMode: .alwaysOriginal)
-//        button.setImage(image, for: .normal)
-//        button.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
-//
-//    private lazy var signUp: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setTitle(" SIGN UP", for: .normal)
-//        button.backgroundColor = .clear
-//        button.titleLabel?.font = .gothamBold11()
-//        button.tintColor = .white
-//        let image = UIImage(named: "signup")?.withTintColor(UIColor.specialOrangeColor, renderingMode: .alwaysOriginal)
-//        button.setImage(image, for: .normal)
-//        button.addTarget(self, action: #selector(didTapSignUP), for: .touchUpInside)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
-//
+
     private lazy var backAtHome: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "chevron.backward")?.withTintColor(.white, renderingMode: .alwaysOriginal)
@@ -126,8 +105,23 @@ class MainViewController: UIViewController {
     
     // MARK: - Settings navbar
     private func setNavbar() {
-//        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: signUp), UIBarButtonItem(customView: logIn)]
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backAtHome)
+        if let currentUser  = AuthService.shared.getCurentUser() {
+            AuthService.shared.getUserData(for: currentUser.uid) { [weak self] data, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                guard let data = data else {
+                    return
+                }
+                
+                self?.title = data["username"] as? String
+            }
+        }
+        
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backAtHome)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: logOutButton)
     }
     
@@ -158,16 +152,6 @@ class MainViewController: UIViewController {
     
     
     // MARK: - Selectors
-//    @objc private func didTapLogin(){
-//        let vc = SignInController()
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
-//
-//    @objc private func didTapSignUP(){
-//        let vc = SignUpController()
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
-    
     @objc private func didTappedLogout() {
         AuthService.shared.signOut { error in
             if let error = error {
@@ -270,17 +254,11 @@ extension MainViewController: PushToControllerProtocol {
         switch categories {
         case .calendar:
             // TODO: - когда пушим то взникает какой-то API - что-то там ....
-            let vc = CalendarController()
-            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.pushViewController(CalendarController(), animated: true)
         case .notes:
-            let vc = NotesController()
-//            let nav = UINavigationController(rootViewController: vc)
-//            nav.modalPresentationStyle = .fullScreen
-            navigationController?.pushViewController(vc, animated: true)
-//            present(nav, animated: true)
+            navigationController?.pushViewController(NotesController(), animated: true)
         case .factor:
-            let vc = FactorController()
-            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.pushViewController(FactorController(), animated: true)
         case .favorites:
             print("favorites")
         case .league:

@@ -24,12 +24,11 @@ class AuthService {
                 completion(false, error)
                 return
             }
-            
             guard let resultUser = result?.user else {
                 completion(false, nil)
                 return
             }
-            
+
             let db = Firestore.firestore()
             
             db.collection("users")
@@ -69,4 +68,26 @@ class AuthService {
         }
     }
     
+    public func getCurentUser() -> User? {
+        return Auth.auth().currentUser
+    }
+    
+    public func getUserData(for uid: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(uid)
+
+        userRef.getDocument { document, error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+
+            guard let document = document, document.exists else {
+                completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User document does not exist"]))
+                return
+            }
+
+            completion(document.data(), nil)
+        }
+    }
 }
