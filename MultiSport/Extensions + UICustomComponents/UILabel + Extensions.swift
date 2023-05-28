@@ -14,7 +14,7 @@ extension UILabel {
         self.textColor = textColor
         self.font = font
         self.adjustsFontSizeToFitWidth = true
-        self.minimumScaleFactor = 0.5
+        self.minimumScaleFactor = 0.8
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }

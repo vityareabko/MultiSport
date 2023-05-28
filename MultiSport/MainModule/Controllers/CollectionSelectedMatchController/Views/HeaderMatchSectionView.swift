@@ -65,7 +65,7 @@ class HeaderMatchSectionView : UIView {
     }
     
     private func setupUI() {
-        self.backgroundColor = .specialMainBaground
+        self.backgroundColor = .clear
         
         labelDate.textAlignment = .center
         scoreTeam.textAlignment = .center
@@ -119,7 +119,6 @@ extension HeaderMatchSectionView {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            
             separatorView.topAnchor.constraint(equalTo: self.bottomAnchor),
             separatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             separatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),

@@ -75,6 +75,11 @@
 		5781434D29FC311500DDE7D1 /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781434C29FC311500DDE7D1 /* UITextField + Extensions.swift */; };
 		5781434F29FC3B7500DDE7D1 /* UITextView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781434E29FC3B7400DDE7D1 /* UITextView + Extension.swift */; };
 		57C1F70029EF3FAD000D707F /* GetImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C1F6FF29EF3FAD000D707F /* GetImageRequest.swift */; };
+		57C930342A1918D300E936F9 /* FactorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C930332A1918D300E936F9 /* FactorTableView.swift */; };
+		57C930362A19194100E936F9 /* FactorTableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C930352A19194100E936F9 /* FactorTableViewSection.swift */; };
+		57C930382A191F0000E936F9 /* FactorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C930372A191F0000E936F9 /* FactorTableViewCell.swift */; };
+		57C9303A2A2148E700E936F9 /* factorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C930392A2148E700E936F9 /* factorModel.swift */; };
+		57C9303C2A23A38200E936F9 /* FactorTableFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C9303B2A23A38200E936F9 /* FactorTableFirstCell.swift */; };
 		57F9965C29B4A5330062E8E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9965B29B4A5330062E8E9 /* AppDelegate.swift */; };
 		57F9965E29B4A5330062E8E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9965D29B4A5330062E8E9 /* SceneDelegate.swift */; };
 		57F9966029B4A5330062E8E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9965F29B4A5330062E8E9 /* MainViewController.swift */; };
@@ -159,6 +164,11 @@
 		5781434C29FC311500DDE7D1 /* UITextField + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
 		5781434E29FC3B7400DDE7D1 /* UITextView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView + Extension.swift"; sourceTree = "<group>"; };
 		57C1F6FF29EF3FAD000D707F /* GetImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageRequest.swift; sourceTree = "<group>"; };
+		57C930332A1918D300E936F9 /* FactorTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorTableView.swift; sourceTree = "<group>"; };
+		57C930352A19194100E936F9 /* FactorTableViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorTableViewSection.swift; sourceTree = "<group>"; };
+		57C930372A191F0000E936F9 /* FactorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorTableViewCell.swift; sourceTree = "<group>"; };
+		57C930392A2148E700E936F9 /* factorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = factorModel.swift; sourceTree = "<group>"; };
+		57C9303B2A23A38200E936F9 /* FactorTableFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorTableFirstCell.swift; sourceTree = "<group>"; };
 		57F9965829B4A5330062E8E9 /* MultiSport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F9965B29B4A5330062E8E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F9965D29B4A5330062E8E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -280,6 +290,7 @@
 		572927BF29FD2BA9007B037D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				57C930392A2148E700E936F9 /* factorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,6 +298,9 @@
 		572927C029FD2BB0007B037D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				57C930322A1918BC00E936F9 /* cell */,
+				57C930352A19194100E936F9 /* FactorTableViewSection.swift */,
+				57C930332A1918D300E936F9 /* FactorTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -656,6 +670,15 @@
 			path = CreateNoteController;
 			sourceTree = "<group>";
 		};
+		57C930322A1918BC00E936F9 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				57C930372A191F0000E936F9 /* FactorTableViewCell.swift */,
+				57C9303B2A23A38200E936F9 /* FactorTableFirstCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		57F9964F29B4A5330062E8E9 = {
 			isa = PBXGroup;
 			children = (
@@ -901,10 +924,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C9303A2A2148E700E936F9 /* factorModel.swift in Sources */,
 				572927C329FD2BDD007B037D /* FactorController.swift in Sources */,
 				572927CB29FD7EE9007B037D /* Notice+CoreDataProperties.swift in Sources */,
 				576CF38529E371F200886E29 /* MatchesTableController.swift in Sources */,
 				576CF37B29E369F400886E29 /* MatchCollectionView.swift in Sources */,
+				57C9303C2A23A38200E936F9 /* FactorTableFirstCell.swift in Sources */,
 				572927C729FD7961007B037D /* DB.xcdatamodeld in Sources */,
 				5781434729FC2B4D00DDE7D1 /* CreateNoteController.swift in Sources */,
 				576CF30D29DCBA0300886E29 /* MainTableView.swift in Sources */,
@@ -913,6 +938,7 @@
 				5720967D29F18D6200C4A285 /* StatisticMatchTableView.swift in Sources */,
 				5781431629F57D1700DDE7D1 /* PastFixturesByTeamID.swift in Sources */,
 				5781432E29F9953700DDE7D1 /* CalendarCollectionViewCell.swift in Sources */,
+				57C930362A19194100E936F9 /* FactorTableViewSection.swift in Sources */,
 				576CF32D29E1782E00886E29 /* SeactionMatchTableView.swift in Sources */,
 				573C11502A0808C200C1CE05 /* RegisterUserRequest.swift in Sources */,
 				576CF38829E7C2B300886E29 /* NetworkingRequest.swift in Sources */,
@@ -939,6 +965,7 @@
 				576CF38E29E7D73500886E29 /* ModelFutureMatches.swift in Sources */,
 				57F9967929B4A7480062E8E9 /* UIFont + Extensions.swift in Sources */,
 				57F9965C29B4A5330062E8E9 /* AppDelegate.swift in Sources */,
+				57C930342A1918D300E936F9 /* FactorTableView.swift in Sources */,
 				5781434D29FC311500DDE7D1 /* UITextField + Extensions.swift in Sources */,
 				57F9968F29B4EE300062E8E9 /* UIViewController + Extensions.swift in Sources */,
 				5781433C29FAAB6200DDE7D1 /* NoticeTableView.swift in Sources */,
@@ -967,6 +994,7 @@
 				5781431B29F5D26900DDE7D1 /* FixturedMatch.swift in Sources */,
 				573C11542A08229C00C1CE05 /* Validator.swift in Sources */,
 				57C1F70029EF3FAD000D707F /* GetImageRequest.swift in Sources */,
+				57C930382A191F0000E936F9 /* FactorTableViewCell.swift in Sources */,
 				5781431429F5465500DDE7D1 /* ModelLeagueID.swift in Sources */,
 				572927CA29FD7EE9007B037D /* Notice+CoreDataClass.swift in Sources */,
 				5781433429F9E1BB00DDE7D1 /* EventByDateTableViewCell.swift in Sources */,

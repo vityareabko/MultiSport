@@ -45,17 +45,13 @@ class MatchesTeamTable: UITableView {
         self.backgroundColor = .clear
         self.bounces = false
         self.showsVerticalScrollIndicator = false
-        
-
+        self.separatorStyle = .none
     }
     
     // MARK: - setDelegate
     private func setDelegate() {
         self.delegate = self
         self.dataSource = self
-        self.separatorStyle = .none
-        
-
     }
     
     // MARK: - setData

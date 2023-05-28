@@ -27,16 +27,9 @@ class MainViewController: UIViewController {
     
     private lazy var logOutButton: UIButton = {
         let button = UIButton(type: .system)
-//        button.setTitle("Logout", for: .normal)
         let image = UIImage(named: "login")?.withTintColor(UIColor.specialOrangeColor, renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
-//        button.titleLabel?.font = .gothamBold11()
-//        button.tintColor = .white
-        
-//        let spacing: CGFloat = 3
-//        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: -spacing)
-//        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -spacing, bottom: 0, right: spacing)
-        
+
         button.addTarget(self, action: #selector(didTappedLogout), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

@@ -27,7 +27,7 @@ class MatchCollectionController: UIViewController {
         setConstraints()
         
         // делаем запросы и обновляем колекцию с данными
-//        loadPastEvents()
+        loadPastEvents()
         print("это колекция с комндами")
     }
 

@@ -27,7 +27,7 @@ extension UIButton {
         icon.withTintColor(.systemGray5, renderingMode: .alwaysTemplate)
         self.translatesAutoresizingMaskIntoConstraints = false
     }
-    
+
     convenience init(text: String, textColor: UIColor, font: UIFont?){
         self.init(type: .system)
         self.setTitle(text, for: .normal)
