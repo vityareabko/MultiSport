@@ -105,7 +105,7 @@ extension FactorTableView : UITableViewDelegate, UITableViewDataSource {
 extension FactorTableView: TapToggleSectionProtocol {
     func showContent(index: Int) {
         model[index].expandable = !model[index].expandable
-        self.reloadRows(at: [[index,2]], with: .automatic)
+        self.reloadRows(at: [[index,2]], with: .none)
     }
 }
 

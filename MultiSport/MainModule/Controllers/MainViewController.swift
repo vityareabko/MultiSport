@@ -253,11 +253,11 @@ extension MainViewController: PushToControllerProtocol {
         case .factor:
             navigationController?.pushViewController(FactorController(), animated: true)
         case .favorites:
-            print("favorites")
+            navigationController?.pushViewController(FavoriteController(), animated: true)
         case .league:
-            print("league")
+            navigationController?.pushViewController(LeagueController(), animated: true)
         case .team:
-            print("team")
+            navigationController?.pushViewController(TeamContoller(), animated: true)
         case .transfer:
             print("transfer")
         case .victories:
