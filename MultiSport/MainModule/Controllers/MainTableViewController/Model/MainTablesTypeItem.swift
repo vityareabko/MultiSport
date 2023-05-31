@@ -19,7 +19,6 @@ enum MainTablesTypeItem: String, CaseIterable {
     case victories
     case betSimulation = "Bet Simulation"
     case myBets = "My Bets"
-    case shop
     
     var image: UIImage? {
         switch self {

@@ -8,14 +8,14 @@
 import UIKit
 
 extension UITextField {
-    convenience init(placeholder: String) {
+    convenience init(placeholder: String, bgColor: UIColor = UIColor.specialBagroubdSubviews) {
         self.init()
         self.text = ""
         self.font = .gothamBold13()
         self.textColor = .systemGray4
         self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.specialLight])
         self.layer.cornerRadius = 7
-        self.backgroundColor = .specialBagroubdSubviews
+        self.backgroundColor = bgColor
         
         self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 17, height: 0))
         self.leftViewMode = .always

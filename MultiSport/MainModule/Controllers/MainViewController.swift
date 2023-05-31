@@ -259,15 +259,13 @@ extension MainViewController: PushToControllerProtocol {
         case .team:
             navigationController?.pushViewController(TeamContoller(), animated: true)
         case .transfer:
-            print("transfer")
+            navigationController?.pushViewController(TransferController(), animated: true)
         case .victories:
-            print("victories")
+            navigationController?.pushViewController(VictoryController(), animated: true)
         case .betSimulation:
-            print("betSimulation")
+            navigationController?.pushViewController(BetConttoller(), animated: true)
         case .myBets:
-            print("myBets")
-        case .shop:
-            print("shop")
+            navigationController?.pushViewController(MyBetsController(), animated: true)
         }
     }
 }

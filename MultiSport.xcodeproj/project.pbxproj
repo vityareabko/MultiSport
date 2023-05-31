@@ -53,6 +53,17 @@
 		576CF38E29E7D73500886E29 /* ModelFutureMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF38D29E7D73500886E29 /* ModelFutureMatches.swift */; };
 		576CF39029E7D74A00886E29 /* NetworkingDataFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF38F29E7D74A00886E29 /* NetworkingDataFetch.swift */; };
 		576CF3C029EEBF0400886E29 /* ConfigURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576CF3BF29EEBF0400886E29 /* ConfigURL.swift */; };
+		577DD8E82A278EDD00B603EB /* TransferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD8E72A278EDD00B603EB /* TransferController.swift */; };
+		577DD8EA2A278FA200B603EB /* TransferTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD8E92A278FA200B603EB /* TransferTableView.swift */; };
+		577DD8ED2A278FC600B603EB /* TransferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD8EC2A278FC600B603EB /* TransferTableViewCell.swift */; };
+		577DD8F32A27BDAF00B603EB /* VictoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD8F22A27BDAF00B603EB /* VictoryController.swift */; };
+		577DD8F52A27BE5800B603EB /* VitctoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD8F42A27BE5800B603EB /* VitctoryTableView.swift */; };
+		577DD8F82A27BE6F00B603EB /* VitctoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD8F72A27BE6F00B603EB /* VitctoryTableViewCell.swift */; };
+		577DD8FE2A27D69C00B603EB /* BetConttoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD8FD2A27D69C00B603EB /* BetConttoller.swift */; };
+		577DD9012A27D73C00B603EB /* BetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD9002A27D73C00B603EB /* BetView.swift */; };
+		577DD9072A27E63F00B603EB /* MyBetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD9062A27E63E00B603EB /* MyBetsController.swift */; };
+		577DD90A2A27E68D00B603EB /* MyBetsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD9092A27E68D00B603EB /* MyBetsTableView.swift */; };
+		577DD90C2A27E69D00B603EB /* MyBetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DD90B2A27E69D00B603EB /* MyBetsTableViewCell.swift */; };
 		5781430D29F41F6F00DDE7D1 /* ModelDecoderPastMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781430C29F41F6F00DDE7D1 /* ModelDecoderPastMatches.swift */; };
 		5781430F29F420EC00DDE7D1 /* jsonNullAndOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781430E29F420EC00DDE7D1 /* jsonNullAndOther.swift */; };
 		5781431229F4917400DDE7D1 /* TeamHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781431129F4917400DDE7D1 /* TeamHistory.swift */; };
@@ -152,6 +163,17 @@
 		576CF38D29E7D73500886E29 /* ModelFutureMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFutureMatches.swift; sourceTree = "<group>"; };
 		576CF38F29E7D74A00886E29 /* NetworkingDataFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingDataFetch.swift; sourceTree = "<group>"; };
 		576CF3BF29EEBF0400886E29 /* ConfigURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigURL.swift; sourceTree = "<group>"; };
+		577DD8E72A278EDD00B603EB /* TransferController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferController.swift; sourceTree = "<group>"; };
+		577DD8E92A278FA200B603EB /* TransferTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferTableView.swift; sourceTree = "<group>"; };
+		577DD8EC2A278FC600B603EB /* TransferTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferTableViewCell.swift; sourceTree = "<group>"; };
+		577DD8F22A27BDAF00B603EB /* VictoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryController.swift; sourceTree = "<group>"; };
+		577DD8F42A27BE5800B603EB /* VitctoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitctoryTableView.swift; sourceTree = "<group>"; };
+		577DD8F72A27BE6F00B603EB /* VitctoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitctoryTableViewCell.swift; sourceTree = "<group>"; };
+		577DD8FD2A27D69C00B603EB /* BetConttoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetConttoller.swift; sourceTree = "<group>"; };
+		577DD9002A27D73C00B603EB /* BetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetView.swift; sourceTree = "<group>"; };
+		577DD9062A27E63E00B603EB /* MyBetsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBetsController.swift; sourceTree = "<group>"; };
+		577DD9092A27E68D00B603EB /* MyBetsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBetsTableView.swift; sourceTree = "<group>"; };
+		577DD90B2A27E69D00B603EB /* MyBetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBetsTableViewCell.swift; sourceTree = "<group>"; };
 		5781430C29F41F6F00DDE7D1 /* ModelDecoderPastMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDecoderPastMatches.swift; sourceTree = "<group>"; };
 		5781430E29F420EC00DDE7D1 /* jsonNullAndOther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonNullAndOther.swift; sourceTree = "<group>"; };
 		5781431129F4917400DDE7D1 /* TeamHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamHistory.swift; sourceTree = "<group>"; };
@@ -582,6 +604,165 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		577DD8E32A278EBA00B603EB /* TransferModule */ = {
+			isa = PBXGroup;
+			children = (
+				577DD8E62A278ED000B603EB /* Model */,
+				577DD8E52A278ECA00B603EB /* Views */,
+				577DD8E42A278EC000B603EB /* controllers */,
+			);
+			path = TransferModule;
+			sourceTree = "<group>";
+		};
+		577DD8E42A278EC000B603EB /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				577DD8E72A278EDD00B603EB /* TransferController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		577DD8E52A278ECA00B603EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				577DD8EB2A278FB400B603EB /* cell */,
+				577DD8E92A278FA200B603EB /* TransferTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		577DD8E62A278ED000B603EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		577DD8EB2A278FB400B603EB /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				577DD8EC2A278FC600B603EB /* TransferTableViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		577DD8EE2A27BD8300B603EB /* VictoryModule */ = {
+			isa = PBXGroup;
+			children = (
+				577DD8F12A27BD9D00B603EB /* Model */,
+				577DD8F02A27BD9500B603EB /* Views */,
+				577DD8EF2A27BD8B00B603EB /* Controllers */,
+			);
+			path = VictoryModule;
+			sourceTree = "<group>";
+		};
+		577DD8EF2A27BD8B00B603EB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				577DD8F22A27BDAF00B603EB /* VictoryController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		577DD8F02A27BD9500B603EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				577DD8F62A27BE6500B603EB /* cell */,
+				577DD8F42A27BE5800B603EB /* VitctoryTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		577DD8F12A27BD9D00B603EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		577DD8F62A27BE6500B603EB /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				577DD8F72A27BE6F00B603EB /* VitctoryTableViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		577DD8F92A27D66B00B603EB /* BetModule */ = {
+			isa = PBXGroup;
+			children = (
+				577DD8FC2A27D68400B603EB /* Model */,
+				577DD8FB2A27D67D00B603EB /* Views */,
+				577DD8FA2A27D67800B603EB /* Controllers */,
+			);
+			path = BetModule;
+			sourceTree = "<group>";
+		};
+		577DD8FA2A27D67800B603EB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				577DD8FD2A27D69C00B603EB /* BetConttoller.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		577DD8FB2A27D67D00B603EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				577DD9002A27D73C00B603EB /* BetView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		577DD8FC2A27D68400B603EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		577DD9022A27E5FB00B603EB /* MyBetsModule */ = {
+			isa = PBXGroup;
+			children = (
+				577DD9052A27E62D00B603EB /* Model */,
+				577DD9042A27E62400B603EB /* Views */,
+				577DD9032A27E61F00B603EB /* Controllers */,
+			);
+			path = MyBetsModule;
+			sourceTree = "<group>";
+		};
+		577DD9032A27E61F00B603EB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				577DD9062A27E63E00B603EB /* MyBetsController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		577DD9042A27E62400B603EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				577DD9082A27E67C00B603EB /* cell */,
+				577DD9092A27E68D00B603EB /* MyBetsTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		577DD9052A27E62D00B603EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		577DD9082A27E67C00B603EB /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				577DD90B2A27E69D00B603EB /* MyBetsTableViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		5781431029F4916200DDE7D1 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -848,6 +1029,10 @@
 			isa = PBXGroup;
 			children = (
 				5781432429F9708A00DDE7D1 /* Authorisation */,
+				577DD9022A27E5FB00B603EB /* MyBetsModule */,
+				577DD8F92A27D66B00B603EB /* BetModule */,
+				577DD8EE2A27BD8300B603EB /* VictoryModule */,
+				577DD8E32A278EBA00B603EB /* TransferModule */,
 				57C930572A2694BE00E936F9 /* TeamModule */,
 				57C9304C2A268EE000E936F9 /* LeagueModel */,
 				57C9303F2A265EAE00E936F9 /* FavoritesModule */,
@@ -1083,22 +1268,27 @@
 				572927C729FD7961007B037D /* DB.xcdatamodeld in Sources */,
 				5781434729FC2B4D00DDE7D1 /* CreateNoteController.swift in Sources */,
 				576CF30D29DCBA0300886E29 /* MainTableView.swift in Sources */,
+				577DD9072A27E63F00B603EB /* MyBetsController.swift in Sources */,
 				57C930542A26909700E936F9 /* LeagueTableView.swift in Sources */,
 				57C930492A26657900E936F9 /* FavoriteMatchesTVCell.swift in Sources */,
 				576CF31F29DF29A600886E29 /* SportFixture.swift in Sources */,
 				576CF2FE29DC910B00886E29 /* MainTablesTypeItem.swift in Sources */,
 				5720967D29F18D6200C4A285 /* StatisticMatchTableView.swift in Sources */,
 				5781431629F57D1700DDE7D1 /* PastFixturesByTeamID.swift in Sources */,
+				577DD90A2A27E68D00B603EB /* MyBetsTableView.swift in Sources */,
 				5781432E29F9953700DDE7D1 /* CalendarCollectionViewCell.swift in Sources */,
 				57C930362A19194100E936F9 /* FactorTableViewSection.swift in Sources */,
 				576CF32D29E1782E00886E29 /* SeactionMatchTableView.swift in Sources */,
 				573C11502A0808C200C1CE05 /* RegisterUserRequest.swift in Sources */,
 				576CF38829E7C2B300886E29 /* NetworkingRequest.swift in Sources */,
 				5781433029F9A1CE00DDE7D1 /* Date + Extenstions.swift in Sources */,
+				577DD8F82A27BE6F00B603EB /* VitctoryTableViewCell.swift in Sources */,
 				5781432B29F9944D00DDE7D1 /* CalendarCollectionView.swift in Sources */,
 				576CF38B29E7D0ED00886E29 /* getApiKey.swift in Sources */,
 				576CF3C029EEBF0400886E29 /* ConfigURL.swift in Sources */,
 				5781430F29F420EC00DDE7D1 /* jsonNullAndOther.swift in Sources */,
+				577DD8EA2A278FA200B603EB /* TransferTableView.swift in Sources */,
+				577DD90C2A27E69D00B603EB /* MyBetsTableViewCell.swift in Sources */,
 				57F9966029B4A5330062E8E9 /* MainViewController.swift in Sources */,
 				5720966C29F025B100C4A285 /* MatchesTeamController.swift in Sources */,
 				576CF30929DCA37B00886E29 /* SportTypeCollectionViewCell.swift in Sources */,
@@ -1109,7 +1299,9 @@
 				57F9967729B4A7350062E8E9 /* UIColor + Extensions.swift in Sources */,
 				576CF37029E329A600886E29 /* MaintTableViewController.swift in Sources */,
 				576CF37E29E36BDF00886E29 /* TeamModel.swift in Sources */,
+				577DD8FE2A27D69C00B603EB /* BetConttoller.swift in Sources */,
 				5781433A29FAA1BB00DDE7D1 /* NotesController.swift in Sources */,
+				577DD8E82A278EDD00B603EB /* TransferController.swift in Sources */,
 				576CF38029E36D6F00886E29 /* MatchCollectionViewCell.swift in Sources */,
 				5781434129FAAC6F00DDE7D1 /* NoticeTableViewCell.swift in Sources */,
 				5720967529F0787400C4A285 /* HeaderMatchSectionView.swift in Sources */,
@@ -1121,8 +1313,11 @@
 				57C930342A1918D300E936F9 /* FactorTableView.swift in Sources */,
 				5781434D29FC311500DDE7D1 /* UITextField + Extensions.swift in Sources */,
 				57C930512A26903000E936F9 /* LeagueController.swift in Sources */,
+				577DD8F32A27BDAF00B603EB /* VictoryController.swift in Sources */,
 				57C930442A265EDD00E936F9 /* FavoriteController.swift in Sources */,
+				577DD8ED2A278FC600B603EB /* TransferTableViewCell.swift in Sources */,
 				57F9968F29B4EE300062E8E9 /* UIViewController + Extensions.swift in Sources */,
+				577DD9012A27D73C00B603EB /* BetView.swift in Sources */,
 				5781433C29FAAB6200DDE7D1 /* NoticeTableView.swift in Sources */,
 				573C11522A0813CD00C1CE05 /* LoginUserRequest.swift in Sources */,
 				57C9304B2A26774800E936F9 /* FavoriteFutureMatchesTableView.swift in Sources */,
@@ -1147,6 +1342,7 @@
 				5781433229F9DD0C00DDE7D1 /* EventByDateTableView.swift in Sources */,
 				576CF31929DCC99300886E29 /* UIButton + Extensions.swift in Sources */,
 				572927CE29FD8186007B037D /* CoreDataManager.swift in Sources */,
+				577DD8F52A27BE5800B603EB /* VitctoryTableView.swift in Sources */,
 				5781434F29FC3B7500DDE7D1 /* UITextView + Extension.swift in Sources */,
 				5781431929F5C8EE00DDE7D1 /* StatisticMatchDecoder.swift in Sources */,
 				5781431F29F6AA7600DDE7D1 /* StatisticMatch.swift in Sources */,
